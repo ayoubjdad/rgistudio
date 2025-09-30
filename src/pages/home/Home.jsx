@@ -1,5 +1,6 @@
 import Header from "../../layouts/header/Header";
 import Main from "../../layouts/main/Main";
+import Slider from "../../layouts/slider/Slider";
 import TextCenter from "../../layouts/text-center/TextCenter";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Header />
       <Main />
       <TextCenter />
+      <Slider />
     </div>
   );
 }
