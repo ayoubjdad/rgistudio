@@ -1,0 +1,46 @@
+.main {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  background-color: #fcf5eb;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1360px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+
+  li {
+    a {
+      color: black;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  font-family: "Inter", sans-serif;
+  color: #075e54;
+  border: 1px solid #075e54;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 120px;
+}
+
+.btnLogin {
+  background-color: #075e54;
+  color: #fff;
+}
