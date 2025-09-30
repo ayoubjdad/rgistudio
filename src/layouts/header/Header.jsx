@@ -17,9 +17,9 @@ export default function Header() {
     {
       name: "Services",
       subMenu: [
-        { name: "Print Communication", link: "#" },
-        { name: "Digital Communication", link: "#" },
-        { name: "Création de sites web", link: "#" },
+        { name: "Print", link: "#" },
+        { name: "Digital & Communication", link: "#" },
+        { name: "Tech", link: "#" },
       ],
     },
     { name: "Réalisations", link: "#" },

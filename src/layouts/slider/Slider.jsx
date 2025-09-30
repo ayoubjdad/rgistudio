@@ -2,11 +2,11 @@ import { useRef } from "react";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
 import "slick-carousel/slick/slick.css";
-import styles from "./Slider.module.scss";
 import "slick-carousel/slick/slick-theme.css";
+import styles from "./Slider.module.scss";
 
 export default function CustomSlider() {
-  const sliderRef = useRef(null); // <-- create ref
+  const sliderRef = useRef(null);
 
   const settings = {
     dots: false,
@@ -14,36 +14,35 @@ export default function CustomSlider() {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    // autoplay: true,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 3000,
     arrows: false,
   };
 
   const slidesData = [
     {
       id: 1,
-      title: "Découvrez la traduction des messages",
+      title: "Design & Print créatif",
       description:
-        "Sachant que plus de 3 milliards de personnes, dans plus de 180 pays, utilisent WhatsApp...",
+        "Nous réalisons vos supports print avec un design unique et impactant pour valoriser votre marque.",
     },
     {
       id: 2,
-      title:
-        "De nouvelles manières de planifier les appels sur WhatsApp et d’y participer",
+      title: "Communication digitale performante",
       description:
-        "Aujourd’hui, nous annonçons de nouvelles fonctionnalités sur WhatsApp...",
+        "Stratégies et contenus digitaux sur mesure pour toucher votre audience et booster votre visibilité.",
     },
     {
       id: 3,
-      title: "Découvrez les nouvelles fonctionnalités de WhatsApp",
+      title: "Développement web sur-mesure",
       description:
-        "Sachant que plus de 3 milliards de personnes, dans plus de 180 pays, utilisent WhatsApp...",
+        "Création de sites web modernes et applications interactives, adaptées à vos besoins et à votre image.",
     },
     {
       id: 4,
-      title: "Découvrez les nouvelles fonctionnalités de WhatsApp",
+      title: "Solutions complètes & intégrées",
       description:
-        "Sachant que plus de 3 milliards de personnes, dans plus de 180 pays, utilisent WhatsApp...",
+        "Nous combinons print, digital et web pour offrir à votre entreprise une communication cohérente et efficace.",
     },
   ];
 
@@ -52,11 +51,10 @@ export default function CustomSlider() {
       <div className={styles.container}>
         <div className={styles.text}>
           <div className={styles.textInner}>
-            <h1>Échangez des messages privés</h1>
+            <h1>Boostez votre communication</h1>
             <p>
-              Recevez les dernières actualités de WhatsApp: nouveautés, conseils
-              utiles et nouvelles fonctionnalités pour vous aider à garder le
-              contact.
+              Découvrez nos services de print, communication digitale et
+              développement web pour faire briller votre entreprise.
             </p>
           </div>
 
@@ -64,23 +62,23 @@ export default function CustomSlider() {
             <Box
               component="i"
               className={`fi fi-ts-arrow-small-left ${styles.icon}`}
-              onClick={() => sliderRef.current.slickNext()}
+              onClick={() => sliderRef.current.slickPrev()}
             />
             <Box
               component="i"
               className={`fi fi-ts-arrow-small-right ${styles.icon}`}
-              onClick={() => sliderRef.current.slickPrev()}
+              onClick={() => sliderRef.current.slickNext()}
             />
           </div>
         </div>
+
         <div className={styles.slider}>
           <Slider ref={sliderRef} {...settings}>
-            {slidesData.map((slide, index) => (
+            {slidesData.map((slide) => (
               <div key={slide.id} className={styles.slide}>
-                <p>{index + 1}</p>
                 <h3>{slide.title}</h3>
                 <p>{slide.description}</p>
-                <button className={styles.btn}>Lire la suite</button>
+                <button className={styles.btn}>En savoir plus</button>
               </div>
             ))}
           </Slider>
