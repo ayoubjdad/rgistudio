@@ -7,9 +7,10 @@
 }
 
 .container {
+  width: 100%;
   display: flex;
   margin: 0 auto;
-  max-width: 1360px;
+  max-width: 1200px;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
@@ -33,14 +34,14 @@
 
 .btn {
   font-family: "Inter", sans-serif;
-  color: #075e54;
-  border: 1px solid #075e54;
+  color: #25d268;
+  border: 1px solid #25d268;
   padding: 8px 16px;
   font-size: 16px;
   border-radius: 120px;
 }
 
 .btnLogin {
-  background-color: #075e54;
+  background-color: #25d268;
   color: #fff;
 }

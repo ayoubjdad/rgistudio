@@ -3,7 +3,7 @@ import Home from "./pages/home/Home";
 
 const theme = {
   colors: {
-    primary: "#075e54",
+    primary: "#25d268",
     secondary: "#25d366",
     background: "#fff",
     text: "#222",
