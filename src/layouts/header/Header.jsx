@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,26 +32,42 @@ export default function Header() {
     <header className={`${styles.main} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <img
-          class="_afvz"
-          alt="Page principale de WhatsApp"
+          alt="Logo de l'entreprise"
           src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
         />
         <ul className={styles.nav}>
           {menu.map((item) => (
-            <li key={item.name} className={styles.element}>
-              <a href={item.link} className={styles.underline}>
+            <li
+              key={item.name}
+              className={styles.element}
+              onMouseEnter={() => setHoveredMenu(item.name)}
+              onMouseLeave={() => setHoveredMenu(null)}
+            >
+              <a href={item.link || "#"} className={styles.underline}>
                 {item.name}
-
-                {item.subMenu ? (
+                {item.subMenu && (
                   <Box
                     component="i"
-                    className={`fi fi-rs-angle-small-down ${styles.underline}`}
+                    className={`fi fi-rs-angle-small-down ${styles.icon}`}
                   />
-                ) : null}
+                )}
               </a>
+
+              {item.subMenu && hoveredMenu === item.name && (
+                <ul className={styles.subMenu}>
+                  {item.subMenu.map((sub) => (
+                    <li key={sub.name}>
+                      <a href={sub.link} className={styles.subLink}>
+                        {sub.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
+
         <div className={styles.buttons}>
           <button className={styles.btn}>Demander un devis</button>
           <Box
