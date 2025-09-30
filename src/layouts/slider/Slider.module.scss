@@ -1,12 +1,15 @@
 .main {
+  position: relative;
+  z-index: 1;
   background-color: #e6ffda;
+  border-radius: 0px 0px 24px 24px;
 }
 
 .container {
   display: flex;
   max-width: 1200px;
   padding: 64px 0;
-  margin: 40px auto;
+  margin: 40px auto -24px auto;
   flex-direction: row;
 }
 

@@ -1,3 +1,4 @@
+import Footer from "../../layouts/footer/Footer";
 import Header from "../../layouts/header/Header";
 import Main from "../../layouts/main/Main";
 import Slider from "../../layouts/slider/Slider";
@@ -10,6 +11,7 @@ export default function Home() {
       <Main />
       <TextCenter />
       <Slider />
+      <Footer />
     </div>
   );
 }

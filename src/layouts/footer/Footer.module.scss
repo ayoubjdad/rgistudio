@@ -1,0 +1,125 @@
+.footer {
+  color: #fff;
+  padding: 3rem 2rem;
+  background-color: #0b141a;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 60px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logoSection {
+  flex: 1;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.downloadBtn {
+  background-color: #25d366;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.links {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.links h4 {
+  font-size: 11px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.bottomSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+}
+
+.legal {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.legal a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  background-color: #25d366;
+  color: #000;
+}
+
+.language button {
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  padding: 0.5rem 1.2rem;
+  color: #fff;
+  cursor: pointer;
+}
