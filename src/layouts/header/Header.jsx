@@ -57,14 +57,6 @@ export default function Header() {
       name: "Réalisations",
       description: "Découvrez nos projets récents.",
       link: "#",
-      subMenu: [
-        {
-          name: "Print",
-          description:
-            "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "#",
-        },
-      ],
     },
     {
       name: "À propos",
@@ -82,8 +74,10 @@ export default function Header() {
     <header className={`${styles.main} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <img
+          className={styles.logo}
           alt="Logo de l'entreprise"
           src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
+          onClick={() => (window.location.href = "/")}
         />
         <ul className={styles.nav}>
           {menu.map((item, index) => (

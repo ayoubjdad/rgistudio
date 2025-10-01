@@ -26,12 +26,12 @@ export default function Main() {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <img
               alt="Communication digitale et développement web"
               src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

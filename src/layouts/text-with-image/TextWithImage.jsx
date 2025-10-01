@@ -3,6 +3,7 @@ import styles from "./TextWithImage.module.scss";
 export default function TextWithImage({
   header = "Boostez votre visibilité avec nos solutions digitales",
   subHeader = "De la création graphique au développement web, nous accompagnons votre entreprise pour communiquer efficacement et toucher vos clients là où ils se trouvent. Nos solutions print et digitales sont conçues pour faire passer vos projets au niveau supérieur.",
+  services = [],
 }) {
   return (
     <section className={styles.main}>
@@ -13,6 +14,15 @@ export default function TextWithImage({
               <div className={styles.textInner}>
                 <h1>{header}</h1>
                 <p>{subHeader}</p>
+                <ul style={{ listStyle: "dot" }}>
+                  {services?.length
+                    ? services.map((service) => (
+                        <li>
+                          <p>{service}</p>
+                        </li>
+                      ))
+                    : null}
+                </ul>
               </div>
 
               <button className={styles.btn}>Découvrir nos services</button>
