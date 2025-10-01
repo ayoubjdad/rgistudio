@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredMenu, setHoveredMenu] = useState(null);
+  const [hoveredMenu, setHoveredMenu] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,15 +17,65 @@ export default function Header() {
   const menu = [
     {
       name: "Services",
+      description:
+        "Nos services incluent la conception graphique, le développement web, et plus encore.",
+      link: "#",
       subMenu: [
-        { name: "Print", link: "#" },
-        { name: "Digital & Communication", link: "#" },
-        { name: "Tech", link: "#" },
+        {
+          name: "Print",
+          description:
+            "Nos services incluent la conception graphique, le développement web, et plus encore.",
+          link: "#",
+        },
+        {
+          name: "Digital",
+          description:
+            "Nos services incluent la conception graphique, le développement web, et plus encore.",
+          link: "#",
+        },
+        {
+          name: "Web",
+          description:
+            "Nos services incluent la conception graphique, le développement web, et plus encore.",
+          link: "#",
+        },
+        {
+          name: "Digital",
+          description:
+            "Nos services incluent la conception graphique, le développement web, et plus encore.",
+          link: "#",
+        },
+        {
+          name: "Web",
+          description:
+            "Nos services incluent la conception graphique, le développement web, et plus encore.",
+          link: "#",
+        },
       ],
     },
-    { name: "Réalisations", link: "#" },
-    { name: "À propos", link: "#" },
-    { name: "Contact", link: "#" },
+    {
+      name: "Réalisations",
+      description: "Découvrez nos projets récents.",
+      link: "#",
+      subMenu: [
+        {
+          name: "Print",
+          description:
+            "Nos services incluent la conception graphique, le développement web, et plus encore.",
+          link: "#",
+        },
+      ],
+    },
+    {
+      name: "À propos",
+      description: "En savoir plus sur notre entreprise.",
+      link: "#",
+    },
+    {
+      name: "Contact",
+      description: "Nous contacter pour plus d'informations.",
+      link: "#",
+    },
   ];
 
   return (
@@ -36,37 +86,45 @@ export default function Header() {
           src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
         />
         <ul className={styles.nav}>
-          {menu.map((item) => (
+          {menu.map((item, index) => (
             <li
               key={item.name}
               className={styles.element}
-              onMouseEnter={() => setHoveredMenu(item.name)}
-              onMouseLeave={() => setHoveredMenu(null)}
+              onMouseEnter={() => setHoveredMenu(index)}
             >
               <a href={item.link || "#"} className={styles.underline}>
                 {item.name}
                 {item.subMenu && (
-                  <Box
-                    component="i"
-                    className={`fi fi-rs-angle-small-down ${styles.icon}`}
-                  />
+                  <Box component="i" className={`fi fi-rs-angle-small-down `} />
                 )}
               </a>
-
-              {item.subMenu && hoveredMenu === item.name && (
-                <ul className={styles.subMenu}>
-                  {item.subMenu.map((sub) => (
-                    <li key={sub.name}>
-                      <a href={sub.link} className={styles.subLink}>
-                        {sub.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
           ))}
         </ul>
+
+        {hoveredMenu !== null && menu[hoveredMenu]?.subMenu && (
+          <ul
+            className={styles.subMenu}
+            onMouseLeave={() => setHoveredMenu(null)}
+          >
+            {menu[hoveredMenu].subMenu.map((sub) => (
+              <li key={sub.name} className={styles.subMenuItem}>
+                <Box
+                  component="i"
+                  className={`fi fi-rs-check ${styles.icon}`}
+                />
+                <h2 href={sub.link} className={styles.subLink}>
+                  {sub.name}
+                </h2>
+                <p>{sub.description}</p>
+                <Box
+                  component="i"
+                  className={`fi fi-rs-arrow-small-right ${styles.link}`}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
 
         <div className={styles.buttons}>
           <button className={styles.btn}>Demander un devis</button>

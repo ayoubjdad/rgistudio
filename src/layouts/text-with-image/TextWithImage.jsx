@@ -1,6 +1,9 @@
 import styles from "./TextWithImage.module.scss";
 
-export default function TextWithImage() {
+export default function TextWithImage({
+  header = "Boostez votre visibilité avec nos solutions digitales",
+  subHeader = "De la création graphique au développement web, nous accompagnons votre entreprise pour communiquer efficacement et toucher vos clients là où ils se trouvent. Nos solutions print et digitales sont conçues pour faire passer vos projets au niveau supérieur.",
+}) {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
@@ -8,14 +11,8 @@ export default function TextWithImage() {
           <div className={styles.content}>
             <div className={styles.text}>
               <div className={styles.textInner}>
-                <h1>Boostez votre visibilité avec nos solutions digitales</h1>
-                <p>
-                  De la création graphique au développement web, nous
-                  accompagnons votre entreprise pour communiquer efficacement et
-                  toucher vos clients là où ils se trouvent. Nos solutions print
-                  et digitales sont conçues pour faire passer vos projets au
-                  niveau supérieur.
-                </p>
+                <h1>{header}</h1>
+                <p>{subHeader}</p>
               </div>
 
               <button className={styles.btn}>Découvrir nos services</button>
