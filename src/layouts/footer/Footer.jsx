@@ -60,21 +60,21 @@ export default function Footer() {
         <div className={styles.bottomSection}>
           <div className={styles.legal}>
             <p>2025 © WhatsApp LLC</p>
-            <a href="#">Conditions et politique de confidentialité</a>
-            <a href="#">Plan du site</a>
+            <a href="/contact">Conditions et politique de confidentialité</a>
+            <a href="/contact">Plan du site</a>
           </div>
 
           <div className={styles.socials}>
-            <a href="#">
+            <a href="/contact">
               <i class="fi fi-brands-facebook"></i>
             </a>
-            <a href="#">
+            <a href="/contact">
               <i class="fi fi-brands-facebook"></i>
             </a>
-            <a href="#">
+            <a href="/contact">
               <i class="fi fi-brands-facebook"></i>
             </a>
-            <a href="#">
+            <a href="/contact">
               <i class="fi fi-brands-facebook"></i>
             </a>
           </div>
