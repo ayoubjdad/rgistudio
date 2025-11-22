@@ -4,28 +4,39 @@ import TextWithImage from "../../layouts/text-with-image/TextWithImage";
 import ImageWithText from "../../layouts/image-with-text/ImageWithText";
 import Slider from "../../layouts/slider/Slider";
 import Partners from "../../layouts/partners/Partners";
+import tshirt from "../../assets/images/tshirt.jpg";
+import papier from "../../assets/images/papier.jpg";
 
 export default function Home() {
   return (
     <>
       <Main />
-      <TextCenter text="Nous aidons les entreprises à se démarquer grâce à des solutions Print, Marketing Digital et Développement Web innovantes." />
+      <TextCenter text="Chez RGI Studio, nous aidons les entreprises à se démarquer grâce à des solutions innovantes en Print, Design et Développement IT." />
       <TextWithImage
-        header="Des solutions créatives et sur mesure"
-        subHeader="Chaque projet est unique. Nous combinons design, stratégie et technologie pour créer un impact réel."
+        image={tshirt}
+        header="Des solutions créatives et entièrement personnalisées"
+        subHeader="Parce que chaque projet est unique, RGI Studio combine expertise graphique, stratégie digitale et technologies avancées pour donner vie à des expériences visuelles à fort impact."
       />
       <ImageWithText
+        image={papier}
         isDark
-        header="Prêt à booster votre communication ?"
-        subHeader="Contactez-nous dès aujourd’hui pour transformer vos idées en succès."
+        header={
+          <>
+            Prêt à dynamiser votre{" "}
+            <span style={{ color: "#25d366" }}>communication</span> ?
+          </>
+        }
+        subHeader="Nos équipes vous accompagnent pour transformer vos idées en solutions performantes, durables et adaptées à vos objectifs."
       />
       <TextWithImage
-        header="Des solutions créatives et sur mesure"
-        subHeader="Chaque projet est unique. Nous combinons design, stratégie et technologie pour créer un impact réel."
+        image={tshirt}
+        header="Un savoir-faire qui allie créativité et performance"
+        subHeader="Du concept à la réalisation, RGI Studio développe des supports de communication qui renforcent l’image de votre marque et optimisent votre présence digitale."
       />
       <ImageWithText
-        header="Prêt à booster votre communication ?"
-        subHeader="Contactez-nous dès aujourd’hui pour transformer vos idées en succès."
+        image={tshirt}
+        header="Votre projet mérite l’excellence"
+        subHeader="Contactez RGI Studio dès aujourd’hui et bénéficiez d’un accompagnement complet pour concrétiser vos ambitions."
       />
       <Partners />
       <Slider />

@@ -1,0 +1,49 @@
+.button,
+.iconButton {
+  width: fit-content;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  visibility: visible !important;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  border: 1px solid #1c1e21;
+  border-radius: 50px;
+  line-height: 16px;
+  overflow: hidden;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  transition: color 0.33s linear 0.5s, border-color ease-out 0.5s,
+    background-color 0.33s linear 0s;
+  white-space: pre;
+  z-index: 1;
+  background-color: #25d366;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+.lightButton {
+  background-color: white;
+}
+
+.outlinedButton {
+  border: none;
+  color: white;
+  padding: 10px 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid #25d366;
+}
+
+.iconButton {
+  margin: 0px;
+  display: flex;
+  padding: 10px;
+}

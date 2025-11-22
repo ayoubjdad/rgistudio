@@ -1,5 +1,6 @@
 import styles from "./Main.module.scss";
 import image from "../../assets/images/imprimerie.jpg";
+import Button from "../../components/button/Button";
 
 export default function Main() {
   return (
@@ -22,10 +23,12 @@ export default function Main() {
               </div>
 
               <div className={styles.buttons}>
-                <button className={`${styles.btn} ${styles.btnLogin}`}>
+                <Button text="Nos Services" isLight />
+                <Button text="Nous Contacter" />
+                {/* <button className={`${styles.btn} ${styles.btnLogin}`}>
                   Nos Services
                 </button>
-                <button className={styles.btn}>Nous Contacter</button>
+                <button className={styles.btn}>Nous Contacter</button> */}
               </div>
             </div>
           </div>

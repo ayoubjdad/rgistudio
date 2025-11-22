@@ -1,7 +1,8 @@
 import styles from "./TextWithImage.module.scss";
-import image from "../../assets/images/472786853_558698087153533_2795908553321527687_n.webp";
+import standard from "../../assets/images/472786853_558698087153533_2795908553321527687_n.webp";
 
 export default function TextWithImage({
+  image,
   header = "Boostez votre visibilité avec nos solutions digitales",
   subHeader = "De la création graphique au développement web, nous accompagnons votre entreprise pour communiquer efficacement et toucher vos clients là où ils se trouvent. Nos solutions print et digitales sont conçues pour faire passer vos projets au niveau supérieur.",
   services = [],
@@ -31,7 +32,7 @@ export default function TextWithImage({
           </div>
 
           <div className={styles.image}>
-            <img alt="Solutions digitales et print" src={image} />
+            <img alt="Solutions digitales et print" src={image || standard} />
           </div>
         </div>
       </div>

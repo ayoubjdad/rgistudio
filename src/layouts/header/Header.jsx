@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { Box } from "@mui/material";
+import Button from "../../components/button/Button";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -121,11 +122,8 @@ export default function Header() {
         )}
 
         <div className={styles.buttons}>
-          <button className={styles.btn}>Demander un devis</button>
-          <Box
-            component="i"
-            className={`fi fi-rs-arrow-up-right ${styles.iconbtn}`}
-          />
+          <Button text="Demander un devis" />
+          <Button icon="fi fi-rs-arrow-up-right" />
         </div>
       </div>
     </header>
