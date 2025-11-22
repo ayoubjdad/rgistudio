@@ -132,24 +132,41 @@
 
 .buttons {
   display: flex;
-
-  i {
-    display: flex;
-    padding: 0px;
-    width: 36.8px;
-    height: 36.8px;
-  }
+  gap: 0px;
 }
 
-.btn {
-  background-color: transparent;
-  gap: 8px;
-  display: flex;
-  align-items: center;
-  font-family: "Inter", sans-serif;
-  color: #25d268;
-  border: 1px solid #25d268;
-  padding: 8px 16px;
+.btn,
+.iconbtn {
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  visibility: visible !important;
+  cursor: pointer;
+  text-decoration: none;
   font-size: 16px;
-  border-radius: 120px;
+  border: 1px solid #1c1e21;
+  border-radius: 50px;
+  line-height: 16px;
+  overflow: hidden;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  transition: color 0.33s linear 0.5s, border-color ease-out 0.5s,
+    background-color 0.33s linear 0s;
+  white-space: pre;
+  z-index: 1;
+  background-color: #25d366;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  color: inherit;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+.iconbtn {
+  margin: 0px;
+  display: flex;
+  padding: 10px;
 }

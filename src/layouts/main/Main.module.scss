@@ -2,6 +2,7 @@
   margin-top: 120px;
 }
 
+// ...existing code...
 .container {
   gap: 16px;
   height: 80vh;
@@ -9,13 +10,22 @@
   padding: 120px 0;
   margin: 40px auto;
   max-width: 1360px;
+  position: relative;
   align-items: center;
   border-radius: 24px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: space-between;
-  background-image: url("https://scontent.whatsapp.net/v/t39.8562-34/316546300_547692113846445_7299710494491288098_n.png?ccb=1-7&_nc_sid=73b08c&_nc_ohc=6woZrrgOh3cQ7kNvwHgBwyH&_nc_oc=AdmCGdUqfqC738RQB7L0tgbnKd9yvW6wUiCkvVolmflJEMtpLYMMinzKNnMf7AoXyZA&_nc_zt=3&_nc_ht=scontent.whatsapp.net&_nc_gid=imovJ-ZDHtM-1sQ_vOGnwQ&oh=01_Q5Aa2gFSKoM4KUcHdctV5LegjRBbAsui6J2TG-Rlxol4Gk_jqQ&oe=68E16F65");
+}
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.6); /* adjust opacity as needed */
+  pointer-events: none;
+  z-index: 1;
 }
 
 .inner {
@@ -25,6 +35,8 @@
   padding: 0 120px;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 .content {

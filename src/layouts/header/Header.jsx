@@ -124,7 +124,7 @@ export default function Header() {
           <button className={styles.btn}>Demander un devis</button>
           <Box
             component="i"
-            className={`fi fi-rs-arrow-up-right ${styles.btn}`}
+            className={`fi fi-rs-arrow-up-right ${styles.iconbtn}`}
           />
         </div>
       </div>

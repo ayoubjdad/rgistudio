@@ -1,4 +1,5 @@
 import styles from "./ImageWithText.module.scss";
+import image from "../../assets/images/472786853_558698087153533_2795908553321527687_n.webp";
 
 export default function ImageWithText({
   header = "Dites ce que vous pensez",
@@ -11,10 +12,7 @@ export default function ImageWithText({
       <div className={styles.container}>
         <div className={styles.inner}>
           <div className={styles.image}>
-            <img
-              alt="Solutions digitales et print"
-              src="https://scontent.whatsapp.net/v/t39.8562-34/318725648_934638697913637_6709353489700907679_n.png?stp=dst-webp&ccb=1-7&_nc_sid=73b08c&_nc_ohc=sIc7vW_DxNIQ7kNvwFZ1hDR&_nc_oc=AdkhataiumbCE0lxfktFCXSrerYO_s_WGsI2F4MVtZMoxKbNVPOc3hQ3HNO6H-1Fm0E&_nc_zt=3&_nc_ht=scontent.whatsapp.net&_nc_gid=JxljioMZ7tNt_ebglNWNFQ&oh=01_Q5Aa2gGOdRc68UwtLNHQpcr6Ruldj2DzzCpuJADgmsjOAnaRfQ&oe=68E31226"
-            />
+            <img alt="Solutions digitales et print" src={image} />
           </div>
 
           <div className={styles.content}>

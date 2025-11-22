@@ -3,6 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Partners.module.scss";
+import assimil from "../../assets/partners/assimil.png";
+import ifim from "../../assets/partners/ifim.png";
+import barifood from "../../assets/partners/barifood.png";
+import msc from "../../assets/partners/msc.png";
+import fnm from "../../assets/partners/fnm.png";
 
 export default function Partners() {
   const sliderRef = useRef(null);
@@ -19,23 +24,17 @@ export default function Partners() {
   };
 
   const slidesData = [
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/AsusTek-black-logo.png",
+    assimil,
     "",
-    "https://cdn.freebiesupply.com/images/large/2x/google-logo-black-transparent.png",
+    ifim,
     "",
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/AsusTek-black-logo.png",
+    barifood,
     "",
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/AsusTek-black-logo.png",
+    msc,
     "",
-    "https://cdn.freebiesupply.com/images/large/2x/google-logo-black-transparent.png",
+    fnm,
     "",
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/AsusTek-black-logo.png",
-    "",
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/AsusTek-black-logo.png",
-    "",
-    "https://cdn.freebiesupply.com/images/large/2x/google-logo-black-transparent.png",
-    "",
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/AsusTek-black-logo.png",
+    barifood,
     "",
   ];
 

@@ -1,0 +1,42 @@
+.main {
+  margin-top: 80px;
+}
+
+.container {
+  gap: 32px;
+  display: grid;
+  margin: 0 auto;
+  padding: 64px 0;
+  max-width: 1360px;
+}
+
+h1 {
+  line-height: 1;
+  font-size: 60px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+p {
+  font-weight: 400;
+}
+
+.input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #25d366;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: #25d268;
+  }
+}

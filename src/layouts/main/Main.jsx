@@ -1,9 +1,13 @@
 import styles from "./Main.module.scss";
+import image from "../../assets/images/imprimerie.jpg";
 
 export default function Main() {
   return (
     <section className={styles.main}>
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        style={{ backgroundImage: `url(${image})` }}
+      >
         <div className={styles.inner}>
           <div className={styles.content}>
             <div className={styles.text}>
