@@ -20,37 +20,25 @@ export default function Header() {
       name: "Services",
       description:
         "Nos services incluent la conception graphique, le développement web, et plus encore.",
-      link: "#",
+      link: "/services",
       subMenu: [
         {
           name: "Print",
           description:
             "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "#",
+          link: "/services#print",
         },
         {
           name: "Digital",
           description:
             "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "#",
+          link: "/services#digital",
         },
         {
           name: "Web",
           description:
             "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "#",
-        },
-        {
-          name: "Digital",
-          description:
-            "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "#",
-        },
-        {
-          name: "Web",
-          description:
-            "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "#",
+          link: "/services#web",
         },
       ],
     },
@@ -62,12 +50,12 @@ export default function Header() {
     {
       name: "À propos",
       description: "En savoir plus sur notre entreprise.",
-      link: "#",
+      link: "/about",
     },
     {
       name: "Contact",
       description: "Nous contacter pour plus d'informations.",
-      link: "#",
+      link: "/contact",
     },
   ];
 

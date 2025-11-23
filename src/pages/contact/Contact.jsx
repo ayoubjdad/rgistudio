@@ -1,79 +1,82 @@
-import { TextField, Button, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import styles from "./Contact.module.scss";
+import Textfield from "../../components/textfield/Textfield";
+import Button from "../../components/button/Button";
 
 export default function Contact() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <h1>Contactez-nous</h1>
-        <h3>Assistance WhatsApp</h3>
-        <p>Si vous avez des questions relatives à WhatsApp, contactez-nous</p>
+        <h1>
+          Love to hear from you,
+          <br /> Get it touch 👋
+        </h1>
+        <h3>Assistance RGI Studio</h3>
+        <p>Si vous avez des questions relatives à RGI Studio, contactez-nous</p>
         <Box
           component="form"
           className={styles.form}
           noValidate
           autoComplete="off"
         >
-          <div>
-            <h2>Votre nom</h2>
-            <TextField
-              id="name"
-              name="name"
-              label="Nom"
-              variant="outlined"
-              margin="normal"
-              fullWidth
-              required
-            />
-          </div>
-          <div>
-            <h2>Votre adresse email</h2>
-            <TextField
-              id="email"
-              name="email"
-              label="Email"
-              type="email"
-              variant="outlined"
-              margin="normal"
-              fullWidth
-              required
-            />
-          </div>
-          <div>
-            <h2>Votre numéro de téléphone</h2>
-            <TextField
-              id="phone"
-              name="phone"
-              label="Numéro de téléphone"
-              variant="outlined"
-              margin="normal"
-              fullWidth
-            />
-          </div>
-          <div>
-            <h2>Votre message</h2>
-            <TextField
-              id="message"
-              name="message"
-              label="Message"
-              multiline
-              rows={5}
-              variant="outlined"
-              margin="normal"
-              fullWidth
-              required
-            />
-          </div>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            sx={{ mt: 2 }}
-            fullWidth
+          <div
+            style={{
+              gap: 20,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
           >
-            Envoyer
-          </Button>
+            <div className={styles.inputGroup}>
+              <h4>Nom complet</h4>
+              <Textfield id="name" name="name" placeholder="Nom" required />
+            </div>
+            <div className={styles.inputGroup}>
+              <h4>Email</h4>
+              <Textfield
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="Email"
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <h4>Téléphone</h4>
+              <Textfield
+                id="phone"
+                name="phone"
+                fullWidth
+                placeholder="Numéro de téléphone"
+              />
+            </div>
+          </div>
+          <div className={styles.inputGroup}>
+            <h4>Message</h4>
+            <Textfield
+              id="message"
+              rows={5}
+              name="message"
+              required
+              multiline
+              placeholder="Message"
+            />
+          </div>
+
+          <div
+            className={styles.inputGroup}
+            style={{ justifyContent: "flex-end" }}
+          >
+            <Button type="submit" text="Envoyer" />
+          </div>
         </Box>
+
+        <h3>Adresse du siège social 🚩</h3>
+        <p>1 Meta Way, Menlo Park, California 94025, États-Unis</p>
+        <p>
+          WhatsApp LLC est une société à responsabilité limitée enregistrée au
+          Delaware sous le numéro 5482270
+        </p>
       </div>
     </section>
   );

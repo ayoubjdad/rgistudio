@@ -8,7 +8,10 @@ export default function ImageWithText({
   subHeader = "Exprimez-vous en utilisant autre chose que des mots. Tirez parti des stickers et des GIF pour partager des moments de votre quotidien dans les statuts. Enregistrez un message vocal pour dire bonjour ou raconter une histoire.",
   services = [],
   isDark = false,
+  onClick,
 }) {
+  const hasButton = onClick?.length > 0;
+
   return (
     <section className={isDark ? styles.mainDark : styles.main}>
       <div className={styles.container}>
@@ -22,10 +25,17 @@ export default function ImageWithText({
               <div className={styles.textInner}>
                 <h1>{header}</h1>
                 <p>{subHeader}</p>
-                <ul style={{ listStyle: "dot" }}>
+                <ul style={{ listStyle: "circle", paddingLeft: 20, margin: 0 }}>
                   {services?.length
-                    ? services.map((service) => (
-                        <li>
+                    ? services.map((service, index) => (
+                        <li
+                          style={{
+                            borderBottom:
+                              index !== services.length - 1 &&
+                              "1px solid #302f2f",
+                            padding: "16px 0",
+                          }}
+                        >
                           <p>{service}</p>
                         </li>
                       ))
@@ -33,7 +43,9 @@ export default function ImageWithText({
                 </ul>
               </div>
 
-              <Button text="Découvrir nos services" isLight isOutlined />
+              {hasButton ? (
+                <Button text="Découvrir nos services" isLight isOutlined />
+              ) : null}
             </div>
           </div>
         </div>

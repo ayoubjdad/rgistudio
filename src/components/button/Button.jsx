@@ -4,6 +4,7 @@ import styles from "./Button.module.scss";
 export default function Button({
   text = "Button",
   icon,
+  type = "button",
   isLight = false,
   onClick = () => {},
   isOutlined = false,
@@ -22,6 +23,7 @@ export default function Button({
 
   return (
     <button
+      type={type}
       className={`${styles.button} ${isLight ? styles.lightButton : ""} ${
         isOutlined ? styles.outlinedButton : ""
       }`}

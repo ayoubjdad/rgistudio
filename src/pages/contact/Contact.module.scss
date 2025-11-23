@@ -21,8 +21,25 @@ h3 {
   font-weight: 400;
 }
 
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
 p {
   font-weight: 400;
+}
+
+.form {
+  gap: 16px;
+  display: grid;
+  font-family: "Inter", sans-serif;
+}
+
+.inputGroup {
+  gap: 16px;
+  width: 100%;
+  display: grid;
 }
 
 .input {
