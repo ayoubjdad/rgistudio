@@ -66,10 +66,10 @@
   cursor: pointer;
   border-radius: 24px;
   transition: all 0.3s ease;
-  border: 1px solid #25d268;
+  border: 1px solid #25d366;
 
   &:hover {
-    background-color: #25d268;
+    background-color: #25d366;
     color: white;
 
     p {
@@ -78,7 +78,7 @@
 
     .icon {
       background-color: white;
-      color: #25d268;
+      color: #25d366;
     }
 
     .link {
@@ -93,7 +93,7 @@
   color: white;
   border-radius: 60px;
   justify-content: center;
-  background-color: #25d268;
+  background-color: #25d366;
 }
 
 .link {
@@ -118,7 +118,7 @@
   position: absolute;
   width: 100%;
   height: 1.5px;
-  background: #25d268;
+  background: #25d366;
   bottom: -5px;
   left: 0;
   transform: scaleX(0);

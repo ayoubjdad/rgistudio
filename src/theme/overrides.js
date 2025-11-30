@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 export const muiTheme = createTheme({
   palette: {
     primary: {
-      main: "#25d268",
+      main: "#25d366",
     },
     secondary: {
       main: "#25d366",
@@ -52,7 +52,7 @@ export const muiTheme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#25d268",
+          backgroundColor: "#25d366",
         },
       },
     },
