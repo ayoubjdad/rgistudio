@@ -7,6 +7,7 @@ import Partners from "../../layouts/partners/Partners";
 import tshirt from "../../assets/images/tshirt.jpg";
 import papier from "../../assets/images/papier.jpg";
 import styles from "./Home.module.scss";
+import Cards from "../../layouts/cards/Cards";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         header="Un savoir-faire qui allie créativité et performance"
         subHeader="Du concept à la réalisation, RGI Studio développe des supports de communication qui renforcent l’image de votre marque et optimisent votre présence digitale."
       />
+      <Cards />
       <ImageWithText
         image={tshirt}
         header="Votre projet mérite l’excellence"
