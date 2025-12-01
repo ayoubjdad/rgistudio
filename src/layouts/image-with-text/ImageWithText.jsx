@@ -13,7 +13,7 @@ export default function ImageWithText({
   const hasButton = onClick?.length > 0;
 
   return (
-    <section className={isDark ? styles.mainDark : styles.main}>
+    <section className={`${styles.main} ${isDark ? styles.mainDark : ""}`}>
       <div className={styles.container}>
         <div className={styles.inner}>
           <div className={styles.image}>

@@ -1,35 +1,20 @@
-import { Box } from "@mui/material";
 import styles from "./Button.module.scss";
 
 export default function Button({
   text = "Button",
   icon,
   type = "button",
-  isLight = false,
   onClick = () => {},
   isOutlined = false,
 }) {
-  if (icon) {
-    return (
-      <Box
-        component="i"
-        className={`${icon} ${styles.iconButton} ${
-          isLight ? styles.lightButton : ""
-        }`}
-        onClick={onClick}
-      />
-    );
-  }
-
   return (
     <button
       type={type}
-      className={`${styles.button} ${isLight ? styles.lightButton : ""} ${
-        isOutlined ? styles.outlinedButton : ""
-      }`}
+      className={`${styles.button} ${isOutlined ? styles.outlined : ""}`}
       onClick={onClick}
     >
       {text}
+      {icon && <i className={icon} />}
     </button>
   );
 }

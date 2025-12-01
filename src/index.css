@@ -7,8 +7,24 @@
 @import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css");
 @import url("https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css");
 
+:root {
+  /* Blue */
+  --blue-thin: #deebf8;
+  --blue-light: #c4d7ff;
+  --blue-main: #10069f;
+  --blue-dark: #000e59;
+
+  /* Gray */
+  --gray-thin: #fcf5eb;
+  --gray-light: #f6f6f6;
+  --gray-main: #eaeaea;
+  --gray-dark: #202020;
+  --gray-darker: #0d0d0d;
+}
+
 body {
   margin: 0;
+  font-size: 14px;
   background-color: #fcf5eb;
   font-family: "Inter", sans-serif;
 }
@@ -36,4 +52,8 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+button {
+  font-family: "Inter", sans-serif;
 }

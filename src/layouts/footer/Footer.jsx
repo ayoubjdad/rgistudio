@@ -1,5 +1,5 @@
-// Footer.jsx
 import styles from "./Footer.module.scss";
+import logo from "../../assets/logo/rgi-logo.png";
 
 export default function Footer() {
   return (
@@ -7,11 +7,7 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.topSection}>
           <div className={styles.logoSection}>
-            <img
-              className={styles.logo}
-              alt="Page principale de WhatsApp"
-              src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
-            />
+            <img className={styles.logo} alt="Logo" src={logo} />
           </div>
 
           <div className={styles.links}>
@@ -59,23 +55,20 @@ export default function Footer() {
 
         <div className={styles.bottomSection}>
           <div className={styles.legal}>
-            <p>2025 © WhatsApp LLC</p>
+            <p>2025 © RGI Studio</p>
             <a href="/contact">Conditions et politique de confidentialité</a>
             <a href="/contact">Plan du site</a>
           </div>
 
           <div className={styles.socials}>
             <a href="/contact">
-              <i class="fi fi-brands-facebook"></i>
+              <i class="fi fi-brands-facebook" />
             </a>
             <a href="/contact">
-              <i class="fi fi-brands-facebook"></i>
+              <i class="fi fi-brands-instagram" />
             </a>
             <a href="/contact">
-              <i class="fi fi-brands-facebook"></i>
-            </a>
-            <a href="/contact">
-              <i class="fi fi-brands-facebook"></i>
+              <i class="fi fi-brands-linkedin" />
             </a>
           </div>
 

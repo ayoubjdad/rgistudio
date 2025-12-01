@@ -1,9 +1,10 @@
 .main {
+  border-radius: 24px;
 }
 
 .mainDark {
   color: white;
-  background-color: #0b141a;
+  background-color: var(--blue-dark);
 }
 
 .container {

@@ -8,6 +8,7 @@ import ifim from "../../assets/partners/ifim.png";
 import barifood from "../../assets/partners/barifood.png";
 import msc from "../../assets/partners/msc.png";
 import fnm from "../../assets/partners/fnm.png";
+import logo from "../../assets/logo/rgi-logo.png";
 
 export default function Partners() {
   const sliderRef = useRef(null);
@@ -24,17 +25,17 @@ export default function Partners() {
   };
 
   const slidesData = [
-    assimil,
+    logo,
     "",
-    ifim,
+    logo,
     "",
-    barifood,
+    logo,
     "",
-    msc,
+    logo,
     "",
-    fnm,
+    logo,
     "",
-    barifood,
+    logo,
     "",
   ];
 

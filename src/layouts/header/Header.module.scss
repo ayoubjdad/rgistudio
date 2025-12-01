@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fcf5eb;
-  border-bottom: 1px solid #eaeaea;
+  background-color: var(--gray-thin);
+  border-bottom: 1px solid var(--gray-main);
   position: fixed;
   top: 0;
   left: 0;
@@ -14,10 +14,10 @@
 }
 
 .main.scrolled {
-  background: rgba(255, 255, 255, 0.5); /* transparent glass */
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--gray-main);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-main);
 }
 
 .container {
@@ -31,6 +31,7 @@
 }
 
 .logo {
+  width: 120px;
   cursor: pointer;
 }
 
@@ -54,8 +55,8 @@
   overflow: hidden;
   padding: 32px 0;
   position: absolute;
-  background: #fff;
   justify-content: center;
+  background: var(--gray-light);
 }
 
 .subMenuItem {
@@ -66,23 +67,23 @@
   cursor: pointer;
   border-radius: 24px;
   transition: all 0.3s ease;
-  border: 1px solid #25d366;
+  border: 1px solid var(--blue-main);
 
   &:hover {
-    background-color: #25d366;
-    color: white;
+    background-color: var(--blue-main);
+    color: var(--gray-light);
 
     p {
-      color: white;
+      color: var(--gray-light);
     }
 
     .icon {
-      background-color: white;
-      color: #25d366;
+      background-color: var(--gray-light);
+      color: var(--blue-main);
     }
 
     .link {
-      color: white;
+      color: var(--gray-light);
     }
   }
 }
@@ -90,10 +91,10 @@
 .icon {
   width: 32px;
   height: 32px;
-  color: white;
+  color: var(--gray-light);
   border-radius: 60px;
   justify-content: center;
-  background-color: #25d366;
+  background-color: var(--blue-main);
 }
 
 .link {
@@ -118,7 +119,7 @@
   position: absolute;
   width: 100%;
   height: 1.5px;
-  background: #25d366;
+  background: var(--blue-main);
   bottom: -5px;
   left: 0;
   transform: scaleX(0);

@@ -1,13 +1,25 @@
 // src/theme/overrides.js
 import { createTheme } from "@mui/material/styles";
 
+export const palette = {
+  blue: {
+    light: "#d6dcff",
+    main: "#2b3df4",
+    dark: "#151c62",
+  },
+  black: {
+    dark: "#0d0d0d",
+    main: "#121212",
+  },
+};
+
 export const muiTheme = createTheme({
   palette: {
     primary: {
-      main: "#25d366",
+      main: "#2b3df4",
     },
     secondary: {
-      main: "#25d366",
+      main: "#2b3df4",
     },
     background: {
       default: "#fff",
@@ -16,6 +28,7 @@ export const muiTheme = createTheme({
       primary: "#222",
     },
   },
+
   components: {
     MuiButton: {
       styleOverrides: {
@@ -52,7 +65,7 @@ export const muiTheme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#25d366",
+          backgroundColor: "#2b3df4",
         },
       },
     },

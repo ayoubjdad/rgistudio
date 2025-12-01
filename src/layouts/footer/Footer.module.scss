@@ -1,7 +1,7 @@
 .footer {
-  color: #fff;
+  color: var(--gray-light);
   padding: 3rem 2rem;
-  background-color: #0b141a;
+  background-color: var(--gray-darker);
 }
 
 .container {
@@ -24,13 +24,11 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  width: 120px;
 }
 
 .downloadBtn {
-  background-color: #25d366;
+  background-color: var(--blue-main);
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 30px;
@@ -54,7 +52,7 @@
   font-size: 11px;
   margin-bottom: 1rem;
   font-weight: 500;
-  color: #ccc;
+  color: var(--gray-light);
 }
 
 .links ul {
@@ -84,11 +82,11 @@
   gap: 1.5rem;
   flex-wrap: wrap;
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--gray-light);
 }
 
 .legal a {
-  color: #ccc;
+  color: var(--gray-light);
   text-decoration: none;
 }
 
@@ -100,26 +98,26 @@
 .socials a {
   width: 36px;
   height: 36px;
-  border: 1px solid #fff;
+  border: 1px solid var(--gray-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--gray-light);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
 .socials a:hover {
-  background-color: #25d366;
+  background-color: var(--blue-main);
   color: #000;
 }
 
 .language button {
   background: none;
-  border: 1px solid #fff;
+  border: 1px solid var(--gray-light);
   border-radius: 30px;
   padding: 0.5rem 1.2rem;
-  color: #fff;
+  color: var(--gray-light);
   cursor: pointer;
 }

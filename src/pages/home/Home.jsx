@@ -6,6 +6,7 @@ import Slider from "../../layouts/slider/Slider";
 import Partners from "../../layouts/partners/Partners";
 import tshirt from "../../assets/images/tshirt.jpg";
 import papier from "../../assets/images/papier.jpg";
+import styles from "./Home.module.scss";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         header={
           <>
             Prêt à dynamiser votre{" "}
-            <span style={{ color: "#25d366" }}>communication</span> ?
+            <span className={styles.highlight}>communication</span> ?
           </>
         }
         subHeader="Nos équipes vous accompagnent pour transformer vos idées en solutions performantes, durables et adaptées à vos objectifs."

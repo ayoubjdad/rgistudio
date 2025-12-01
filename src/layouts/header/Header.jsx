@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { Box } from "@mui/material";
 import Button from "../../components/button/Button";
+import logo from "../../assets/logo/rgi-logo.png";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -65,7 +66,7 @@ export default function Header() {
         <img
           className={styles.logo}
           alt="Logo de l'entreprise"
-          src="https://static.whatsapp.net/rsrc.php/yZ/r/JvsnINJ2CZv.svg"
+          src={logo}
           onClick={() => (window.location.href = "/")}
         />
         <ul className={styles.nav}>
@@ -109,10 +110,7 @@ export default function Header() {
           </ul>
         )}
 
-        <div className={styles.buttons}>
-          <Button text="Demander un devis" />
-          <Button icon="fi fi-rs-arrow-up-right" />
-        </div>
+        <Button text="Demander un devis" icon="fi fi-rs-arrow-up-right" />
       </div>
     </header>
   );
