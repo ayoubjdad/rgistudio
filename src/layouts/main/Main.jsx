@@ -6,7 +6,7 @@ export default function Main() {
     <section className={styles.main}>
       <div
         className={styles.container}
-        style={{ backgroundImage: `url(${image})` }}
+        // style={{ backgroundImage: `url(${image})` }}
       >
         <div className={styles.inner}>
           <div className={styles.content}>
@@ -14,7 +14,7 @@ export default function Main() {
               <div className={styles.textInner}>
                 <h1>Creating</h1>
                 <h1 className={styles.highlight}>
-                  <i class="fi fi-rs-arrow-small-right" />
+                  <i className="fi fi-rs-arrow-small-right" />
                   <i>the impact</i>
                 </h1>
                 <h1>you deserve</h1>

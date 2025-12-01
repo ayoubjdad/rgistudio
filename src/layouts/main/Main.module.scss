@@ -4,9 +4,9 @@
 
 .container {
   gap: 16px;
-  height: 80vh;
+  height: fit-content;
   display: flex;
-  padding: 60px 0;
+  padding: 120px 0;
   margin: 40px auto;
   max-width: 1360px;
   position: relative;

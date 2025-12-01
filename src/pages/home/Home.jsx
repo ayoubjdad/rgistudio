@@ -30,12 +30,12 @@ export default function Home() {
         }
         subHeader="Nos équipes vous accompagnent pour transformer vos idées en solutions performantes, durables et adaptées à vos objectifs."
       />
+      <Cards />
       <TextWithImage
         image={tshirt}
         header="Un savoir-faire qui allie créativité et performance"
         subHeader="Du concept à la réalisation, RGI Studio développe des supports de communication qui renforcent l’image de votre marque et optimisent votre présence digitale."
       />
-      <Cards />
       <ImageWithText
         image={tshirt}
         header="Votre projet mérite l’excellence"
