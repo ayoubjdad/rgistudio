@@ -11,6 +11,7 @@ const placements = [
 
 export default function Card({ index, title, description, shortcut }) {
   const pos = placements[index];
+  const indexAdjusted = index === 2 || index === 3;
 
   return (
     <div
@@ -19,16 +20,31 @@ export default function Card({ index, title, description, shortcut }) {
         top: pos.top,
         left: pos.left,
         transform: pos.transform,
-        // backgroundColor: "green",
+        backgroundColor: indexAdjusted && "var(--blue-dark)",
       }}
     >
       <div className={styles.content}>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <h1 style={{ color: indexAdjusted && "var(--gray-light)" }}>{title}</h1>
+        <p style={{ color: indexAdjusted && "var(--gray-light)" }}>
+          {description}
+        </p>
       </div>
       <div className={styles.bottom}>
-        <span>{shortcut}</span>
-        <i className="fi fi-rs-arrow-small-right" />
+        <span
+          style={{
+            color: indexAdjusted && "var(--blue-light)",
+            borderColor: indexAdjusted && "var(--blue-light)",
+          }}
+        >
+          {shortcut}
+        </span>
+        <i
+          className="fi fi-rs-arrow-small-right"
+          style={{
+            color: indexAdjusted && "var(--blue-light)",
+            borderColor: indexAdjusted && "var(--blue-light)",
+          }}
+        />
       </div>
     </div>
   );
