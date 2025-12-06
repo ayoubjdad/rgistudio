@@ -11,13 +11,14 @@ export default function Footer() {
           </div>
 
           <div className={styles.links}>
+            <div />
+
             <div>
-              <h4>Notre mission</h4>
+              <h4>Nos services</h4>
               <ul>
-                <li>Fonctionnalités</li>
-                <li>Blog</li>
-                <li>Sécurité</li>
-                <li>Pour les entreprises</li>
+                <li>Print</li>
+                <li>Digital</li>
+                <li>Web</li>
               </ul>
             </div>
 
@@ -25,29 +26,16 @@ export default function Footer() {
               <h4>Qui sommes-nous ?</h4>
               <ul>
                 <li>À propos de nous</li>
+                <li>Réalisations</li>
                 <li>Emplois</li>
-                <li>Espace Marque</li>
-                <li>Confidentialité</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4>Utiliser WhatsApp</h4>
-              <ul>
-                <li>Android</li>
-                <li>iPhone</li>
-                <li>Mac/PC</li>
-                <li>WhatsApp Web</li>
               </ul>
             </div>
 
             <div>
               <h4>Besoin d’aide ?</h4>
               <ul>
+                <li>Demander un devis</li>
                 <li>Nous contacter</li>
-                <li>Centre d’aide</li>
-                <li>Applications</li>
-                <li>Avis de sécurité</li>
               </ul>
             </div>
           </div>
@@ -56,25 +44,37 @@ export default function Footer() {
         <div className={styles.bottomSection}>
           <div className={styles.legal}>
             <p>2025 © RGI Studio</p>
-            <a href="/contact">Conditions et politique de confidentialité</a>
-            <a href="/contact">Plan du site</a>
+            <a href="/">Conditions et politique de confidentialité</a>
+            <a href="/">Plan du site</a>
           </div>
 
           <div className={styles.socials}>
-            <a href="/contact">
+            <a
+              href="https://www.facebook.com/rgistudio_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fi fi-brands-facebook" />
             </a>
-            <a href="/contact">
+            <a
+              href="https://www.instagram.com/rgistudio_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fi fi-brands-instagram" />
             </a>
-            <a href="/contact">
+            <a
+              href="https://www.linkedin.com/company/rgistudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fi fi-brands-linkedin" />
             </a>
           </div>
 
-          <div className={styles.language}>
+          {/* <div className={styles.language}>
             <button>français ⌄</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

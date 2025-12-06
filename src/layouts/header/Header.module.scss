@@ -59,10 +59,10 @@
   background: var(--gray-light);
 }
 
-.subMenuItem {
-  gap: 24px;
+.subMenuLink {
   padding: 24px;
   display: grid;
+  color: inherit;
   max-width: 10%;
   cursor: pointer;
   border-radius: 24px;
@@ -73,19 +73,26 @@
     background-color: var(--blue-main);
     color: var(--gray-light);
 
-    p {
-      color: var(--gray-light);
-    }
+    li {
+      p {
+        color: var(--gray-light);
+      }
 
-    .icon {
-      background-color: var(--gray-light);
-      color: var(--blue-main);
-    }
+      .icon {
+        background-color: var(--gray-light);
+        color: var(--blue-main);
+      }
 
-    .link {
-      color: var(--gray-light);
+      .link {
+        color: var(--gray-light);
+      }
     }
   }
+}
+
+.subMenuItem {
+  gap: 24px;
+  display: grid;
 }
 
 .icon {

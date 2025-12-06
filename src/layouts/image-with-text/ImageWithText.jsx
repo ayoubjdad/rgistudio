@@ -9,6 +9,7 @@ export default function ImageWithText({
   services = [],
   isDark = false,
   onClick,
+  tags = [],
 }) {
   const hasButton = onClick?.length > 0;
 
@@ -42,6 +43,16 @@ export default function ImageWithText({
                     : null}
                 </ul>
               </div>
+
+              {tags && tags.length > 0 ? (
+                <div className={styles.tags}>
+                  {tags.map((tag, index) => (
+                    <span key={index} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
 
               {hasButton ? (
                 <Button text="Découvrir nos services" isLight isOutlined />

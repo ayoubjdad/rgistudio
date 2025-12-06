@@ -1,17 +1,18 @@
 import styles from "./Card.module.scss";
 
 const placements = [
-  { top: "3%", left: "25%", transform: "translate(-50%, -50%)" }, // card 0
-  { top: "-15%", left: "50%", transform: "translate(-50%, -50%)" }, // card 1
-  { top: "0%", left: "80%", transform: "translate(-50%, -50%)" }, // card 2
-  { top: "50%", left: "20%", transform: "translate(-50%, -50%)" }, // card 3
-  { top: "65%", left: "50%", transform: "translate(-50%, -50%)" }, // card 4
-  { top: "45%", left: "82%", transform: "translate(-50%, -50%)" }, // card 5
+  { top: "0%", left: "25%" }, // card 0
+  { top: "-15%", left: "50%" }, // card 1
+  { top: "0%", left: "80%" }, // card 2
+  { top: "50%", left: "20%" }, // card 3
+  { top: "65%", left: "50%" }, // card 4
+  { top: "45%", left: "82%" }, // card 5
 ];
 
-export default function Card({ index, title, description, shortcut }) {
+export default function Card({ index, title, description, shortcut, offset }) {
   const pos = placements[index];
   const indexAdjusted = index === 2 || index === 3;
+  const transform = `translate(-50%, -50%) translate(${offset.x}px, ${offset.y}px)`;
 
   return (
     <div
@@ -19,7 +20,7 @@ export default function Card({ index, title, description, shortcut }) {
       style={{
         top: pos.top,
         left: pos.left,
-        transform: pos.transform,
+        transform,
         backgroundColor: indexAdjusted && "var(--blue-dark)",
       }}
     >

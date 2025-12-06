@@ -9,6 +9,7 @@ export default function TextWithImage({
   subHeader = "De la création graphique au développement web, nous accompagnons votre entreprise pour communiquer efficacement et toucher vos clients là où ils se trouvent. Nos solutions print et digitales sont conçues pour faire passer vos projets au niveau supérieur.",
   services = [],
   onClick,
+  tags = [],
 }) {
   const hasButton = onClick?.length > 0;
 
@@ -42,6 +43,16 @@ export default function TextWithImage({
                     : null}
                 </ul>
               </div>
+
+              {tags && tags.length > 0 ? (
+                <div className={styles.tags}>
+                  {tags.map((tag, index) => (
+                    <span key={index} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
 
               {hasButton ? <Button text="Découvrir nos services" /> : null}
             </div>

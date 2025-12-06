@@ -1,0 +1,16 @@
+.card {
+  padding: 8px 16px;
+  width: fit-content;
+  position: absolute;
+  border: 1px solid var(--gray-main);
+  border-radius: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.25s ease-out; // smooth parallax
+
+  p {
+    color: var(--blue-main);
+    font-size: 10px;
+  }
+}

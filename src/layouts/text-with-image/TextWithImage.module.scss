@@ -68,3 +68,39 @@
   font-family: "Inter", sans-serif;
   border-bottom: 1px solid #25d366;
 }
+
+.tags {
+  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tag {
+  gap: 8px;
+  border: none;
+  display: flex;
+  cursor: pointer;
+  font-size: 14px;
+  overflow: hidden;
+  font-weight: 400;
+  line-height: 14px;
+  width: fit-content;
+  padding: 12px 20px;
+  text-align: center;
+  align-items: center;
+  border-radius: 50px;
+  justify-content: center;
+  color: var(--blue-main);
+  background-color: var(--gray-main);
+
+  i {
+    font-size: 12px;
+  }
+}
+
+.outlined {
+  color: var(--blue-main);
+  border: 1px solid var(--blue-main);
+  background-color: var(--gray-light);
+}

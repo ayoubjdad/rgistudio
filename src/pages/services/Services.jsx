@@ -37,6 +37,33 @@ export default function Services() {
     "Automatisation et workflows intelligents (chatbots, formulaires dynamiques)",
   ];
 
+  const printTags = [
+    "Logo Design",
+    "Brand Identity",
+    "Packaging",
+    "Motion Design",
+    "Printing",
+  ];
+
+  const digitalTags = [
+    "Marketing",
+    "SEO",
+    "Email Marketing",
+    "Social Media",
+    "Content Creation",
+  ];
+
+  const webServicesTags = [
+    "UX/UI",
+    "Website",
+    "Landing Page",
+    "Figma",
+    "Wireframes",
+    "Moodboard",
+    "Design System",
+    "Responsive Designs",
+  ];
+
   return (
     <section className={styles.main}>
       <ImageWithText
@@ -51,14 +78,16 @@ export default function Services() {
         header="Print & Design"
         subHeader="Cartes de visite, flyers, brochures, catalogues, signalétiques, packagings… Nous donnons vie à vos idées avec des supports imprimés créatifs et de qualité."
         services={printServices}
+        tags={printTags}
       />
       <ImageWithText
         id="digital"
         image={tshirt}
-        header="Marketing Digital"
+        header="Branding & Marketing Digital"
         subHeader="Nous élaborons des stratégies digitales performantes pour développer votre visibilité, attirer de nouveaux clients et optimiser votre présence en ligne."
         services={digitalServices}
         isDark
+        tags={digitalTags}
       />
       <TextWithImage
         id="web"
@@ -66,6 +95,7 @@ export default function Services() {
         header="Développement Web & Applications"
         subHeader="Nous concevons des sites et applications modernes, rapides et sécurisés, adaptés à vos objectifs et à vos contraintes métiers."
         services={webServices}
+        tags={webServicesTags}
       />
       <CustomSlider />
     </section>

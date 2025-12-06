@@ -5,6 +5,7 @@ import Header from "./layouts/header/Header";
 import Footer from "./layouts/footer/Footer";
 import Contact from "./pages/contact/Contact";
 import { createTheme, ThemeProvider } from "@mui/material";
+import About from "./pages/about/About";
 
 const theme = createTheme({
   palette: {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
       <Footer />

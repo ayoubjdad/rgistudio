@@ -6,7 +6,7 @@ import logo from "../../assets/logo/rgi-logo.png";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredMenu, setHoveredMenu] = useState(true);
+  const [hoveredMenu, setHoveredMenu] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,20 +92,26 @@ export default function Header() {
             onMouseLeave={() => setHoveredMenu(null)}
           >
             {menu[hoveredMenu].subMenu.map((sub) => (
-              <li key={sub.name} className={styles.subMenuItem}>
-                <Box
-                  component="i"
-                  className={`fi fi-rs-check ${styles.icon}`}
-                />
-                <h2 href={sub.link} className={styles.subLink}>
-                  {sub.name}
-                </h2>
-                <p>{sub.description}</p>
-                <Box
-                  component="i"
-                  className={`fi fi-rs-arrow-small-right ${styles.link}`}
-                />
-              </li>
+              <a
+                key={sub.name}
+                href={sub.link || "#"}
+                className={styles.subMenuLink}
+              >
+                <li key={sub.name} className={styles.subMenuItem}>
+                  <Box
+                    component="i"
+                    className={`fi fi-rs-check ${styles.icon}`}
+                  />
+                  <h2 href={sub.link} className={styles.subLink}>
+                    {sub.name}
+                  </h2>
+                  <p>{sub.description}</p>
+                  <Box
+                    component="i"
+                    className={`fi fi-rs-arrow-small-right ${styles.link}`}
+                  />
+                </li>
+              </a>
             ))}
           </ul>
         )}
