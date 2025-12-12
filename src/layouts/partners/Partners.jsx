@@ -3,11 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Partners.module.scss";
-import assimil from "../../assets/partners/assimil.png";
-import ifim from "../../assets/partners/ifim.png";
-import barifood from "../../assets/partners/barifood.png";
-import msc from "../../assets/partners/msc.png";
-import fnm from "../../assets/partners/fnm.png";
+// import assimil from "../../assets/partners/assimil.png";
+// import ifim from "../../assets/partners/ifim.png";
+// import barifood from "../../assets/partners/barifood.png";
+// import msc from "../../assets/partners/msc.png";
+// import fnm from "../../assets/partners/fnm.png";
 import logo from "../../assets/logo/rgi-logo.png";
 
 export default function Partners() {
