@@ -1,5 +1,5 @@
 import styles from "./Main.module.scss";
-import image from "../../assets/images/imprimerie.jpg";
+// import image from "../../assets/images/imprimerie.jpg";
 
 export default function Main() {
   return (
