@@ -1,59 +1,97 @@
-.main {
-  margin-top: 80px;
+.contact {
+  padding: 120px 32px;
+  background: #f7f7f7;
 }
 
-.container {
-  gap: 32px;
-  display: grid;
+.contact_container {
+  max-width: 1340px;
   margin: 0 auto;
-  padding: 64px 0;
-  max-width: 1360px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
-h1 {
-  line-height: 1;
-  font-size: 60px;
-  font-weight: 400;
+.contact_header {
+  max-width: 700px;
+
+  h1 {
+    line-height: 1;
+    font-size: clamp(42px, 5vw, 82px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 560px;
+    letter-spacing: -0.5px;
+  }
 }
 
-h3 {
-  font-size: 32px;
-  font-weight: 400;
-}
-
-h4 {
-  font-size: 24px;
-  font-weight: 400;
-}
-
-p {
-  font-weight: 400;
-}
-
-.form {
-  gap: 16px;
+.contact_content {
   display: grid;
-  font-family: "Inter", sans-serif;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
 }
 
-.inputGroup {
-  gap: 16px;
-  width: 100%;
-  display: grid;
+.contact_info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: #666;
+  }
 }
 
-.input {
-  width: 100%;
-  padding: 16px;
-  border: 1px solid #25d366;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #222;
-  margin-bottom: 16px;
+.contact_form {
+  gap: 20px;
+  display: flex;
+  padding: 40px;
+  background: #fff;
+  border-radius: 24px;
+  flex-direction: column;
 
-  &:focus {
-    outline: none;
-    border-color: #25d366;
+  input,
+  textarea {
+    font-family: "Inter";
+    font-size: 1rem;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+  }
+
+  textarea {
+    resize: none;
+    min-height: 120px;
+    font-family: "Inter";
+  }
+
+  button {
+    padding: 16px;
+    border-radius: 999px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-family: "Inter";
+  }
+
+  button:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact_content {
+    grid-template-columns: 1fr;
   }
 }

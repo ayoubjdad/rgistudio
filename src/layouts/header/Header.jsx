@@ -1,123 +1,53 @@
-import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
-import { Box } from "@mui/material";
-import Button from "../../components/button/Button";
-import logo from "../../assets/logo/rgi-logo.png";
+import logo from "../../assets/rgi-logo.png";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
+
+const menu = [
+  { name: "Home", href: "/" },
+  { name: "Company", href: "/company" },
+  { name: "Services", href: "/services" },
+  { name: "Work", href: "/work" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [hoveredMenu, setHoveredMenu] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const menu = [
-    {
-      name: "Services",
-      description:
-        "Nos services incluent la conception graphique, le développement web, et plus encore.",
-      link: "/services",
-      subMenu: [
-        {
-          name: "Print",
-          description:
-            "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "/services#print",
-        },
-        {
-          name: "Digital",
-          description:
-            "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "/services#digital",
-        },
-        {
-          name: "Web",
-          description:
-            "Nos services incluent la conception graphique, le développement web, et plus encore.",
-          link: "/services#web",
-        },
-      ],
-    },
-    {
-      name: "Réalisations",
-      description: "Découvrez nos projets récents.",
-      link: "#",
-    },
-    {
-      name: "À propos",
-      description: "En savoir plus sur notre entreprise.",
-      link: "/about",
-    },
-    {
-      name: "Contact",
-      description: "Nous contacter pour plus d'informations.",
-      link: "/contact",
-    },
-  ];
-
   return (
-    <header className={`${styles.main} ${scrolled ? styles.scrolled : ""}`}>
+    <motion.nav
+      className={styles.main}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div className={styles.container}>
-        <img
-          className={styles.logo}
-          alt="Logo de l'entreprise"
-          src={logo}
-          onClick={() => (window.location.href = "/")}
-        />
-        <ul className={styles.nav}>
+        <motion.h3 whileHover={{ scale: 1.05 }}>
+          <img src={logo} alt="" className={styles.logo} />
+        </motion.h3>
+
+        <motion.ul variants={stagger} initial="hidden" animate="visible">
           {menu.map((item, index) => (
-            <li
-              key={item.name}
-              className={styles.element}
-              onMouseEnter={() => setHoveredMenu(index)}
-            >
-              <a href={item.link || "#"} className={styles.underline}>
-                {item.name}
-                {item.subMenu && (
-                  <Box component="i" className={`fi fi-rs-angle-small-down `} />
-                )}
-              </a>
-            </li>
+            <motion.li key={index} variants={fadeUp}>
+              <a href={item.href}>{item.name}</a>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
 
-        {hoveredMenu !== null && menu[hoveredMenu]?.subMenu && (
-          <ul
-            className={styles.subMenu}
-            onMouseLeave={() => setHoveredMenu(null)}
+        <div className={styles.buttons}>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className={styles.button}
           >
-            {menu[hoveredMenu].subMenu.map((sub) => (
-              <a
-                key={sub.name}
-                href={sub.link || "#"}
-                className={styles.subMenuLink}
-              >
-                <li key={sub.name} className={styles.subMenuItem}>
-                  <Box
-                    component="i"
-                    className={`fi fi-rs-check ${styles.icon}`}
-                  />
-                  <h2 href={sub.link} className={styles.subLink}>
-                    {sub.name}
-                  </h2>
-                  <p>{sub.description}</p>
-                  <Box
-                    component="i"
-                    className={`fi fi-rs-arrow-small-right ${styles.link}`}
-                  />
-                </li>
-              </a>
-            ))}
-          </ul>
-        )}
-
-        <Button text="Demander un devis" icon="fi fi-rs-arrow-up-right" />
+            <a href="/get-a-quote">Get a Quote</a>
+          </motion.button>
+        </div>
       </div>
-    </header>
+    </motion.nav>
   );
 }

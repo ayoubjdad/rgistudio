@@ -1,0 +1,152 @@
+.quote {
+  padding: 120px 32px;
+  background: #ffffff;
+}
+
+.quote_container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* Header */
+.quote_header {
+  max-width: 760px;
+
+  h1 {
+    line-height: 1;
+    font-size: clamp(42px, 5vw, 82px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: -0.5px;
+  }
+}
+
+/* Sections */
+.quote_section {
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Grids */
+.quote_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.quote_grid_small {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.quote_card {
+  background: #f7f7f7;
+  border-radius: 20px;
+  padding: 24px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-align: center;
+}
+
+.quote_card:hover {
+  background: #f0f0f0;
+}
+
+.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Form */
+.quote_form {
+  gap: 20px;
+  padding: 40px;
+  display: flex;
+  border-radius: 24px;
+  background: #f7f7f7;
+  flex-direction: column;
+
+  input,
+  textarea {
+    font-size: 1rem;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-family: "Inter";
+    border: 1px solid #ddd;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: none;
+  }
+
+  button {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 12px;
+    font-weight: 500;
+    padding: 16px 32px;
+    background: #000;
+    font-family: "Inter";
+    border-radius: 999px;
+    transition: 0.3s ease;
+    align-self: flex-start;
+  }
+
+  button:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.quote_row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.quote_cta {
+  background: #000;
+  color: #fff;
+  padding: 80px 40px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .quote_row {
+    grid-template-columns: 1fr;
+  }
+}

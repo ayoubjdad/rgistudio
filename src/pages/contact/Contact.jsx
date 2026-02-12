@@ -1,83 +1,70 @@
-import { Box } from "@mui/material";
+import React from "react";
 import styles from "./Contact.module.scss";
-import Textfield from "../../components/textfield/Textfield";
-import Button from "../../components/button/Button";
+import { motion } from "framer-motion";
 
-export default function Contact() {
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const Contact = () => {
   return (
-    <section className={styles.main}>
-      <div className={styles.container}>
-        <h1>
-          Love to hear from you,
-          <br /> Get it touch 👋
-        </h1>
-        <h3>Assistance RGI Studio</h3>
-        <p>Si vous avez des questions relatives à RGI Studio, contactez-nous</p>
-        <Box
-          component="form"
-          className={styles.form}
-          noValidate
-          autoComplete="off"
+    <div className={styles.contact}>
+      <div className={styles.contact_container}>
+        {/* Header */}
+        <motion.div
+          className={styles.contact_header}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
         >
-          <div
-            style={{
-              gap: 20,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <div className={styles.inputGroup}>
-              <h4>Nom complet</h4>
-              <Textfield id="name" name="name" placeholder="Nom" required />
-            </div>
-            <div className={styles.inputGroup}>
-              <h4>Email</h4>
-              <Textfield
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="Email"
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <h4>Téléphone</h4>
-              <Textfield
-                id="phone"
-                name="phone"
-                fullWidth
-                placeholder="Numéro de téléphone"
-              />
-            </div>
-          </div>
-          <div className={styles.inputGroup}>
-            <h4>Message</h4>
-            <Textfield
-              id="message"
-              rows={5}
-              name="message"
-              required
-              multiline
-              placeholder="Message"
-            />
-          </div>
+          <h1>Let’s Talk</h1>
+          <p>
+            Have a project in mind? We’d love to hear about it and explore how
+            we can collaborate.
+          </p>
+        </motion.div>
 
-          <div
-            className={styles.inputGroup}
-            style={{ justifyContent: "flex-end" }}
+        {/* Contact Grid */}
+        <div className={styles.contact_content}>
+          <motion.div
+            className={styles.contact_info}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
           >
-            <Button type="submit" text="Envoyer" />
-          </div>
-        </Box>
+            <h3>Email</h3>
+            <p>hello@rgistudio.com</p>
 
-        <h3>Adresse du siège social 🚩</h3>
-        <p>1 Meta Way, Menlo Park, California 94025, États-Unis</p>
-        <p>
-          WhatsApp LLC est une société à responsabilité limitée enregistrée au
-          Delaware sous le numéro 5482270
-        </p>
+            <h3>Office</h3>
+            <p>Casablanca — Remote</p>
+
+            <h3>Follow</h3>
+            <p>Facebook · Instagram · LinkedIn · Behance</p>
+          </motion.div>
+
+          <motion.form
+            className={styles.contact_form}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your Email" />
+            <textarea placeholder="Tell us about your project" />
+            <button type="submit">Send Message</button>
+          </motion.form>
+        </div>
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default Contact;

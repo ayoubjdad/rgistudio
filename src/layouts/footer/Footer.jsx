@@ -1,82 +1,72 @@
 import styles from "./Footer.module.scss";
-import logo from "../../assets/logo/rgi-logo.png";
+import logo from "../../assets/rgi-logo.png";
+
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.topSection}>
-          <div className={styles.logoSection}>
-            <img className={styles.logo} alt="Logo" src={logo} />
-          </div>
+    <>
+      <motion.section
+        className={styles.footer}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className={styles.footer_container}>
+          <motion.div
+            className={styles.footer_left}
+            initial={{ x: -60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h1>Be part of the journey—stay tuned</h1>
+          </motion.div>
 
-          <div className={styles.links}>
-            <div />
-
-            <div>
-              <h4>Nos services</h4>
-              <ul>
-                <li>Print</li>
-                <li>Digital</li>
-                <li>Web</li>
-              </ul>
+          <motion.div
+            className={styles.footer_right}
+            initial={{ x: 60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className={styles.footer_info_section}>
+              <p className={styles.footer_info_header}>Visit us</p>
+              <p className={styles.footer_info}>
+                18401 Collins Ave, 100-241, Sunny Isles Beach, FL 33160
+              </p>
             </div>
-
-            <div>
-              <h4>Qui sommes-nous ?</h4>
-              <ul>
-                <li>À propos de nous</li>
-                <li>Réalisations</li>
-                <li>Emplois</li>
-              </ul>
+            <div className={styles.footer_info_section}>
+              <p className={styles.footer_info_header}>Follow us</p>
+              <p className={styles.footer_info}>
+                Facebook · Instagram · LinkedIn · Behance
+              </p>
             </div>
-
-            <div>
-              <h4>Besoin d’aide ?</h4>
-              <ul>
-                <li>Demander un devis</li>
-                <li>Nous contacter</li>
-              </ul>
+            <div className={styles.footer_info_section}>
+              <p className={styles.footer_info_header}>Contact us</p>
+              <p className={styles.footer_info}>
+                <span>contact</span>@rgistudio.com
+              </p>
             </div>
-          </div>
+          </motion.div>
         </div>
-
-        <div className={styles.bottomSection}>
-          <div className={styles.legal}>
-            <p>2025 © RGI Studio</p>
-            <a href="/">Conditions et politique de confidentialité</a>
-            <a href="/">Plan du site</a>
-          </div>
-
-          <div className={styles.socials}>
-            <a
-              href="https://www.facebook.com/rgistudio_/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fi fi-brands-facebook" />
-            </a>
-            <a
-              href="https://www.instagram.com/rgistudio_/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fi fi-brands-instagram" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/rgistudio/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="fi fi-brands-linkedin" />
-            </a>
-          </div>
-
-          {/* <div className={styles.language}>
-            <button>français ⌄</button>
-          </div> */}
+      </motion.section>
+      <motion.section
+        className={styles.footer}
+        style={{ borderTop: "1px solid rgb(53, 53, 53)" }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className={styles.footer_container_copyright}>
+          <img src={logo} alt="" className={styles.logo} />
+          <span className={styles.footer_copyright}>
+            © {new Date().getFullYear()} RGI Studio. All rights reserved.
+          </span>
         </div>
-      </div>
-    </footer>
+      </motion.section>
+    </>
   );
 }
