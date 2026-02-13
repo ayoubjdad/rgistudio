@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styles from "./Header.module.scss";
 import logo from "../../assets/rgi-logo.png";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -18,6 +19,10 @@ const menu = [
 ];
 
 export default function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const toggleMobileMenu = () => setMobileOpen(!mobileOpen);
+
   return (
     <motion.nav
       className={styles.main}
@@ -27,10 +32,15 @@ export default function Header() {
     >
       <div className={styles.container}>
         <motion.h3 whileHover={{ scale: 1.05 }}>
-          <img src={logo} alt="" className={styles.logo} />
+          <img src={logo} alt="Logo" className={styles.logo} />
         </motion.h3>
 
-        <motion.ul variants={stagger} initial="hidden" animate="visible">
+        <motion.ul
+          className={styles.desktopMenu}
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
+        >
           {menu.map((item, index) => (
             <motion.li key={index} variants={fadeUp}>
               <a href={item.href}>{item.name}</a>
@@ -46,8 +56,36 @@ export default function Header() {
           >
             <a href="/get-a-quote">Get a Quote</a>
           </motion.button>
+
+          <button className={styles.mobileToggle} onClick={toggleMobileMenu}>
+            <span className={styles.hamburger}></span>
+            <span className={styles.hamburger}></span>
+            <span className={styles.hamburger}></span>
+          </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.ul
+            className={styles.mobileMenu}
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {menu.map((item, index) => (
+              <motion.li
+                key={index}
+                variants={fadeUp}
+                onClick={() => setMobileOpen(false)}
+              >
+                <a href={item.href}>{item.name}</a>
+              </motion.li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

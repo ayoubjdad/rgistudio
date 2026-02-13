@@ -23,7 +23,7 @@ const Contact = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h1>Let’s Talk</h1>
+          <h1>Let’s Talk 🙌</h1>
           <p>
             Have a project in mind? We’d love to hear about it and explore how
             we can collaborate.
@@ -46,7 +46,10 @@ const Contact = () => {
             <p>Casablanca — Remote</p>
 
             <h3>Follow</h3>
-            <p>Facebook · Instagram · LinkedIn · Behance</p>
+            <p>
+              <span>Facebook</span> · <span>Instagram</span> ·{" "}
+              <span>LinkedIn</span> · <span>Behance</span>
+            </p>
           </motion.div>
 
           <motion.form

@@ -34,7 +34,7 @@ export default function Footer() {
             <div className={styles.footer_info_section}>
               <p className={styles.footer_info_header}>Visit us</p>
               <p className={styles.footer_info}>
-                18401 Collins Ave, 100-241, Sunny Isles Beach, FL 33160
+                10, Rue Liberté, Appartement 5, 3ème étage
               </p>
             </div>
             <div className={styles.footer_info_section}>

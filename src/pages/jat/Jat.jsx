@@ -580,6 +580,7 @@ const MotionVideo = () => {
       style={{
         width: "100%",
         height: "100%",
+        display: "flex",
         perspective: 900,
         willChange: "transform",
       }}
@@ -593,7 +594,6 @@ const MotionVideo = () => {
         style={{
           width: "100%",
           height: "100px",
-          borderRadius: "16px",
           objectFit: "cover",
           transformStyle: "preserve-3d",
           boxShadow: "0 40px 80px rgba(0,0,0,0.25)",

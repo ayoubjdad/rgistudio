@@ -47,6 +47,26 @@
 
   p {
     color: #666;
+    cursor: pointer;
+
+    span {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background: rgb(254, 80, 17);
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
   }
 }
 
