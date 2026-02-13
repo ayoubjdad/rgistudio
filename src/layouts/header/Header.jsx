@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Header.module.scss";
 import logo from "../../assets/rgi-logo.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -19,6 +20,9 @@ const menu = [
 ];
 
 export default function Header() {
+  const { pathname } = useLocation();
+  const currentPath = pathname.split("/")[1];
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileOpen(!mobileOpen);
@@ -43,7 +47,12 @@ export default function Header() {
         >
           {menu.map((item, index) => (
             <motion.li key={index} variants={fadeUp}>
-              <a href={item.href}>{item.name}</a>
+              <a
+                href={item.href}
+                className={`${styles.item} ${currentPath === item.name.toLowerCase() ? styles.active : ""}`}
+              >
+                {item.name}
+              </a>
             </motion.li>
           ))}
         </motion.ul>
@@ -53,15 +62,30 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
             className={styles.button}
+            style={{ border: "none" }}
+          >
+            <span>EN</span>
+            <i className="fi fi-rs-angle-small-down" />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className={styles.button + " " + styles.desktopToggle}
           >
             <a href="/get-a-quote">Get a Quote</a>
           </motion.button>
 
-          <button className={styles.mobileToggle} onClick={toggleMobileMenu}>
-            <span className={styles.hamburger}></span>
-            <span className={styles.hamburger}></span>
-            <span className={styles.hamburger}></span>
-          </button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className={styles.button + " " + styles.mobileToggle}
+            onClick={toggleMobileMenu}
+            style={{ border: "none" }}
+          >
+            <i className="fi fi-rs-burger-menu" />
+            <span>menu</span>
+          </motion.button>
         </div>
       </div>
 

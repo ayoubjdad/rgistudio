@@ -36,30 +36,35 @@
 
   li {
     list-style: none;
+  }
 
-    a {
-      font-size: 16px;
-      color: #0f0f0f;
-      font-weight: 400;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      position: relative;
+  .item {
+    font-size: 16px;
+    color: #0f0f0f;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 0%;
-        height: 2px;
-        background: rgb(254, 80, 17);
-        transition: width 0.3s ease;
-      }
-
-      &:hover::after {
-        width: 100%;
-      }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: rgb(254, 80, 17);
+      transition: width 0.3s ease;
     }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  /* Make active link underline fully expanded like hover */
+  .active::after {
+    width: 100%;
   }
 
   @media (max-width: 1024px) {
@@ -78,7 +83,11 @@
 }
 
 /* Button */
-.button {
+.button,
+.mobileToggle {
+  gap: 4px;
+  display: flex;
+  align-items: center;
   height: 48px;
   cursor: pointer;
   font-size: 14px;
@@ -98,23 +107,17 @@
   }
 }
 
+.desktopToggle {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
 /* Mobile Toggle */
 .mobileToggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 20px;
-  border: none;
-  background: none;
-  cursor: pointer;
-
-  .hamburger {
-    height: 2px;
-    width: 100%;
-    background-color: #0f0f0f;
-    border-radius: 1px;
-  }
 
   @media (max-width: 768px) {
     display: flex;

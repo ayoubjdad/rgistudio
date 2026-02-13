@@ -1,7 +1,7 @@
 import styles from "./Footer.module.scss";
 import logo from "../../assets/rgi-logo.png";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (

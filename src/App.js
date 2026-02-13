@@ -25,18 +25,18 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Jat />} />
           <Route path="/company" element={<Company />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/get-a-quote" element={<GetAQuote />} />
-          {/*   <Route path="/about" element={<About />} /> */}
+          {/* <Route path="/about" element={<About />} /> */}
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </ThemeProvider>
   );
 }

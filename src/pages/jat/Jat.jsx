@@ -34,6 +34,12 @@ const hiring = [
   "Production & logistics / end-to-end",
 ];
 
+const instagramPosts = [
+  `url("https://instagram.frba1-1.fna.fbcdn.net/v/t51.82787-15/632125485_18525759214068637_2214413659711101241_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgzMTc0MDcxMjg5NTY4ODc2NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=CgxPKEoJgN8Q7kNvwHCXEnB&_nc_oc=AdlxL2ACxPMli846EpZFSzJRpr1IvSnx-aRx-w4zULff0T34uxeVqmqwxvQj1T6KOCw&_nc_ad=z-m&_nc_cid=1404&_nc_zt=23&_nc_ht=instagram.frba1-1.fna&_nc_gid=F_1H6Vo1BmaTICXCzaMTXQ&oh=00_AfssHFl18o4UaYK8nDI8IeLNRTlbkfXuoaIx3yyTMQtrnw&oe=69952CA1")`,
+  `url("https://instagram.frba1-1.fna.fbcdn.net/v/t51.82787-15/632125485_18525759214068637_2214413659711101241_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgzMTc0MDcxMjg5NTY4ODc2NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=CgxPKEoJgN8Q7kNvwHCXEnB&_nc_oc=AdlxL2ACxPMli846EpZFSzJRpr1IvSnx-aRx-w4zULff0T34uxeVqmqwxvQj1T6KOCw&_nc_ad=z-m&_nc_cid=1404&_nc_zt=23&_nc_ht=instagram.frba1-1.fna&_nc_gid=F_1H6Vo1BmaTICXCzaMTXQ&oh=00_AfssHFl18o4UaYK8nDI8IeLNRTlbkfXuoaIx3yyTMQtrnw&oe=69952CA1")`,
+  `url("https://instagram.frba1-1.fna.fbcdn.net/v/t51.82787-15/632125485_18525759214068637_2214413659711101241_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgzMTc0MDcxMjg5NTY4ODc2NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=CgxPKEoJgN8Q7kNvwHCXEnB&_nc_oc=AdlxL2ACxPMli846EpZFSzJRpr1IvSnx-aRx-w4zULff0T34uxeVqmqwxvQj1T6KOCw&_nc_ad=z-m&_nc_cid=1404&_nc_zt=23&_nc_ht=instagram.frba1-1.fna&_nc_gid=F_1H6Vo1BmaTICXCzaMTXQ&oh=00_AfssHFl18o4UaYK8nDI8IeLNRTlbkfXuoaIx3yyTMQtrnw&oe=69952CA1")`,
+];
+
 export default function Jat() {
   const products = [
     {
@@ -296,6 +302,7 @@ export default function Jat() {
                   <b>Strategy & consulting</b> — understanding your business,
                   market and objectives before execution
                 </p>
+                <GlowShape />
               </motion.div>
 
               <motion.div className={styles.keyNumbers_content_right}>
@@ -320,19 +327,19 @@ export default function Jat() {
             </motion.div>
 
             <motion.div className={styles.keyNumbers_content}>
-              <motion.div className={styles.keyNumbers_content_left_bottom}>
-                <h1>04</h1>
-                <p>
-                  <b>Launch & distribution</b> — logistics, deployment and
-                  go-live across physical and digital channels
-                </p>
-              </motion.div>
-
               <motion.div className={styles.keyNumbers_content_right}>
-                <h1>05</h1>
+                <h1>04</h1>
                 <p>
                   <b>Growth & optimization</b> — marketing, analytics and
                   continuous performance improvement
+                </p>
+              </motion.div>
+
+              <motion.div className={styles.keyNumbers_content_left_bottom}>
+                <h1>05</h1>
+                <p>
+                  <b>Launch & distribution</b> — logistics, deployment and
+                  go-live across physical and digital channels
                 </p>
               </motion.div>
             </motion.div>
@@ -496,26 +503,14 @@ export default function Jat() {
             variants={stagger}
           >
             <motion.div className={styles.instagram_content} variants={fadeUp}>
-              <motion.div
-                className={styles.instagram_content_right}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-                style={{
-                  backgroundImage: `url(data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"width="126"height="126"><path id="a"d="M126 0v21.584L21.584 126H0v-17.585L108.415 0H126Zm0 108.414V126h-17.586L126 108.414Zm0-84v39.171L63.585 126H24.414L126 24.414Zm0 42v39.17L105.584 126h-39.17L126 66.414ZM105.586 0 0 105.586V66.415L66.415 0h39.171Zm-42 0L0 63.586V24.415L24.415 0h39.171Zm-42 0L0 21.586V0h21.586Z"fill="rgb(136, 136, 136, 0.2)"fill-rule="evenodd"/></svg>)`,
-                }}
-              ></motion.div>
-
-              <motion.div
-                className={styles.instagram_content_right}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-              ></motion.div>
-
-              <motion.div
-                className={styles.instagram_content_right}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-              ></motion.div>
+              {instagramPosts.map((post) => (
+                <motion.div
+                  className={styles.instagram_content_right}
+                  whileHover={{ y: -12 }}
+                  transition={{ type: "spring", stiffness: 180 }}
+                  style={{ backgroundImage: `url(${post})` }}
+                />
+              ))}
             </motion.div>
           </motion.div>
         </div>
@@ -600,5 +595,111 @@ const MotionVideo = () => {
         }}
       />
     </motion.div>
+  );
+};
+
+const GlowShape = () => {
+  return (
+    <div className={styles.glowShape}>
+      <div style={{ height: "100%", width: "100%" }}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 400 400"
+          width="400"
+          height="400"
+          preserveAspectRatio="xMidYMid slice"
+          style={{
+            width: "100%",
+            height: "100%",
+            transform: "translate3d(0px, 0px, 0px);",
+          }}
+        >
+          <defs>
+            <clipPath id="__lottie_element_2">
+              <rect width="400" height="400" x="0" y="0"></rect>
+            </clipPath>
+            <linearGradient
+              id="__lottie_element_7"
+              spreadMethod="pad"
+              gradientUnits="userSpaceOnUse"
+              x1="0"
+              y1="-187.5"
+              x2="0"
+              y2="187.5"
+            >
+              <stop
+                offset="0%"
+                stop-color="rgb(173,173,173)"
+                stop-opacity="1"
+              ></stop>
+              <stop
+                offset="50%"
+                stop-color="rgb(214,214,214)"
+                stop-opacity="0.5"
+              ></stop>
+              <stop
+                offset="100%"
+                stop-color="rgb(255,255,255)"
+                stop-opacity="0"
+              ></stop>
+            </linearGradient>
+            <radialGradient
+              id="__lottie_element_10"
+              spreadMethod="pad"
+              gradientUnits="userSpaceOnUse"
+              cx="0"
+              cy="0"
+              r="193"
+              fx="0"
+              fy="0"
+            >
+              <stop
+                offset="0%"
+                stop-color="rgb(255,255,255)"
+                stop-opacity="1"
+              ></stop>
+              <stop
+                offset="50%"
+                stop-color="rgb(255,254,254)"
+                stop-opacity="0.5"
+              ></stop>
+              <stop
+                offset="100%"
+                stop-color="rgb(255,254,254)"
+                stop-opacity="0"
+              ></stop>
+            </radialGradient>
+          </defs>
+          <g clip-path="url(#__lottie_element_2)">
+            <g
+              transform="matrix(-0.3318588137626648,0.9433290958404541,-0.9433290958404541,-0.3318588137626648,200,200)"
+              opacity="0.16"
+              style={{ display: "block" }}
+            >
+              <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                <path
+                  fill="url(#__lottie_element_7)"
+                  fill-opacity="1"
+                  d=" M52.12799835205078,-50.641998291015625 C10.64900016784668,-90.93900299072266 0,-187.5 0,-187.5 C0,-187.5 -10.64900016784668,-90.93900299072266 -52.12799835205078,-50.641998291015625 C-93.60700225830078,-10.345000267028809 -193,0 -193,0 C-193,0 -93.60700225830078,10.345000267028809 -52.12799835205078,50.641998291015625 C-10.64900016784668,90.93900299072266 0,187.5 0,187.5 C0,187.5 10.64900016784668,90.93900299072266 52.12799835205078,50.641998291015625 C93.60700225830078,10.345000267028809 193,0 193,0 C193,0 93.60700225830078,-10.345000267028809 52.12799835205078,-50.641998291015625z"
+                ></path>
+              </g>
+            </g>
+            <g
+              transform="matrix(-0.3318588137626648,0.9433290958404541,-0.9433290958404541,-0.3318588137626648,200,200)"
+              opacity="0.16"
+              style={{ display: "block" }}
+            >
+              <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                <path
+                  fill="url(#__lottie_element_10)"
+                  fill-opacity="1"
+                  d=" M-176.66299438476562,-1.2589999437332153 C-179.86900329589844,-0.7450000047683716 -182.68800354003906,-0.328000009059906 -185.03799438476562,0 C-182.68800354003906,0.328000009059906 -179.86900329589844,0.7450000047683716 -176.66299438476562,1.2589999437332153 C-166.67599487304688,2.861999988555908 -152.9250030517578,5.419000148773193 -137.8719940185547,9.239999771118164 C-107.8219985961914,16.868000030517578 -72.3740005493164,29.577999114990234 -51.430999755859375,49.92499923706055 C-30.482999801635742,70.2760009765625 -17.39699935913086,104.7229995727539 -9.543999671936035,133.92300415039062 C-5.610000133514404,148.5489959716797 -2.9760000705718994,161.91000366210938 -1.3259999752044678,171.61500549316406 C-0.7799999713897705,174.82400512695312 -0.34200000762939453,177.63299560546875 0,179.95700073242188 C0.34200000762939453,177.63299560546875 0.7799999713897705,174.82400512695312 1.3259999752044678,171.61500549316406 C2.9760000705718994,161.91000366210938 5.610000133514404,148.5489959716797 9.543999671936035,133.92300415039062 C17.39699935913086,104.7229995727539 30.482999801635742,70.2760009765625 51.430999755859375,49.92499923706055 C72.3740005493164,29.577999114990234 107.8219985961914,16.868000030517578 137.8719940185547,9.239999771118164 C152.9250030517578,5.419000148773193 166.67599487304688,2.861999988555908 176.66299438476562,1.2589999437332153 C179.86900329589844,0.7450000047683716 182.68800354003906,0.328000009059906 185.03799438476562,0 C182.68800354003906,-0.328000009059906 179.86900329589844,-0.7450000047683716 176.66299438476562,-1.2589999437332153 C166.67599487304688,-2.861999988555908 152.9250030517578,-5.419000148773193 137.8719940185547,-9.239999771118164 C107.8219985961914,-16.868000030517578 72.3740005493164,-29.577999114990234 51.430999755859375,-49.92499923706055 C30.482999801635742,-70.2760009765625 17.39699935913086,-104.7229995727539 9.543999671936035,-133.92300415039062 C5.610000133514404,-148.5489959716797 2.9760000705718994,-161.91000366210938 1.3259999752044678,-171.61500549316406 C0.7799999713897705,-174.82400512695312 0.34200000762939453,-177.63299560546875 0,-179.95700073242188 C-0.34200000762939453,-177.63299560546875 -0.7799999713897705,-174.82400512695312 -1.3259999752044678,-171.61500549316406 C-2.9760000705718994,-161.91000366210938 -5.610000133514404,-148.5489959716797 -9.543999671936035,-133.92300415039062 C-17.39699935913086,-104.7229995727539 -30.482999801635742,-70.2760009765625 -51.430999755859375,-49.92499923706055 C-72.3740005493164,-29.577999114990234 -107.8219985961914,-16.868000030517578 -137.8719940185547,-9.239999771118164 C-152.9250030517578,-5.419000148773193 -166.67599487304688,-2.861999988555908 -176.66299438476562,-1.2589999437332153z M0,-187.5 C0,-187.5 -0.15700000524520874,-186.08299255371094 -0.5049999952316284,-183.52099609375 C-3.0329999923706055,-164.93299865722656 -15.673999786376953,-86.05799865722656 -52.12799835205078,-50.641998291015625 C-88.51399993896484,-15.293000221252441 -169.46600341796875,-2.992000102996826 -188.79600524902344,-0.5040000081062317 C-191.50100708007812,-0.15600000321865082 -193,0 -193,0 C-193,0 -191.50100708007812,0.15600000321865082 -188.79600524902344,0.5040000081062317 C-169.46600341796875,2.992000102996826 -88.51399993896484,15.293000221252441 -52.12799835205078,50.641998291015625 C-15.673999786376953,86.05799865722656 -3.0329999923706055,164.93299865722656 -0.5049999952316284,183.52099609375 C-0.15700000524520874,186.08299255371094 0,187.5 0,187.5 C0,187.5 0.15700000524520874,186.08299255371094 0.5049999952316284,183.52099609375 C3.0320000648498535,164.93299865722656 15.673999786376953,86.05799865722656 52.12799835205078,50.641998291015625 C88.51399993896484,15.293000221252441 169.46600341796875,2.992000102996826 188.79600524902344,0.5040000081062317 C191.50100708007812,0.15600000321865082 193,0 193,0 C193,0 191.50100708007812,-0.15600000321865082 188.79600524902344,-0.5040000081062317 C169.46600341796875,-2.992000102996826 88.51399993896484,-15.293000221252441 52.12799835205078,-50.641998291015625 C15.673999786376953,-86.05799865722656 3.0320000648498535,-164.93299865722656 0.5049999952316284,-183.52099609375 C0.15700000524520874,-186.08299255371094 0,-187.5 0,-187.5z"
+                ></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
   );
 };
