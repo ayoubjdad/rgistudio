@@ -1,33 +1,18 @@
 import { useState } from "react";
 import styles from "./GetAQuote.module.scss";
 import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const stagger = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-};
+import { fadeUp, stagger } from "../../theme/motion-effects";
 
 const services = [
-  "Print Production",
-  "Packaging Design",
-  "Large Format & Signage",
+  "Production imprimée",
+  "Design packaging",
+  "Grand format & signalétique",
   "Branding",
-  "UX / UI Design",
-  "Digital Marketing",
-  "Growth Optimization",
-  "Web Development",
-  "Mobile App",
+  "Design UX / UI",
+  "Marketing digital",
+  "Optimisation de croissance",
+  "Développement web",
+  "Application mobile",
 ];
 
 const budgets = [
@@ -37,7 +22,7 @@ const budgets = [
   "50k+ MAD",
 ];
 
-const timelines = ["ASAP", "1 – 2 months", "3 – 4 months", "Flexible"];
+const timelines = ["ASAP", "1 – 2 mois", "3 – 4 mois", "Flexible"];
 
 const GetAQuote = () => {
   const [selectedServices, setSelectedServices] = useState([]);
@@ -55,7 +40,6 @@ const GetAQuote = () => {
   return (
     <div className={styles.quote}>
       <div className={styles.quote_container}>
-        {/* Header */}
         <motion.div
           className={styles.quote_header}
           initial="hidden"
@@ -63,14 +47,13 @@ const GetAQuote = () => {
           viewport={{ once: true }}
           variants={stagger}
         >
-          <motion.h1 variants={fadeUp}>Get a Quote</motion.h1>
+          <motion.h1 variants={fadeUp}>Obtenir un devis</motion.h1>
           <motion.p variants={fadeUp}>
-            Tell us about your project and we’ll get back with a tailored
-            proposal within 24–48 hours.
+            Parlez-nous de votre projet et nous reviendrons vers vous avec une
+            proposition adaptée sous 24 à 48 heures.
           </motion.p>
         </motion.div>
 
-        {/* Step 1 — Services */}
         <motion.section
           className={styles.quote_section}
           initial="hidden"
@@ -78,7 +61,9 @@ const GetAQuote = () => {
           viewport={{ once: true }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeUp}>What services do you need?</motion.h2>
+          <motion.h2 variants={fadeUp}>
+            Quels services vous intéressent ?
+          </motion.h2>
 
           <motion.div className={styles.quote_grid} variants={stagger}>
             {services.map((service, index) => (
@@ -99,7 +84,6 @@ const GetAQuote = () => {
           </motion.div>
         </motion.section>
 
-        {/* Step 2 — Budget */}
         <motion.section
           className={styles.quote_section}
           initial="hidden"
@@ -107,7 +91,7 @@ const GetAQuote = () => {
           viewport={{ once: true }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeUp}>Estimated budget</motion.h2>
+          <motion.h2 variants={fadeUp}>Budget estimé</motion.h2>
 
           <motion.div className={styles.quote_grid_small} variants={stagger}>
             {budgets.map((item, index) => (
@@ -128,7 +112,6 @@ const GetAQuote = () => {
           </motion.div>
         </motion.section>
 
-        {/* Step 3 — Timeline */}
         <motion.section
           className={styles.quote_section}
           initial="hidden"
@@ -136,7 +119,7 @@ const GetAQuote = () => {
           viewport={{ once: true }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeUp}>Project timeline</motion.h2>
+          <motion.h2 variants={fadeUp}>Délai du projet</motion.h2>
 
           <motion.div className={styles.quote_grid_small} variants={stagger}>
             {timelines.map((item, index) => (
@@ -157,7 +140,6 @@ const GetAQuote = () => {
           </motion.div>
         </motion.section>
 
-        {/* Step 4 — Details */}
         <motion.section
           className={styles.quote_section}
           initial="hidden"
@@ -165,22 +147,21 @@ const GetAQuote = () => {
           viewport={{ once: true }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeUp}>Tell us about your project</motion.h2>
+          <motion.h2 variants={fadeUp}>Parlez-nous de votre projet</motion.h2>
 
           <motion.form className={styles.quote_form} variants={fadeUp}>
             <div className={styles.quote_row}>
-              <input type="text" placeholder="Your Name" />
-              <input type="email" placeholder="Email Address" />
+              <input type="text" placeholder="Votre nom" />
+              <input type="email" placeholder="Adresse email" />
             </div>
 
-            <input type="text" placeholder="Company (optional)" />
-            <textarea placeholder="Describe your goals, timeline and expectations..." />
+            <input type="text" placeholder="Entreprise (optionnel)" />
+            <textarea placeholder="Décrivez vos objectifs, délais et attentes..." />
 
-            <button type="submit">Request Quote</button>
+            <button type="submit">Demander un devis</button>
           </motion.form>
         </motion.section>
 
-        {/* Confirmation CTA */}
         <motion.div
           className={styles.quote_cta}
           initial="hidden"
@@ -188,10 +169,11 @@ const GetAQuote = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2>We usually respond within 24 hours.</h2>
+          <h2>Nous répondons généralement sous 24 heures.</h2>
           <p>
-            Our team reviews every request carefully and comes back with a
-            tailored approach, timeline and pricing range.
+            Notre équipe analyse chaque demande avec attention et revient vers
+            vous avec une approche personnalisée, un délai et une estimation de
+            budget.
           </p>
         </motion.div>
       </div>

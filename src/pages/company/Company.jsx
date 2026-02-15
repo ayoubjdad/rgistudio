@@ -1,63 +1,47 @@
 import styles from "./Company.module.scss";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import logo from "../../assets/rgi-logo.png";
+import { motion } from "framer-motion";
 import { redirect } from "react-router";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
+import { fadeUp, scaleIn, stagger } from "../../theme/motion-effects";
 
 const hiring = [
-  "15+ years / printing & digital excellence",
-  "300+ brands / trusted worldwide",
-  "50K+ projects / delivered successfully",
-  "Branding & design / visual identities",
-  "Large format printing / signage & displays",
-  "Commercial print / offset & digital",
-  "Websites & platforms / high-performance",
-  "SaaS & mobile apps / scalable solutions",
-  "UI/UX design / conversion-driven",
-  "Digital marketing / growth campaigns",
-  "Production & logistics / end-to-end service",
-  "From concept to delivery / one partner",
+  "15+ ans / excellence impression & digital",
+  "300+ marques / confiance mondiale",
+  "50K+ projets / livrés avec succès",
+  "Branding & design / identités visuelles",
+  "Impression grand format / signalétique & affichage",
+  "Impression commerciale / offset & digital",
+  "Sites web & plateformes / haute performance",
+  "Applications SaaS & mobiles / solutions évolutives",
+  "Design UI/UX / orienté conversion",
+  "Marketing digital / campagnes de croissance",
+  "Production & logistique / service complet",
+  "Du concept à la livraison / un seul partenaire",
+];
+
+const jobsOpened = [
+  {
+    tags: ["Design", "Temps plein"],
+    title: "Senior Brand & Print Designer",
+    link: "#",
+  },
+  {
+    tags: ["Développement", "Temps plein"],
+    title: "Développeur Frontend Web (React)",
+    link: "#",
+  },
+  {
+    tags: ["Marketing", "Temps plein"],
+    title: "Spécialiste Marketing de Performance",
+    link: "#",
+  },
+  {
+    tags: ["Production", "Sur site"],
+    title: "Responsable Production Impression",
+    link: "#",
+  },
 ];
 
 export default function Company() {
-  const jobsOpened = [
-    {
-      tags: ["Design", "Full-time"],
-      title: "Senior Brand & Print Designer",
-      link: "#",
-    },
-    {
-      tags: ["Development", "Full-time"],
-      title: "Frontend Web Developer (React)",
-      link: "#",
-    },
-    {
-      tags: ["Marketing", "Full-time"],
-      title: "Performance Marketing Specialist",
-      link: "#",
-    },
-    {
-      tags: ["Production", "On-site"],
-      title: "Print Production Manager",
-      link: "#",
-    },
-  ];
-
   return (
     <>
       {/* HERO */}
@@ -69,12 +53,14 @@ export default function Company() {
           animate="visible"
         >
           <motion.div className={styles.hero_left} variants={stagger}>
-            <motion.h1 variants={fadeUp}>Print. Digital. Impact.</motion.h1>
+            <motion.h1 variants={fadeUp}>
+              Impression. Digital. Impact.
+            </motion.h1>
             <motion.p variants={fadeUp}>
-              RGI Studio is a creative production partner specializing in
-              high-end printing, branding and digital experiences. We help
-              brands stand out, scale faster and perform better — online and
-              offline.
+              RGI Studio est un partenaire de production créative spécialisé
+              dans l’impression haut de gamme, le branding et les expériences
+              digitales. Nous aidons les marques à se démarquer, évoluer plus
+              vite et performer mieux — en ligne et hors ligne.
             </motion.p>
 
             <motion.div className={styles.hero_buttons} variants={fadeUp}>
@@ -83,7 +69,7 @@ export default function Company() {
                 whileTap={{ scale: 0.95 }}
                 className={`${styles.hero_button} ${styles.hero_button_secondary}`}
               >
-                Work with us
+                Travailler avec nous
                 <i className="fi fi-rs-arrow-small-right" />
               </motion.button>
             </motion.div>
@@ -100,14 +86,15 @@ export default function Company() {
                 <h1>50K+</h1>
                 <hr />
                 <p>
-                  print projects delivered with precision, speed and consistency
+                  projets imprimés livrés avec précision, rapidité et constance
                 </p>
               </motion.div>
               <motion.div className={styles.hero_card} variants={fadeUp}>
                 <h1>300+</h1>
                 <hr />
                 <p>
-                  brands supported across design, marketing and digital growth
+                  marques accompagnées en design, marketing et croissance
+                  digitale
                 </p>
               </motion.div>
             </motion.div>
@@ -126,40 +113,42 @@ export default function Company() {
         <div className={styles.keyNumbers_container}>
           <motion.div className={styles.keyNumbers_title}>
             <h1>
-              Our values<span>.</span>
+              Nos valeurs<span>.</span>
             </h1>
             <p>
-              At RGI Studio, we combine craftsmanship, creativity and
-              performance. These principles guide everything we design, print
-              and build.
+              Chez RGI Studio, nous combinons savoir-faire, créativité et
+              performance. Ces principes guident tout ce que nous concevons,
+              imprimons et développons.
             </p>
           </motion.div>
 
           <motion.div className={styles.keyNumbers_content_wrapper}>
             <motion.div className={styles.keyNumbers_content}>
               <motion.div className={styles.keyNumbers_content_left}>
-                <h1>Precision</h1>
+                <h1>Précision</h1>
                 <p>
-                  Every detail matters. From color accuracy to digital
-                  performance, we obsess over quality and execution.
+                  Chaque détail compte. De la précision des couleurs à la
+                  performance digitale, nous visons une qualité d’exécution
+                  irréprochable.
                 </p>
               </motion.div>
 
               <motion.div className={styles.keyNumbers_content_right}>
                 <h1>Collaboration</h1>
                 <p>
-                  We work as an extension of your team, aligning strategy,
-                  creativity and production into one seamless workflow.
+                  Nous travaillons comme une extension de votre équipe, en
+                  alignant stratégie, créativité et production dans un flux de
+                  travail fluide.
                 </p>
               </motion.div>
             </motion.div>
 
             <motion.div className={styles.keyNumbers_content_bottom}>
               <motion.div className={styles.keyNumbers_content_bottom_text}>
-                <h1>Transparency</h1>
+                <h1>Transparence</h1>
                 <p>
-                  Clear communication, honest timelines and measurable results —
-                  no surprises, just performance.
+                  Communication claire, délais honnêtes et résultats mesurables
+                  — aucune surprise, seulement de la performance.
                 </p>
               </motion.div>
             </motion.div>
@@ -178,12 +167,12 @@ export default function Company() {
         <div className={styles.ourTeam_container}>
           <motion.div className={styles.ourTeam_title} variants={fadeUp}>
             <h1>
-              Our studio<span>.</span>
+              Notre studio<span>.</span>
             </h1>
             <p>
-              Designers, printers, developers and marketers working together to
-              create bold brands, powerful campaigns and high-performing digital
-              products.
+              Designers, imprimeurs, développeurs et marketeurs travaillant
+              ensemble pour créer des marques fortes, des campagnes puissantes
+              et des produits digitaux performants.
             </p>
           </motion.div>
 
@@ -201,48 +190,48 @@ export default function Company() {
                 style={{ borderRadius: "20px 0px 0px" }}
               >
                 <i className="fi fi-ts-database-management" />
-                <p>Data-driven</p>
+                <p>Basé sur les données</p>
               </div>
-              <div className={styles.ourTeam_card}>
+              <div className={styles.ourTeam_card} style={{ border: "none" }}>
                 <i className="fi fi-ts-book-alt" />
-                <p>Skilled</p>
+                <p>Expert</p>
               </div>
               <div className={styles.ourTeam_card}>
                 <i className="fi fi-ts-chart-histogram" />
-                <p>Results-focused</p>
+                <p>Orienté résultats</p>
               </div>
             </div>
             <div className={styles.ourTeam_content_two}>
               <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-refresh" /> <p>Collaborative</p>
+                <i className="fi fi-ts-refresh" /> <p>Collaboratif</p>
+              </div>
+              <div className={styles.ourTeam_card} style={{ border: "none" }}>
+                <i className="fi fi-ts-shopping-bag" /> <p>Professionnel</p>
               </div>
               <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-shopping-bag" /> <p>Professional</p>
-              </div>
-              <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-rocket-lunch" /> <p>Innovative</p>
+                <i className="fi fi-ts-rocket-lunch" /> <p>Innovant</p>
               </div>
             </div>
             <div className={styles.ourTeam_content_two}>
               <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-hr-person" /> <p>Supportive</p>
+                <i className="fi fi-ts-hr-person" /> <p>Solidaire</p>
               </div>
               <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-fire-flame-curved" /> <p>Passionate</p>
+                <i className="fi fi-ts-fire-flame-curved" /> <p>Passionné</p>
               </div>
               <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-archery" /> <p>Ambitious</p>
+                <i className="fi fi-ts-archery" /> <p>Ambitieux</p>
               </div>
             </div>
             <div className={styles.ourTeam_content_one}>
               <div className={styles.ourTeam_card}>
-                <i className="fi fi-ts-shield" /> <p>Reliable</p>
+                <i className="fi fi-ts-shield" /> <p>Fiable</p>
               </div>
               <div
                 className={styles.ourTeam_card}
                 style={{ borderRadius: "0px 0px 20px 0px" }}
               >
-                <i className="fi fi-ts-star" /> <p>Excellence-driven</p>
+                <i className="fi fi-ts-star" /> <p>Axé excellence</p>
               </div>
             </div>
           </div>
@@ -273,12 +262,12 @@ export default function Company() {
 
           <motion.div className={styles.hiring_title} variants={fadeUp}>
             <h1>
-              Join the studio<span>.</span>
+              Rejoind le studio<span>.</span>
             </h1>
             <p>
-              We’re always looking for designers, printers, developers and
-              marketers who want to work on ambitious projects across print and
-              digital industries.
+              Nous recherchons toujours des designers, imprimeurs, développeurs
+              et marketeurs souhaitant travailler sur des projets ambitieux dans
+              les industries print et digitales.
             </p>
           </motion.div>
 
@@ -299,7 +288,7 @@ export default function Company() {
                     ))}
                   </p>
                   <h1>{item.title}</h1>
-                  <p onClick={() => redirect(item.link)}>View role</p>
+                  <p onClick={() => redirect(item.link)}>Voir l’offre</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -318,12 +307,12 @@ export default function Company() {
         <div className={styles.instagram_container}>
           <motion.div className={styles.instagram_title} variants={fadeUp}>
             <h1>
-              Our work<span>.</span>
+              Nos réalisations<span>.</span>
             </h1>
             <p>
-              A look at our latest print productions, brand identities,
-              campaigns and digital experiences — built for performance and
-              impact.
+              Un aperçu de nos dernières productions imprimées, identités de
+              marque, campagnes et expériences digitales — conçues pour la
+              performance et l’impact.
             </p>
           </motion.div>
 

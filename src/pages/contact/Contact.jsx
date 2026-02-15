@@ -1,15 +1,6 @@
-import React from "react";
+import { fadeUp } from "../../theme/motion-effects";
 import styles from "./Contact.module.scss";
 import { motion } from "framer-motion";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
 
 const Contact = () => {
   return (
@@ -23,10 +14,10 @@ const Contact = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h1>Let’s Talk 🙌</h1>
+          <h1>Parlons-en 🙌</h1>
           <p>
-            Have a project in mind? We’d love to hear about it and explore how
-            we can collaborate.
+            Vous avez un projet en tête ? Nous serions ravis d’en discuter et
+            d’explorer comment collaborer ensemble.
           </p>
         </motion.div>
 
@@ -42,10 +33,10 @@ const Contact = () => {
             <h3>Email</h3>
             <p>hello@rgistudio.com</p>
 
-            <h3>Office</h3>
-            <p>Casablanca — Remote</p>
+            <h3>Bureau</h3>
+            <p>Casablanca — À distance</p>
 
-            <h3>Follow</h3>
+            <h3>Suivez-nous</h3>
             <p>
               <span>Facebook</span> · <span>Instagram</span> ·{" "}
               <span>LinkedIn</span> · <span>Behance</span>
@@ -59,10 +50,10 @@ const Contact = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <textarea placeholder="Tell us about your project" />
-            <button type="submit">Send Message</button>
+            <input type="text" placeholder="Votre nom" />
+            <input type="email" placeholder="Votre email" />
+            <textarea placeholder="Parlez-nous de votre projet" />
+            <button type="submit">Envoyer le message</button>
           </motion.form>
         </div>
       </div>

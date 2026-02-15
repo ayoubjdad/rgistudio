@@ -1,37 +1,22 @@
 import styles from "./Jat.module.scss";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import logo from "../../assets/rgi-logo.png";
-import { redirect } from "react-router";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
+import { redirect, useNavigate } from "react-router";
+import { fadeUp, scaleIn, stagger } from "../../theme/motion-effects";
 
 const hiring = [
-  "15+ years / printing excellence",
-  "300+ brands / served worldwide",
-  "50K+ / projects delivered",
-  "Web, SaaS & mobile / development",
-  "Creative design / branding & packaging",
-  "Performance marketing / growth campaigns",
-  "Large format / signage & displays",
-  "Offset & digital / high-quality printing",
-  "UI/UX design / conversion-focused",
-  "Custom websites / scalable platforms",
-  "Startup solutions / MVP to scale",
-  "Production & logistics / end-to-end",
+  "15+ ans / excellence en impression",
+  "300+ marques / accompagnées dans le monde",
+  "50K+ / projets réalisés",
+  "Web, SaaS & mobile / développement",
+  "Design créatif / branding & packaging",
+  "Marketing de performance / campagnes de croissance",
+  "Grand format / signalétique & affichage",
+  "Offset & digital / impression haute qualité",
+  "Design UI/UX / orienté conversion",
+  "Sites web sur mesure / plateformes évolutives",
+  "Solutions startup / du MVP à l’échelle",
+  "Production & logistique / de A à Z",
 ];
 
 const instagramPosts = [
@@ -40,68 +25,65 @@ const instagramPosts = [
   `url("https://instagram.frba1-1.fna.fbcdn.net/v/t51.82787-15/632125485_18525759214068637_2214413659711101241_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MzgzMTc0MDcxMjg5NTY4ODc2NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=CgxPKEoJgN8Q7kNvwHCXEnB&_nc_oc=AdlxL2ACxPMli846EpZFSzJRpr1IvSnx-aRx-w4zULff0T34uxeVqmqwxvQj1T6KOCw&_nc_ad=z-m&_nc_cid=1404&_nc_zt=23&_nc_ht=instagram.frba1-1.fna&_nc_gid=F_1H6Vo1BmaTICXCzaMTXQ&oh=00_AfssHFl18o4UaYK8nDI8IeLNRTlbkfXuoaIx3yyTMQtrnw&oe=69952CA1")`,
 ];
 
-export default function Jat() {
-  const products = [
-    {
-      name: "Branding & Identity",
-      description: "Logos, brand systems, packaging and visual storytelling",
-      image:
-        "https://framerusercontent.com/images/KnlOHRMUaFoTuK0TzXQl9ezLn8.png?scale-down-to=1024",
-    },
-    {
-      name: "Commercial Printing",
-      description: "Brochures, business cards, catalogs, magazines and books",
-      image:
-        "https://framerusercontent.com/images/KnlOHRMUaFoTuK0TzXQl9ezLn8.png?scale-down-to=1024",
-    },
-    {
-      name: "Large Format & Signage",
-      description: "Billboards, roll-ups, banners, POS and event displays",
-      image:
-        "https://framerusercontent.com/images/KnlOHRMUaFoTuK0TzXQl9ezLn8.png?scale-down-to=1024",
-    },
-    {
-      name: "Websites & Platforms",
-      description: "High-performance websites, dashboards and portals",
-      image:
-        "https://framerusercontent.com/images/KnlOHRMUaFoTuK0TzXQl9ezLn8.png?scale-down-to=1024",
-    },
-    {
-      name: "SaaS & Mobile Apps",
-      description: "Scalable SaaS platforms and iOS / Android applications",
-      image:
-        "https://framerusercontent.com/images/KnlOHRMUaFoTuK0TzXQl9ezLn8.png?scale-down-to=1024",
-    },
-    {
-      name: "Digital Marketing",
-      description: "SEO, paid ads, social media and growth strategies",
-      image:
-        "https://framerusercontent.com/images/KnlOHRMUaFoTuK0TzXQl9ezLn8.png?scale-down-to=1024",
-    },
-  ];
+const products = [
+  {
+    name: "Branding & identité",
+    icon: "fi fi-rs-sparkles",
+    description: "Logos, systèmes de marque, packaging et storytelling visuel",
+  },
+  {
+    icon: "fi fi-rs-print",
+    name: "Impression commerciale",
+    description: "Brochures, cartes de visite, catalogues, magazines et livres",
+  },
+  {
+    icon: "fi fi-rs-grid-dividers",
+    name: "Grand format & signalétique",
+    description: "Panneaux, roll-ups, bannières, PLV et affichage événementiel",
+  },
+  {
+    icon: "fi fi-rs-globe",
+    name: "Sites web & plateformes",
+    description: "Sites performants, dashboards et portails",
+  },
+  {
+    icon: "fi fi-rs-mobile",
+    name: "Applications SaaS & mobiles",
+    description: "Plateformes SaaS évolutives et applications iOS / Android",
+  },
+  {
+    icon: "fi fi-rs-chart-pie",
+    name: "Marketing digital",
+    description:
+      "SEO, publicités payantes, réseaux sociaux et stratégies de croissance",
+  },
+];
 
-  const jobsOpened = [
-    {
-      tags: ["Graphic Design", "Full-time"],
-      title: "Senior Brand & Print Designer",
-      link: "#",
-    },
-    {
-      tags: ["Development", "Full-time"],
-      title: "Frontend Web Developer (React)",
-      link: "#",
-    },
-    {
-      tags: ["Marketing", "Full-time"],
-      title: "Performance Marketing Specialist",
-      link: "#",
-    },
-    {
-      tags: ["Production", "On-site"],
-      title: "Print Production Manager",
-      link: "#",
-    },
-  ];
+const jobsOpened = [
+  {
+    tags: ["Design graphique", "Temps plein"],
+    title: "Senior Brand & Print Designer",
+    link: "#",
+  },
+  {
+    tags: ["Développement", "Temps plein"],
+    title: "Développeur Frontend Web (React)",
+    link: "#",
+  },
+  {
+    tags: ["Marketing", "Temps plein"],
+    title: "Spécialiste Marketing de Performance",
+    link: "#",
+  },
+  {
+    tags: ["Production", "Sur site"],
+    title: "Responsable Production Impression",
+    link: "#",
+  },
+];
+
+export default function Jat() {
+  const navigate = useNavigate();
 
   return (
     <>
@@ -115,12 +97,14 @@ export default function Jat() {
         >
           <motion.div className={styles.hero_left} variants={stagger}>
             <motion.h1 variants={fadeUp}>
-              Printing, branding & digital solutions that grow your business
+              Impression, branding & solutions digitales pour développer votre
+              entreprise
             </motion.h1>
             <motion.p variants={fadeUp}>
-              We design, print and build high-impact experiences — from premium
-              print production and visual branding to websites, SaaS platforms
-              and mobile applications that convert and scale.
+              Nous concevons, imprimons et développons des expériences à fort
+              impact — de la production imprimée premium et du branding visuel
+              aux sites web, plateformes SaaS et applications mobiles conçus
+              pour convertir et évoluer.
             </motion.p>
 
             <motion.div className={styles.hero_buttons} variants={fadeUp}>
@@ -128,16 +112,18 @@ export default function Jat() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={`${styles.hero_button} ${styles.hero_button_secondary}`}
+                onClick={() => navigate("/get-a-quote")}
               >
-                Request a quote
+                Demander un devis
                 <i className="fi fi-rs-arrow-small-right"></i>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className={styles.hero_button}
+                onClick={() => navigate("/work")}
               >
-                View our work
+                Voir nos réalisations
               </motion.button>
             </motion.div>
           </motion.div>
@@ -152,18 +138,19 @@ export default function Jat() {
 
             <motion.div className={styles.hero_cards} variants={stagger}>
               <motion.div className={styles.hero_card} variants={fadeUp}>
-                <h1>50K+</h1>
+                <h1>100+</h1>
                 <hr />
                 <p>
-                  printed projects delivered with consistent quality and fast
-                  turnaround
+                  projets imprimés livrés avec une qualité constante et des
+                  délais rapides
                 </p>
               </motion.div>
               <motion.div className={styles.hero_card} variants={fadeUp}>
-                <h1>300+</h1>
+                <h1>70+</h1>
                 <hr />
                 <p>
-                  brands supported through design, marketing and digital growth
+                  marques accompagnées grâce au design, marketing et croissance
+                  digitale
                 </p>
               </motion.div>
             </motion.div>
@@ -181,14 +168,15 @@ export default function Jat() {
       >
         <div className={styles.presentation_container}>
           <motion.p variants={fadeUp}>
-            <span>At RGI Studio</span>, we combine high-end printing, creative
-            branding and digital innovation to help companies stand out,
-            communicate better and grow faster — online and offline.
+            <span>Chez RGI Studio</span>, nous combinons impression haut de
+            gamme, branding créatif et innovation digitale pour aider les
+            entreprises à se démarquer, mieux communiquer et grandir plus
+            rapidement — en ligne et hors ligne.
           </motion.p>
           <motion.p variants={fadeUp}>
-            From business cards to billboards, from landing pages to SaaS
-            platforms, we deliver scalable solutions designed for performance,
-            durability and long-term brand impact.
+            De la carte de visite au panneau publicitaire, des landing pages aux
+            plateformes SaaS, nous livrons des solutions évolutives conçues pour
+            la performance, la durabilité et l’impact de marque à long terme.
           </motion.p>
         </div>
       </motion.section>
@@ -219,9 +207,9 @@ export default function Jat() {
                   services<span>.</span>
                 </h3>
                 <p>
-                  A full-service production and digital agency covering print,
-                  design, marketing, web platforms and mobile applications — all
-                  under one roof.
+                  Une agence de production et digitale complète couvrant
+                  impression, design, marketing, plateformes web et applications
+                  mobiles — tout sous un même toit.
                 </p>
               </div>
             </div>
@@ -246,9 +234,15 @@ export default function Jat() {
                       width: "48px",
                       height: "48px",
                       borderRadius: "6px",
-                      backgroundColor: "red",
+                      backgroundColor: "rgb(254, 80, 17)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#ffffff",
                     }}
-                  />
+                  >
+                    <i className={product.icon} style={{ fontSize: 24 }} />
+                  </motion.div>
                   <h3>{product.name}</h3>
                   <p>{product.description}</p>
                 </div>
@@ -268,7 +262,7 @@ export default function Jat() {
             whileTap={{ scale: 0.95 }}
             variants={fadeUp}
           >
-            Explore all services
+            Explorer tous les services
             <i className="fi fi-rs-arrow-small-right"></i>
           </motion.button>
         </div>
@@ -285,12 +279,12 @@ export default function Jat() {
         <div className={styles.keyNumbers_container}>
           <motion.div className={styles.keyNumbers_title}>
             <h1>
-              Our process<span>.</span>
+              Notre processus<span>.</span>
             </h1>
             <p>
-              From idea to delivery, we manage every step — strategy, design,
-              production, development and deployment — with precision and
-              consistency.
+              De l’idée à la livraison, nous gérons chaque étape — stratégie,
+              design, production, développement et déploiement — avec précision
+              et cohérence.
             </p>
           </motion.div>
 
@@ -299,8 +293,8 @@ export default function Jat() {
               <motion.div className={styles.keyNumbers_content_left}>
                 <h1>01</h1>
                 <p>
-                  <b>Strategy & consulting</b> — understanding your business,
-                  market and objectives before execution
+                  <b>Stratégie & conseil</b> — comprendre votre activité, votre
+                  marché et vos objectifs
                 </p>
                 <GlowShape />
               </motion.div>
@@ -308,8 +302,8 @@ export default function Jat() {
               <motion.div className={styles.keyNumbers_content_right}>
                 <h1>02</h1>
                 <p>
-                  <b>Design & creative</b> — branding, visuals, UX/UI and
-                  content crafted for impact and conversion
+                  <b>Design & création</b> — branding, visuels, UX/UI et
+                  contenus conçus pour l’impact
                 </p>
               </motion.div>
             </motion.div>
@@ -318,8 +312,8 @@ export default function Jat() {
               <motion.div className={styles.keyNumbers_content_bottom_text}>
                 <h1>03</h1>
                 <p>
-                  <b>Production & development</b> — premium printing, web
-                  platforms, SaaS tools and mobile applications
+                  <b>Production & développement</b> — impression premium,
+                  plateformes web, SaaS et applications mobiles
                 </p>
               </motion.div>
 
@@ -330,16 +324,16 @@ export default function Jat() {
               <motion.div className={styles.keyNumbers_content_right}>
                 <h1>04</h1>
                 <p>
-                  <b>Growth & optimization</b> — marketing, analytics and
-                  continuous performance improvement
+                  <b>Croissance & optimisation</b> — marketing, analytics et
+                  amélioration continue
                 </p>
               </motion.div>
 
               <motion.div className={styles.keyNumbers_content_left_bottom}>
                 <h1>05</h1>
                 <p>
-                  <b>Launch & distribution</b> — logistics, deployment and
-                  go-live across physical and digital channels
+                  <b>Lancement & distribution</b> — logistique, déploiement et
+                  mise en ligne
                 </p>
               </motion.div>
             </motion.div>
@@ -358,12 +352,12 @@ export default function Jat() {
         <div className={styles.ourTeam_container}>
           <motion.div className={styles.ourTeam_title} variants={fadeUp}>
             <h1>
-              Our team<span>.</span>
+              Notre équipe<span>.</span>
             </h1>
             <p>
-              Designers, printers, developers and marketers working together to
-              deliver high-quality execution across physical and digital
-              experiences.
+              Designers, imprimeurs, développeurs et marketeurs travaillant
+              ensemble pour offrir une exécution de haute qualité sur les
+              expériences physiques et digitales.
             </p>
           </motion.div>
 
@@ -412,7 +406,7 @@ export default function Jat() {
                 whileTap={{ scale: 0.95 }}
                 className={`${styles.ourTeam_button} ${styles.ourTeam_button_secondary}`}
               >
-                Join our team
+                Rejoindre notre équipe
                 <i className="fi fi-rs-arrow-small-right"></i>
               </motion.button>
             </div>
@@ -444,12 +438,12 @@ export default function Jat() {
 
           <motion.div className={styles.hiring_title} variants={fadeUp}>
             <h1>
-              We’re growing<span>.</span>
+              Nous grandissons<span>.</span>
             </h1>
             <p>
-              We’re always looking for talented designers, printers, developers
-              and marketers who want to work on high-impact projects across
-              print and digital industries.
+              Nous recherchons toujours des designers, imprimeurs, développeurs
+              et marketeurs talentueux souhaitant travailler sur des projets à
+              fort impact.
             </p>
           </motion.div>
 
@@ -470,7 +464,7 @@ export default function Jat() {
                     ))}
                   </p>
                   <h1>{item.title}</h1>
-                  <p onClick={() => redirect(item.link)}>View role</p>
+                  <p onClick={() => redirect(item.link)}>Voir l’offre</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -489,12 +483,11 @@ export default function Jat() {
         <div className={styles.instagram_container}>
           <motion.div className={styles.instagram_title} variants={fadeUp}>
             <h1>
-              Latest on Instagram<span>.</span>
+              Dernières publications Instagram<span>.</span>
             </h1>
             <p>
-              A look at our most recent print productions, branding systems,
-              campaigns and digital launches — crafted for performance and
-              impact.
+              Un aperçu de nos productions imprimées, systèmes de branding,
+              campagnes et lancements digitaux les plus récents.
             </p>
           </motion.div>
 

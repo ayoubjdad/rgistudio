@@ -2,24 +2,19 @@ import { useState } from "react";
 import styles from "./Header.module.scss";
 import logo from "../../assets/rgi-logo.png";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLocation } from "react-router";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const stagger = { visible: { transition: { staggerChildren: 0.15 } } };
+import { useLocation, useNavigate } from "react-router";
+import { fadeUp, stagger } from "../../theme/motion-effects";
 
 const menu = [
-  { name: "Home", href: "/" },
-  { name: "Company", href: "/company" },
+  { name: "Accueil", href: "/" },
+  { name: "Entreprise", href: "/company" },
   { name: "Services", href: "/services" },
-  { name: "Work", href: "/work" },
+  { name: "Réalisations", href: "/work" },
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const currentPath = pathname.split("/")[1];
 
@@ -35,9 +30,9 @@ export default function Header() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className={styles.container}>
-        <motion.h3 whileHover={{ scale: 1.05 }}>
+        <motion.div whileHover={{ scale: 1.05 }} onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className={styles.logo} />
-        </motion.h3>
+        </motion.div>
 
         <motion.ul
           className={styles.desktopMenu}
@@ -49,7 +44,9 @@ export default function Header() {
             <motion.li key={index} variants={fadeUp}>
               <a
                 href={item.href}
-                className={`${styles.item} ${currentPath === item.name.toLowerCase() ? styles.active : ""}`}
+                className={`${styles.item} ${
+                  currentPath === item.name.toLowerCase() ? styles.active : ""
+                }`}
               >
                 {item.name}
               </a>
@@ -61,19 +58,9 @@ export default function Header() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
-            className={styles.button}
-            style={{ border: "none" }}
-          >
-            <span>EN</span>
-            <i className="fi fi-rs-angle-small-down" />
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
             className={styles.button + " " + styles.desktopToggle}
           >
-            <a href="/get-a-quote">Get a Quote</a>
+            <a href="/get-a-quote">Obtenir un devis</a>
           </motion.button>
 
           <motion.button

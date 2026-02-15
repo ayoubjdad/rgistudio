@@ -1,5 +1,6 @@
 import styles from "./Footer.module.scss";
 import logo from "../../assets/rgi-logo.png";
+import logoGray from "../../assets/logo/rgi-logo-gray.png";
 
 import { motion } from "framer-motion";
 
@@ -21,7 +22,7 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h1>Be part of the journey—stay tuned</h1>
+            <h1>Faites partie du voyage — restez connectés</h1>
           </motion.div>
 
           <motion.div
@@ -32,19 +33,21 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <div className={styles.footer_info_section}>
-              <p className={styles.footer_info_header}>Visit us</p>
+              <p className={styles.footer_info_header}>Venez nous voir</p>
               <p className={styles.footer_info}>
                 10, Rue Liberté, Appartement 5, 3ème étage
               </p>
             </div>
+
             <div className={styles.footer_info_section}>
-              <p className={styles.footer_info_header}>Follow us</p>
+              <p className={styles.footer_info_header}>Suivez-nous</p>
               <p className={styles.footer_info}>
                 Facebook · Instagram · LinkedIn · Behance
               </p>
             </div>
+
             <div className={styles.footer_info_section}>
-              <p className={styles.footer_info_header}>Contact us</p>
+              <p className={styles.footer_info_header}>Contact</p>
               <p className={styles.footer_info}>
                 <span>contact</span>@rgistudio.com
               </p>
@@ -52,6 +55,7 @@ export default function Footer() {
           </motion.div>
         </div>
       </motion.section>
+
       <motion.section
         className={styles.footer}
         style={{ borderTop: "1px solid rgb(53, 53, 53)" }}
@@ -61,9 +65,9 @@ export default function Footer() {
         viewport={{ once: true }}
       >
         <div className={styles.footer_container_copyright}>
-          <img src={logo} alt="" className={styles.logo} />
+          <img src={logoGray} alt="" className={styles.logo} />
           <span className={styles.footer_copyright}>
-            © {new Date().getFullYear()} RGI Studio. All rights reserved.
+            © {new Date().getFullYear()} RGI Studio. Tous droits réservés.
           </span>
         </div>
       </motion.section>
