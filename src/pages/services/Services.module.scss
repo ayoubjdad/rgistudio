@@ -1,11 +1,7 @@
-/* ---------------- SERVICES PAGE ---------------- */
-
 .services {
   width: 100%;
   background-color: #ffffff;
 }
-
-/* ---------------- HERO ---------------- */
 
 .servicesHero {
   width: 100%;
@@ -14,7 +10,6 @@
 
 .servicesHero_container {
   gap: 64px;
-  min-height: 90vh;
   display: flex;
   margin: 0 auto;
   max-width: 1340px;
@@ -140,8 +135,6 @@
   }
 }
 
-/* ---------------- SERVICES OVERVIEW ---------------- */
-
 .servicesOverview {
   width: 100%;
   background: linear-gradient(#f7f7f7 0%, #fff 100%);
@@ -165,8 +158,6 @@
     }
   }
 }
-
-/* ---------------- SERVICE CATEGORIES ---------------- */
 
 .servicesCategories {
   width: 100%;
@@ -248,8 +239,6 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* ---------------- SERVICE CARD ---------------- */
-
 .serviceCard {
   display: flex;
   overflow: hidden;
@@ -298,8 +287,6 @@
     border: 1px solid #e3e3e3;
   }
 }
-
-/* ---------------- PROCESS ---------------- */
 
 .servicesProcess {
   background-color: #0f0f0f;
@@ -421,8 +408,6 @@
   line-height: 1.4;
 }
 
-/* ---------------- CTA ---------------- */
-
 .servicesCTA {
   width: 100%;
   display: flex;
@@ -455,8 +440,6 @@
     line-height: 1.6;
   }
 }
-
-/* ---------------- RESPONSIVE ---------------- */
 
 @media (max-width: 1024px) {
   .servicesHero_container {

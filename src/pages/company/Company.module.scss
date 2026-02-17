@@ -84,19 +84,20 @@
 
 .hero_container {
   gap: 64px;
-  min-height: 90vh;
   display: flex;
   margin: 0 auto;
   max-width: 1340px;
   padding: 64px 48px;
   align-items: center;
   justify-content: space-between;
+  background-position: left;
+  background-image: url("https://framerusercontent.com/images/Pci7hzwyW7oetjACKg0IpLtvOEI.png?scale-down-to=2048&width=4092&height=1524");
 }
 
 .hero_left {
   gap: 48px;
   display: flex;
-  max-width: 44%;
+  max-width: 50%;
   flex-direction: column;
 
   h1 {
@@ -367,8 +368,42 @@
 }
 
 .ourTeam_content {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
   display: grid;
+  flex: 0 0 auto;
+  gap: 0px;
+  grid-auto-rows: minmax(0px, 1fr);
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
+  grid-template-rows: repeat(4, minmax(0px, 1fr));
+  height: min-content;
+  justify-content: start;
+  max-width: 1200px;
+  overflow: visible;
+  padding: 0px;
+  position: relative;
   width: -webkit-fill-available;
+}
+
+.ourTeam_card {
+  border: 1px solid #cdcdcd;
+  place-content: flex-start space-between;
+  align-items: flex-start;
+  place-self: start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: column;
+  height: 180px;
+  overflow: visible;
+  padding: 40px;
+  position: relative;
+  width: -webkit-fill-available;
+
+  i {
+    font-size: 36px;
+    color: rgb(254, 80, 17);
+  }
 }
 
 .ourTeam_content_head {
@@ -410,22 +445,6 @@
 .ourTeam_content_two {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
-}
-
-.ourTeam_card {
-  margin: 0px -1px;
-  height: 200px;
-  padding: 40px;
-  display: grid;
-  justify-items: start;
-  align-items: flex-start;
-  align-content: space-between;
-  border: 1px solid #cdcdcd;
-
-  i {
-    font-size: 36px;
-    color: rgb(254, 80, 17);
-  }
 }
 
 /* ---------------- WE ARE HIRING ---------------- */

@@ -46,18 +46,6 @@ const services = [
       "Recherche utilisateur, design d’interface et optimisation d’expérience pour des produits appréciés.",
     tags: ["Recherche UX", "Design UI", "Prototypage", "Tests"],
   },
-  {
-    name: "Production & logistique",
-    description:
-      "Production, gestion et distribution de bout en bout sur marchés locaux et internationaux.",
-    tags: ["Stockage", "Livraison", "Fulfillment", "Supply chain"],
-  },
-  {
-    name: "Solutions Startup & MVP",
-    description:
-      "Validation rapide, développement MVP et systèmes évolutifs pour startups en croissance.",
-    tags: ["MVP", "Stratégie produit", "Prototypage", "Croissance"],
-  },
 ];
 
 export default function Services() {
@@ -81,30 +69,6 @@ export default function Services() {
               à la croissance — nous livrons des solutions intégrées couvrant
               impression, branding, plateformes digitales et marketing.
             </motion.p>
-
-            <motion.div
-              className={styles.servicesHero_buttons}
-              variants={fadeUp}
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`${styles.servicesHero_button} ${styles.servicesHero_button_secondary}`}
-                onClick={() => navigate("/contact")}
-              >
-                Demander un devis
-                <i className="fi fi-rs-arrow-small-right" />
-              </motion.button>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={styles.servicesHero_button}
-                onClick={() => navigate("/work")}
-              >
-                Voir nos réalisations
-              </motion.button>
-            </motion.div>
           </motion.div>
 
           <motion.div
@@ -133,15 +97,6 @@ export default function Services() {
                 <h1>300+</h1>
                 <hr />
                 <p>marques accompagnées dans différents secteurs</p>
-              </motion.div>
-
-              <motion.div
-                className={styles.servicesHero_stat}
-                variants={fadeUp}
-              >
-                <h1>50K+</h1>
-                <hr />
-                <p>projets livrés sur supports physiques et digitaux</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -229,7 +184,7 @@ export default function Services() {
         </div>
       </motion.section>
 
-      <motion.section className={styles.servicesProcess}>
+      {/* <motion.section className={styles.servicesProcess}>
         <div className={styles.servicesProcess_container}>
           <motion.div className={styles.servicesProcess_title}>
             <h1>
@@ -241,7 +196,7 @@ export default function Services() {
             </p>
           </motion.div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       <motion.section className={styles.servicesCTA}>
         <div className={styles.servicesCTA_container}>
