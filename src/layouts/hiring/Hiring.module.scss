@@ -62,9 +62,9 @@
 }
 
 .hiring_header_item {
+  gap: 48px;
   display: flex;
   align-items: center;
-  gap: 12px;
   white-space: nowrap;
 
   p {
@@ -76,7 +76,7 @@
 
 .spark {
   color: rgb(254, 80, 17);
-  font-size: 14px;
+  font-size: 24px;
 }
 
 .hiring_content_card {

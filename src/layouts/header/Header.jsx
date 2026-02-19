@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Header.module.scss";
-import logo from "../../assets/rgi-logo.png";
+import logo from "../../assets/logo/rgi-logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router";
 import { fadeUp, stagger } from "../../theme/motion-effects";
@@ -9,7 +9,7 @@ const menu = [
   { name: "Accueil", href: "/" },
   { name: "Entreprise", href: "/company" },
   { name: "Services", href: "/services" },
-  { name: "Réalisations", href: "/work" },
+  // { name: "Réalisations", href: "/work" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -55,6 +55,14 @@ export default function Header() {
         </motion.ul>
 
         <div className={styles.buttons}>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className={styles.button + " " + styles.desktopToggle}
+          >
+            <a href="/cv-generator">Générateur de CV</a>
+          </motion.button>
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}

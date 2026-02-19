@@ -4,9 +4,6 @@ import { redirect } from "react-router";
 import { fadeUp, stagger } from "../../theme/motion-effects";
 
 const hiring = [
-  "15+ ans / excellence en impression",
-  "300+ marques / accompagnées dans le monde",
-  "50K+ / projets réalisés",
   "Web, SaaS & mobile / développement",
   "Design créatif / branding & packaging",
   "Marketing de performance / campagnes de croissance",
@@ -26,7 +23,7 @@ const jobsOpened = [
   },
   {
     tags: ["Développement", "Temps plein"],
-    title: "Développeur Frontend Web (React)",
+    title: "Développeur Frontend (React)",
     link: "#",
   },
   {

@@ -34,7 +34,7 @@ const Contact = () => {
             <p>hello@rgistudio.com</p>
 
             <h3>Bureau</h3>
-            <p>Casablanca — À distance</p>
+            <p>Casablanca · Had Soualem · À distance</p>
 
             <h3>Suivez-nous</h3>
             <p>

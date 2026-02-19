@@ -1,143 +1,23 @@
 import styles from "./Home.module.scss";
 import { motion } from "framer-motion";
-import logo from "../../assets/rgi-logo.png";
 import { ReactComponent as Shape } from "../../assets/svg/shape.svg";
 import { useNavigate } from "react-router";
 import { fadeUp, scaleIn, stagger } from "../../theme/motion-effects";
 import Hiring from "../../layouts/hiring/Hiring";
 import Instagram from "../../layouts/instagram/Instagram";
+import { services } from "../../data/global.data";
+import Team from "../../layouts/team/Team";
 
 const partners = [
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://scontent.frba1-3.fna.fbcdn.net/v/t39.30808-6/492367306_1235766805222082_2646535807164320395_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeF1oYTOBT8niskKgxQfEKqfYNyocpdg90Bg3Khyl2D3QCZQdfwIhoTeTYpK3hdPLQb-Qg27_YTcX5UHCi5kv7tB&_nc_ohc=wuHE1B-X9kEQ7kNvwEul4M2&_nc_oc=Admnhh7TdRom5q9X61_-sCrKszT2hYYOQa1p2ioHGAcUbZM-GzLOD8gwcvLyPjQ-mqY&_nc_zt=23&_nc_ht=scontent.frba1-3.fna&_nc_gid=-RrScwv1Ye7uuLOgWQqs4Q&oh=00_AftJPJhX0O_R7oa93LS5_K69_-YISRpKQkXz4jOm7Yw2Tw&oe=699A3A0A",
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-];
-
-const services = [
-  {
-    name: "Impression tout type",
-    icon: "fi fi-rs-print",
-    shortDescription: "Supports imprimés pour tous vos besoins.",
-    longDescription:
-      "Conception graphique et impression de tous types de supports de communication : cartes de visite, flyers, brochures, affiches, bâches, roll-up et autres supports marketing imprimés. Idéal pour renforcer votre image et marquer les esprits.",
-    tags: ["impression", "flyers", "cartes de visite", "brochures", "affiches"],
-  },
-  {
-    name: "Grand format & signalétique",
-    icon: "fi fi-rs-grid-dividers",
-    shortDescription: "Affichage grand format pour événements et entreprises.",
-    longDescription:
-      "Création et impression de supports grand format : panneaux, roll-ups, bannières, PLV et affichage événementiel. Parfait pour attirer l’attention sur vos salons, événements ou devantures de magasin.",
-    tags: ["signalétique", "bannières", "roll-up", "PLV", "panneaux"],
-  },
-  {
-    name: "Branding & identité",
-    icon: "fi fi-rs-sparkles",
-    shortDescription: "Construisez une identité forte et cohérente.",
-    longDescription:
-      "Création complète de votre identité visuelle : logos, chartes graphiques, systèmes de marque, packaging et storytelling visuel. Chaque élément est conçu pour transmettre vos valeurs et marquer les esprits.",
-    tags: [
-      "logo",
-      "charte graphique",
-      "branding",
-      "identité visuelle",
-      "packaging",
-    ],
-  },
-  {
-    name: "Site Vitrine",
-    icon: "fi fi-rs-globe",
-    shortDescription: "Sites web modernes, rapides et responsives.",
-    longDescription:
-      "Création de sites web vitrines, e-commerce, landing pages ou plateformes personnalisées. Optimisés pour l'expérience utilisateur, la performance et le référencement naturel, ils vous aident à attirer et convertir vos visiteurs.",
-    tags: [
-      "site web",
-      "vitrine",
-      "e-commerce",
-      "landing page",
-      "développement web",
-    ],
-  },
-  {
-    name: "Application Mobile (Android et iOS)",
-    icon: "fi fi-rs-mobile",
-    shortDescription: "Applications mobiles natives et cross-platform.",
-    longDescription:
-      "Développement d’applications mobiles performantes pour Android et iOS. Interfaces intuitives, expérience utilisateur fluide, compatibilité multi-appareils et optimisation pour les performances et la sécurité.",
-    tags: ["mobile", "android", "ios", "app mobile", "UX/UI"],
-  },
-  {
-    name: "Applications Web (SaaS et CRM)",
-    icon: "fi fi-rs-apps",
-    shortDescription: "Applications web sur mesure et performantes.",
-    longDescription:
-      "Développement d’applications web personnalisées : dashboards, CRM, plateformes SaaS ou outils internes. Technologie moderne, sécurité renforcée et évolutivité pour répondre à vos besoins spécifiques.",
-    tags: ["web app", "SaaS", "CRM", "dashboard", "développement web"],
-  },
-  // {
-  //   name: "Référencement naturel SEO",
-  //   icon: "fi fi-rs-search",
-  //   shortDescription: "Améliorez votre visibilité sur Google.",
-  //   longDescription:
-  //     "Optimisation complète pour le SEO : audit technique, structure du site, contenu, mots-clés, optimisation locale et backlinks. Votre site gagne en visibilité et attire un trafic organique qualifié sur les moteurs de recherche.",
-  //   tags: ["SEO", "référencement", "trafic organique", "Google", "backlinks"],
-  // },
-  // {
-  //   name: "Publicité Google Ads",
-  //   icon: "fi fi-rs-megaphone",
-  //   shortDescription: "Campagnes Google Ads performantes.",
-  //   longDescription:
-  //     "Création et gestion de campagnes publicitaires sur Google Ads pour générer du trafic qualifié et maximiser votre ROI. Inclut ciblage précis, optimisation des enchères et suivi des conversions.",
-  //   tags: [
-  //     "publicité",
-  //     "Google Ads",
-  //     "SEA",
-  //     "trafic payant",
-  //     "marketing digital",
-  //   ],
-  // },
-  {
-    name: "Community Management",
-    icon: "fi fi-rs-users",
-    shortDescription: "Animation et gestion de vos réseaux sociaux.",
-    longDescription:
-      "Gestion complète de vos réseaux sociaux : création de contenu, planification, animation de communauté, stratégie digitale et engagement des abonnés. Renforcez votre présence en ligne et votre relation client.",
-    tags: [
-      "community",
-      "réseaux sociaux",
-      "gestion de contenu",
-      "engagement",
-      "social media",
-    ],
-  },
-];
-
-const jobsOpened = [
-  {
-    tags: ["Design graphique", "Temps plein"],
-    title: "Senior Brand & Print Designer",
-    link: "#",
-  },
-  {
-    tags: ["Développement", "Temps plein"],
-    title: "Développeur Frontend Web (React)",
-    link: "#",
-  },
-  {
-    tags: ["Marketing", "Temps plein"],
-    title: "Spécialiste Marketing",
-    link: "#",
-  },
-  {
-    tags: ["Production", "Sur site"],
-    title: "Responsable Production Impression",
-    link: "#",
-  },
+  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
+  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
 ];
 
 export default function Home() {
@@ -155,7 +35,7 @@ export default function Home() {
         >
           <motion.div className={styles.hero_left} variants={stagger}>
             <motion.h1 variants={fadeUp}>
-              Impression, branding & solutions digitales pour développer votre
+              Impression, solutions digitales & web pour développer votre
               entreprise
             </motion.h1>
             <motion.p variants={fadeUp}>
@@ -239,7 +119,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* PRODUCTS / SERVICES */}
+      {/* SERVICES */}
       <motion.section
         className={styles.products}
         variants={stagger}
@@ -327,7 +207,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* PROCESS (NEW SECTION — MATCHES YOUR DESIGN SYSTEM) */}
+      {/* PROCESS */}
       <motion.section
         className={styles.keyNumbers}
         variants={stagger}
@@ -434,77 +314,7 @@ export default function Home() {
       </motion.section>
 
       {/* OUR TEAM */}
-      <motion.section
-        className={styles.ourTeam}
-        variants={stagger}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <div className={styles.ourTeam_container}>
-          <motion.div className={styles.ourTeam_title} variants={fadeUp}>
-            <h1>
-              Notre équipe<span>.</span>
-            </h1>
-            <p>
-              Designers, imprimeurs, développeurs et marketeurs travaillant
-              ensemble pour offrir une exécution de haute qualité sur les
-              expériences physiques et digitales.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className={styles.ourTeam_content_wrapper}
-            variants={stagger}
-          >
-            <motion.div className={styles.ourTeam_content} variants={fadeUp}>
-              <motion.img
-                src="https://framerusercontent.com/images/buZgrBSPTLLdUd6qW7p83vduUA.jpg?scale-down-to=2048&width=5328&height=4000"
-                className={styles.ourTeam_image_large}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-              />
-              <motion.img
-                src="https://framerusercontent.com/images/x19uVpPtOO9Btagp9VmrahtUQ.jpg?scale-down-to=512&width=5328&height=4000"
-                className={styles.ourTeam_image_small}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-              />
-            </motion.div>
-            <motion.img
-              src="https://framerusercontent.com/images/buZgrBSPTLLdUd6qW7p83vduUA.jpg?scale-down-to=2048&width=5328&height=4000"
-              className={styles.ourTeam_image_big}
-              whileHover={{ y: -12 }}
-              transition={{ type: "spring", stiffness: 180 }}
-            />
-            <motion.div className={styles.ourTeam_content} variants={fadeUp}>
-              <motion.img
-                src="https://framerusercontent.com/images/x19uVpPtOO9Btagp9VmrahtUQ.jpg?scale-down-to=512&width=5328&height=4000"
-                className={styles.ourTeam_image_small}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-              />
-              <motion.img
-                src="https://framerusercontent.com/images/buZgrBSPTLLdUd6qW7p83vduUA.jpg?scale-down-to=2048&width=5328&height=4000"
-                className={styles.ourTeam_image_large}
-                whileHover={{ y: -12 }}
-                transition={{ type: "spring", stiffness: 180 }}
-              />
-            </motion.div>
-
-            {/* <div className={styles.ourTeam_buttons}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`${styles.ourTeam_button} ${styles.ourTeam_button_secondary}`}
-              >
-                Rejoindre notre équipe
-                <i className="fi fi-rs-arrow-small-right"></i>
-              </motion.button>
-            </div> */}
-          </motion.div>
-        </div>
-      </motion.section>
+      <Team />
 
       {/* WE ARE HIRING */}
       <Hiring />

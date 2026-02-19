@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { fadeUp, stagger } from "../../theme/motion-effects";
 import Hiring from "../../layouts/hiring/Hiring";
 import Instagram from "../../layouts/instagram/Instagram";
+import Team from "../../layouts/team/Team";
 
 export default function Company() {
   return (
@@ -185,8 +186,13 @@ export default function Company() {
         </div>
       </motion.section>
 
+      {/* OUR TEAM */}
+      <Team />
+
+      {/* HIRING */}
       <Hiring />
 
+      {/* INSTAGRAM */}
       <Instagram />
     </>
   );

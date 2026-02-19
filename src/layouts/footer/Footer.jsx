@@ -1,5 +1,4 @@
 import styles from "./Footer.module.scss";
-import logo from "../../assets/rgi-logo.png";
 import logoGray from "../../assets/logo/rgi-logo-gray.png";
 
 import { motion } from "framer-motion";

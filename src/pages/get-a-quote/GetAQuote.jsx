@@ -2,18 +2,7 @@ import { useState } from "react";
 import styles from "./GetAQuote.module.scss";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "../../theme/motion-effects";
-
-const services = [
-  "Production imprimée",
-  "Design packaging",
-  "Grand format & signalétique",
-  "Branding",
-  "Design UX / UI",
-  "Marketing digital",
-  "Optimisation de croissance",
-  "Développement web",
-  "Application mobile",
-];
+import { services } from "../../data/global.data";
 
 const budgets = [
   "5k MAD – 10k MAD",

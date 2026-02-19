@@ -2,51 +2,7 @@ import styles from "./Services.module.scss";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { fadeUp, scaleIn, stagger } from "../../theme/motion-effects";
-
-const services = [
-  {
-    name: "Branding & Identité",
-    description:
-      "Stratégie de marque, logos, design packaging et storytelling visuel pour créer reconnaissance et confiance.",
-    tags: ["Stratégie de marque", "Logos", "Packaging", "Systèmes visuels"],
-  },
-  {
-    name: "Impression commerciale",
-    description:
-      "Impression offset et digitale premium pour brochures, catalogues, magazines, livres et supports marketing.",
-    tags: ["Offset", "Digital", "Finitions", "Contrôle qualité"],
-  },
-  {
-    name: "Grand format & signalétique",
-    description:
-      "Solutions de signalétique à fort impact pour retail, expositions, campagnes outdoor et environnements de marque.",
-    tags: ["Panneaux", "PLV", "Expositions", "Affichage retail"],
-  },
-  {
-    name: "Sites web & plateformes",
-    description:
-      "Sites marketing performants, dashboards et portails conçus pour la rapidité et la conversion.",
-    tags: ["React", "SEO", "Performance", "CMS"],
-  },
-  {
-    name: "Applications SaaS & mobiles",
-    description:
-      "Plateformes SaaS évolutives et applications mobiles construites pour la croissance, la sécurité et la performance.",
-    tags: ["SaaS", "iOS", "Android", "Cloud"],
-  },
-  {
-    name: "Marketing digital & croissance",
-    description:
-      "SEO, campagnes payantes, réseaux sociaux et stratégies de croissance pilotées par l’analyse.",
-    tags: ["SEO", "Publicités", "Analytics", "CRO"],
-  },
-  {
-    name: "Design UI/UX",
-    description:
-      "Recherche utilisateur, design d’interface et optimisation d’expérience pour des produits appréciés.",
-    tags: ["Recherche UX", "Design UI", "Prototypage", "Tests"],
-  },
-];
+import { services } from "../../data/global.data";
 
 export default function Services() {
   const navigate = useNavigate();
@@ -166,15 +122,17 @@ export default function Services() {
                 key={index}
                 className={styles.serviceCard}
                 variants={fadeUp}
-                whileHover={{ y: -12, scale: 1.02 }}
+                style={{ "grid-column": index === 2 ? "span 2" : "span 1" }}
               >
                 <div className={styles.serviceCard_info}>
-                  <h3>{service.name}</h3>
-                  <p>{service.description}</p>
-
+                  <p>0{index + 1}/</p>
+                  <h1>{service.name}</h1>
+                  <p>{service.shortDescription}</p>
                   <div className={styles.serviceCard_tags}>
-                    {service.tags.map((tag, i) => (
-                      <span key={i}>{tag}</span>
+                    {service.allServices.map((serviceName, i) => (
+                      <motion.span key={i} variants={stagger}>
+                        {serviceName}
+                      </motion.span>
                     ))}
                   </div>
                 </div>
@@ -184,31 +142,17 @@ export default function Services() {
         </div>
       </motion.section>
 
-      {/* <motion.section className={styles.servicesProcess}>
+      <motion.section className={styles.servicesProcess}>
         <div className={styles.servicesProcess_container}>
           <motion.div className={styles.servicesProcess_title}>
             <h1>
-              Notre méthode<span>.</span>
+              Construisons quelque chose d’impactant<span>.</span>
             </h1>
             <p>
-              Une approche structurée garantissant qualité, cohérence et
-              résultats.
+              Impression premium, branding, plateformes web ou stratégies de
+              croissance — notre équipe est prête à vous accompagner.
             </p>
           </motion.div>
-        </div>
-      </motion.section> */}
-
-      <motion.section className={styles.servicesCTA}>
-        <div className={styles.servicesCTA_container}>
-          <motion.h1>
-            Construisons quelque chose d’impactant<span>.</span>
-          </motion.h1>
-
-          <motion.p>
-            Impression premium, branding, plateformes web ou stratégies de
-            croissance — notre équipe est prête à vous accompagner.
-          </motion.p>
-
           <motion.button
             className={`${styles.servicesHero_button} ${styles.servicesHero_button_secondary}`}
             onClick={() => navigate("/contact")}

@@ -236,14 +236,17 @@
   gap: 32px;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  flex: 0 0 auto;
+  grid-auto-rows: minmax(0px, 1fr);
+  grid-template-columns: repeat(2, minmax(50px, 1fr));
+  grid-template-rows: repeat(2, minmax(0px, 1fr));
 }
 
 .serviceCard {
   display: flex;
   overflow: hidden;
   border-radius: 20px;
-  align-items: center;
+  // align-items: center;
   flex-direction: column;
   background-color: #e3e3e37a;
   transition: box-shadow 0.4s ease;
@@ -254,22 +257,30 @@
 }
 
 .serviceCard_info {
-  gap: 16px;
-  padding: 32px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  gap: 24px;
+  flex: 1;
+  max-height: 480px;
+  min-height: 460px;
+  padding: 40px;
+  display: grid;
+  color: #ededed;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: auto;
+  align-content: start;
+  // background-color: #fe5011;
 
-  h3 {
-    font-size: 20px;
-    font-weight: 600;
+  h1 {
+    color: #000000;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -1.5px;
   }
 
   p {
+    color: #000000;
     font-size: 16px;
-    opacity: 0.8;
+    line-height: 1.4;
   }
 }
 
@@ -277,11 +288,12 @@
   gap: 8px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  // justify-content: center;
 
   span {
     font-size: 12px;
     padding: 6px 10px;
+    color: #000000;
     border-radius: 999px;
     background-color: #ffffff;
     border: 1px solid #e3e3e3;
@@ -408,39 +420,6 @@
   line-height: 1.4;
 }
 
-.servicesCTA {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(#ffffff 0%, #f7f7f7 100%);
-}
-
-.servicesCTA_container {
-  gap: 48px;
-  width: 100%;
-  max-width: 1000px;
-  padding: 120px 48px;
-  display: grid;
-  justify-items: center;
-  text-align: center;
-
-  h1 {
-    font-size: clamp(32px, 5vw, 56px);
-    font-weight: 500;
-    letter-spacing: -2px;
-
-    span {
-      color: rgb(254, 80, 17);
-    }
-  }
-
-  p {
-    max-width: 640px;
-    font-size: 18px;
-    line-height: 1.6;
-  }
-}
-
 @media (max-width: 1024px) {
   .servicesHero_container {
     flex-direction: column;
@@ -485,8 +464,7 @@
 
   .servicesOverview_container,
   .servicesCategories_container,
-  .servicesProcess_container,
-  .servicesCTA_container {
+  .servicesProcess_container {
     padding: 80px 24px;
   }
 

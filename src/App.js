@@ -6,6 +6,7 @@ import Contact from "./pages/contact/Contact";
 import Company from "./pages/company/Company";
 import GetAQuote from "./pages/get-a-quote/GetAQuote";
 import Home from "./pages/home/Home";
+import CVGenerator from "./pages/cv-generator/CVGenerator";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/get-a-quote" element={<GetAQuote />} />
+        <Route path="/cv-generator" element={<CVGenerator />} />
       </Routes>
       <Footer />
     </BrowserRouter>
