@@ -30,29 +30,34 @@ export default function Header() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className={styles.container}>
-        <motion.div whileHover={{ scale: 1.05 }} onClick={() => navigate("/")}>
-          <img src={logo} alt="Logo" className={styles.logo} />
-        </motion.div>
+        <div style={{ display: "flex", gap: "32px" }}>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            onClick={() => navigate("/")}
+          >
+            <img src={logo} alt="Logo" className={styles.logo} />
+          </motion.div>
 
-        <motion.ul
-          className={styles.desktopMenu}
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-        >
-          {menu.map((item, index) => (
-            <motion.li key={index} variants={fadeUp}>
-              <a
-                href={item.href}
-                className={`${styles.item} ${
-                  currentPath === item.name.toLowerCase() ? styles.active : ""
-                }`}
-              >
-                {item.name}
-              </a>
-            </motion.li>
-          ))}
-        </motion.ul>
+          <motion.ul
+            className={styles.desktopMenu}
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
+          >
+            {menu.map((item, index) => (
+              <motion.li key={index} variants={fadeUp}>
+                <a
+                  href={item.href}
+                  className={`${styles.item} ${
+                    currentPath === item.name.toLowerCase() ? styles.active : ""
+                  }`}
+                >
+                  {item.name}
+                </a>
+              </motion.li>
+            ))}
+          </motion.ul>
+        </div>
 
         <div className={styles.buttons}>
           <motion.button

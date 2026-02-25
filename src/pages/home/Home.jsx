@@ -7,6 +7,7 @@ import Hiring from "../../layouts/hiring/Hiring";
 import Instagram from "../../layouts/instagram/Instagram";
 import { services } from "../../data/global.data";
 import Team from "../../layouts/team/Team";
+import rollup3d from "../../assets/images/Sans titre-1.png";
 
 const partners = [
   "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
@@ -35,14 +36,10 @@ export default function Home() {
         >
           <motion.div className={styles.hero_left} variants={stagger}>
             <motion.h1 variants={fadeUp}>
-              Impression, solutions digitales & web pour développer votre
-              entreprise
+              Design studio for <span>ambitious</span> startups
             </motion.h1>
             <motion.p variants={fadeUp}>
-              Nous concevons, imprimons et développons des expériences à fort
-              impact — de la production imprimée premium et du branding visuel
-              aux sites web, plateformes SaaS et applications mobiles conçus
-              pour convertir et évoluer.
+              From idea to launch and beyond — Without stress.
             </motion.p>
 
             <motion.div className={styles.hero_buttons} variants={fadeUp}>
@@ -76,7 +73,7 @@ export default function Home() {
 
             <motion.div className={styles.hero_cards} variants={stagger}>
               <motion.div className={styles.hero_card} variants={fadeUp}>
-                <h1>100+</h1>
+                <h1>170+</h1>
                 <hr />
                 <p>
                   projets imprimés livrés avec une qualité constante et des
@@ -84,7 +81,7 @@ export default function Home() {
                 </p>
               </motion.div>
               <motion.div className={styles.hero_card} variants={fadeUp}>
-                <h1>70+</h1>
+                <h1>60+</h1>
                 <hr />
                 <p>
                   marques accompagnées grâce au design, marketing et croissance
@@ -186,7 +183,10 @@ export default function Home() {
                 </div>
                 <div className={styles.product_image}>
                   <img
-                    src="https://framerusercontent.com/images/8XqwUzzsLJM74vFK57g4JBMUzk.png"
+                    src={
+                      rollup3d ||
+                      "https://framerusercontent.com/images/8XqwUzzsLJM74vFK57g4JBMUzk.png"
+                    }
                     alt=""
                   />
                 </div>

@@ -146,34 +146,6 @@ export default function CVGenerator() {
     pdf.save("cv.pdf");
   };
 
-  const downloadTXT = () => {
-    const content = `
-  ${data.name}
-  ${data.title}
-
-  Email: ${data.email}
-  Phone: ${data.phone}
-
-  Summary:
-  ${data.summary}
-
-  Experience:
-  ${data.experience}
-
-  Education:
-  ${data.education}
-
-  Skills:
-  ${data.skills}
-      `;
-
-    const blob = new Blob([content], { type: "text/plain" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "cv.txt";
-    link.click();
-  };
-
   return (
     <section className={styles.cv}>
       <div className={styles.cv_container}>
@@ -424,7 +396,6 @@ export default function CVGenerator() {
 
             <div className={styles.download_buttons}>
               <button onClick={downloadPDF}>Download PDF</button>
-              <button onClick={downloadTXT}>Download TXT</button>
             </div>
           </div>
 
