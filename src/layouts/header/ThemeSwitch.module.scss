@@ -2,25 +2,6 @@
   position: relative;
 }
 
-.trigger {
-  gap: 8px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 0 14px;
-  border: none;
-  border-radius: 9999px;
-  background-color: var(--bg-card);
-  color: var(--text-primary);
-  font-family: "Inter", sans-serif;
-
-  i:first-of-type {
-    font-size: 18px;
-  }
-}
-
 .triggerLabel {
   @media (max-width: 900px) {
     display: none;
@@ -87,5 +68,36 @@
 
   i {
     color: var(--accent);
+  }
+}
+
+.button {
+  gap: 4px;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  cursor: pointer;
+  font-size: 14px;
+  width: max-content;
+  border-radius: 9999px;
+  padding: 4px 20px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4px 16px;
+    font-size: 12px;
+  }
+}
+
+.desktopToggle {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
   }
 }

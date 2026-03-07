@@ -30,15 +30,14 @@ export default function ThemeSwitch() {
     <div className={`${styles.wrapper} ${open ? styles.open : ""}`} ref={ref}>
       <motion.button
         type="button"
-        className={styles.trigger}
+        className={styles.button + " " + styles.desktopToggle}
         onClick={() => setOpen(!open)}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.96 }}
         aria-label="Changer le thème"
         aria-expanded={open}
       >
         <i className={current.icon} />
-        <span className={styles.triggerLabel}>{current.label}</span>
         <i className={`fi fi-rs-angle-small-down ${styles.chevron}`} />
       </motion.button>
 
@@ -55,7 +54,9 @@ export default function ThemeSwitch() {
               <li key={opt.value}>
                 <button
                   type="button"
-                  className={`${styles.option} ${theme === opt.value ? styles.active : ""}`}
+                  className={`${styles.option} ${
+                    theme === opt.value ? styles.active : ""
+                  }`}
                   onClick={() => {
                     setTheme(opt.value);
                     setOpen(false);

@@ -22,7 +22,7 @@ const GetAQuote = () => {
     setSelectedServices((prev) =>
       prev.includes(service)
         ? prev.filter((s) => s !== service)
-        : [...prev, service],
+        : [...prev, service]
     );
   };
 
@@ -60,19 +60,18 @@ const GetAQuote = () => {
                 key={index}
                 type="button"
                 className={`${styles.quote_card} ${
-                  selectedServices.includes(service) ? styles.active : ""
+                  selectedServices.includes(service.name) ? styles.active : ""
                 }`}
-                onClick={() => toggleService(service)}
+                onClick={() => toggleService(service.name)}
                 variants={fadeUp}
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 200, damping: 20 }}
               >
-                {service}
+                {service.name}
               </motion.button>
             ))}
           </motion.div>
         </motion.section>
-
         <motion.section
           className={styles.quote_section}
           initial="hidden"

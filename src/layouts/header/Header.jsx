@@ -61,15 +61,6 @@ export default function Header() {
         </div>
 
         <div className={styles.buttons}>
-          <ThemeSwitch />
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className={styles.button + " " + styles.desktopToggle}
-          >
-            <a href="/cv-generator">Générateur de CV</a>
-          </motion.button>
-
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
@@ -88,6 +79,8 @@ export default function Header() {
             <i className="fi fi-rs-burger-menu" />
             <span>menu</span>
           </motion.button>
+
+          <ThemeSwitch />
         </div>
       </div>
 
