@@ -1,6 +1,5 @@
 import styles from "./Hiring.module.scss";
 import { motion } from "framer-motion";
-import { redirect } from "react-router";
 import { fadeUp, stagger } from "../../theme/motion-effects";
 
 const hiring = [
@@ -18,7 +17,7 @@ const hiring = [
 const jobsOpened = [
   {
     tags: ["Design graphique", "Temps plein"],
-    title: "Senior Brand & Print Designer",
+    title: "Designer graphique senior (branding & print)",
     link: "#",
   },
   {
@@ -89,7 +88,9 @@ export default function Hiring() {
                   ))}
                 </p>
                 <h1>{item.title}</h1>
-                <p onClick={() => redirect(item.link)}>Voir l’offre</p>
+                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                  Voir l’offre
+                </a>
               </motion.div>
             ))}
           </motion.div>

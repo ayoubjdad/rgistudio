@@ -7,11 +7,11 @@ import { fadeUp, stagger } from "../../theme/motion-effects";
 import ThemeSwitch from "./ThemeSwitch";
 
 const menu = [
-  { name: "Accueil", href: "/" },
-  { name: "Entreprise", href: "/company" },
-  { name: "Services", href: "/services" },
-  // { name: "Réalisations", href: "/work" },
-  { name: "Contact", href: "/contact" },
+  { name: "Accueil", href: "/", path: "" },
+  { name: "Entreprise", href: "/company", path: "company" },
+  { name: "Services", href: "/services", path: "services" },
+  { name: "Réalisations", href: "/work", path: "work" },
+  { name: "Contact", href: "/contact", path: "contact" },
 ];
 
 export default function Header() {
@@ -50,7 +50,7 @@ export default function Header() {
                 <a
                   href={item.href}
                   className={`${styles.item} ${
-                    currentPath === item.name.toLowerCase() ? styles.active : ""
+                    currentPath === item.path ? styles.active : ""
                   }`}
                 >
                   {item.name}

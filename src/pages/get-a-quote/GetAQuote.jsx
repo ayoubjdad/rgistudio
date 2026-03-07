@@ -3,6 +3,7 @@ import styles from "./GetAQuote.module.scss";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "../../theme/motion-effects";
 import { services } from "../../data/global.data";
+import { FORMSPREE_IDS } from "../../config/forms.config";
 
 const budgets = [
   "5k MAD – 10k MAD",
@@ -17,6 +18,7 @@ const GetAQuote = () => {
   const [selectedServices, setSelectedServices] = useState([]);
   const [budget, setBudget] = useState(null);
   const [timeline, setTimeline] = useState(null);
+  const [status, setStatus] = useState("");
 
   const toggleService = (service) => {
     setSelectedServices((prev) =>
@@ -137,16 +139,52 @@ const GetAQuote = () => {
         >
           <motion.h2 variants={fadeUp}>Parlez-nous de votre projet</motion.h2>
 
-          <motion.form className={styles.quote_form} variants={fadeUp}>
+          <motion.form
+            className={styles.quote_form}
+            variants={fadeUp}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target;
+              setStatus("sending");
+
+              try {
+                const res = await fetch(`https://formspree.io/f/${FORMSPREE_IDS.quote}`, {
+                  method: "POST",
+                  body: new FormData(form),
+                  headers: { Accept: "application/json" },
+                });
+
+                if (res.ok) {
+                  setStatus("success");
+                  form.reset();
+                  setSelectedServices([]);
+                  setBudget(null);
+                  setTimeline(null);
+                } else {
+                  setStatus("error");
+                }
+              } catch {
+                setStatus("error");
+              }
+            }}
+            action={`https://formspree.io/f/${FORMSPREE_IDS.quote}`}
+            method="POST"
+          >
+            <input type="hidden" name="services" value={selectedServices.join(", ")} />
+            <input type="hidden" name="budget" value={budget || ""} />
+            <input type="hidden" name="timeline" value={timeline || ""} />
             <div className={styles.quote_row}>
-              <input type="text" placeholder="Votre nom" />
-              <input type="email" placeholder="Adresse email" />
+              <input type="text" name="name" placeholder="Votre nom" required />
+              <input type="email" name="email" placeholder="Adresse e-mail" required />
             </div>
 
-            <input type="text" placeholder="Entreprise (optionnel)" />
-            <textarea placeholder="Décrivez vos objectifs, délais et attentes..." />
+            <input type="text" name="company" placeholder="Entreprise (optionnel)" />
+            <textarea name="description" placeholder="Décrivez vos objectifs, délais et attentes..." required />
 
-            <button type="submit">Demander un devis</button>
+            {status === "sending" && <p className={styles.formStatus}>Envoi en cours...</p>}
+            {status === "success" && <p className={styles.formStatusSuccess}>Demande envoyée ! Nous vous recontacterons sous 24 à 48 heures.</p>}
+            {status === "error" && <p className={styles.formStatusError}>Une erreur est survenue. Réessayez ou contactez-nous par e-mail.</p>}
+            <button type="submit" disabled={status === "sending"}>Demander un devis</button>
           </motion.form>
         </motion.section>
 

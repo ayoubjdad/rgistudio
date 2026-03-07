@@ -155,9 +155,9 @@ export default function CVGenerator() {
           animate={{ opacity: 1, y: 0 }}
         >
           <h1>
-            CV Generator<span>.</span>
+            Générateur de CV<span>.</span>
           </h1>
-          <p>Create and download your professional CV instantly</p>
+          <p>Créez et téléchargez votre CV professionnel en un instant</p>
         </motion.div>
 
         <div className={styles.cv_content}>
@@ -172,7 +172,7 @@ export default function CVGenerator() {
             </div>
 
             <div key="title" className={styles.input_group}>
-              <label>Title</label>
+              <label>Titre</label>
               <input
                 name={data.title}
                 value={data.title}
@@ -181,7 +181,7 @@ export default function CVGenerator() {
             </div>
 
             <div key="email" className={styles.input_group}>
-              <label>Email</label>
+              <label>E-mail</label>
               <input
                 name={data.email}
                 value={data.email}
@@ -190,7 +190,7 @@ export default function CVGenerator() {
             </div>
 
             <div className={styles.input_group}>
-              <label>Phone</label>
+              <label>Téléphone</label>
               <div style={{ display: "flex", gap: 8 }}>
                 <select
                   name="countryCode"
@@ -208,13 +208,13 @@ export default function CVGenerator() {
                   name="phone"
                   value={data.phone}
                   onChange={handleBasicChange}
-                  placeholder="Phone number"
+                  placeholder="Numéro de téléphone"
                 />
               </div>
             </div>
 
             <div key="summary" className={styles.input_group}>
-              <label>Summary</label>
+              <label>Résumé</label>
               <textarea
                 name={data.summary}
                 value={data.summary}
@@ -224,7 +224,7 @@ export default function CVGenerator() {
 
             <div className={styles.input_group}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <label>Experiences</label>
+                <label>Expériences</label>
                 <i className="fi fi-rs-add" onClick={addExperience} />
               </div>
               {data.experiences.map((exp, index) => (
@@ -237,35 +237,35 @@ export default function CVGenerator() {
                   }}
                 >
                   <input
-                    placeholder="Role"
+                    placeholder="Poste"
                     value={exp.role}
                     onChange={(e) =>
                       handleExperienceChange(index, "role", e.target.value)
                     }
                   />
                   <input
-                    placeholder="Company"
+                    placeholder="Entreprise"
                     value={exp.company}
                     onChange={(e) =>
                       handleExperienceChange(index, "company", e.target.value)
                     }
                   />
                   <input
-                    placeholder="Location"
+                    placeholder="Lieu"
                     value={exp.location}
                     onChange={(e) =>
                       handleExperienceChange(index, "location", e.target.value)
                     }
                   />
                   <input
-                    placeholder="Start Date"
+                    placeholder="Date de début"
                     value={exp.startDate}
                     onChange={(e) =>
                       handleExperienceChange(index, "startDate", e.target.value)
                     }
                   />
                   <input
-                    placeholder="End Date"
+                    placeholder="Date de fin"
                     value={exp.endDate}
                     onChange={(e) =>
                       handleExperienceChange(index, "endDate", e.target.value)
@@ -290,7 +290,7 @@ export default function CVGenerator() {
 
             <div className={styles.input_group}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <label>Education</label>
+                <label>Formation</label>
                 <i className="fi fi-rs-add" onClick={addEducation} />
               </div>
 
@@ -304,14 +304,14 @@ export default function CVGenerator() {
                   }}
                 >
                   <input
-                    placeholder="Degree"
+                    placeholder="Diplôme"
                     value={edu.degree}
                     onChange={(e) =>
                       handleEducationChange(index, "degree", e.target.value)
                     }
                   />
                   <input
-                    placeholder="Institution"
+                    placeholder="Établissement"
                     value={edu.institution}
                     onChange={(e) =>
                       handleEducationChange(
@@ -322,14 +322,14 @@ export default function CVGenerator() {
                     }
                   />
                   <input
-                    placeholder="Start Year"
+                    placeholder="Année de début"
                     value={edu.startYear}
                     onChange={(e) =>
                       handleEducationChange(index, "startYear", e.target.value)
                     }
                   />
                   <input
-                    placeholder="End Year"
+                    placeholder="Année de fin"
                     value={edu.endYear}
                     onChange={(e) =>
                       handleEducationChange(index, "endYear", e.target.value)
@@ -355,7 +355,7 @@ export default function CVGenerator() {
 
             <div className={styles.input_group}>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <label>Skills</label>
+                <label>Compétences</label>
                 <i className="fi fi-rs-add" onClick={addSkill}></i>
               </div>
 
@@ -364,7 +364,7 @@ export default function CVGenerator() {
                   <input
                     key={index}
                     value={skill}
-                    placeholder="Skill"
+                    placeholder="Compétence"
                     onChange={(e) => handleSkillChange(index, e.target.value)}
                   />
 
@@ -390,12 +390,12 @@ export default function CVGenerator() {
                 className={template === "modern" ? styles.active : ""}
                 onClick={() => setTemplate("modern")}
               >
-                Modern
+                Moderne
               </button>
             </div>
 
             <div className={styles.download_buttons}>
-              <button onClick={downloadPDF}>Download PDF</button>
+              <button onClick={downloadPDF}>Télécharger le PDF</button>
             </div>
           </div>
 

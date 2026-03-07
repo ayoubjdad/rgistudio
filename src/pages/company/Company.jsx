@@ -18,7 +18,7 @@ export default function Company() {
         >
           <motion.div className={styles.hero_left} variants={stagger}>
             <motion.h1 variants={fadeUp}>
-              Impression. Digital. Impact.
+              Impression. Digital. Impact<span>.</span>
             </motion.h1>
             <motion.p variants={fadeUp}>
               RGI Studio est un partenaire de production créative spécialisé
@@ -133,11 +133,11 @@ export default function Company() {
               style={{ borderRadius: "20px 0px 0px", "grid-column": "span 2" }}
             >
               <i className="fi fi-ts-database-management" />
-              <p>Basé sur les données</p>
+              <p>Axé données</p>
             </div>
             <div className={styles.ourTeam_card}>
               <i className="fi fi-ts-book-alt" />
-              <p>Expert</p>
+              <p>Expertise</p>
             </div>
             <div className={styles.ourTeam_card}>
               <i className="fi fi-ts-chart-histogram" />
@@ -180,7 +180,7 @@ export default function Company() {
               className={styles.ourTeam_card}
               style={{ borderRadius: "0px 0px 20px 0px" }}
             >
-              <i className="fi fi-ts-star" /> <p>Axé excellence</p>
+              <i className="fi fi-ts-star" /> <p>Excellence</p>
             </div>
           </div>
         </div>

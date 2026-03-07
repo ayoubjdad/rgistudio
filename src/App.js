@@ -7,6 +7,7 @@ import Contact from "./pages/contact/Contact";
 import Company from "./pages/company/Company";
 import GetAQuote from "./pages/get-a-quote/GetAQuote";
 import Home from "./pages/home/Home";
+import Work from "./pages/work/Work";
 import CVGenerator from "./pages/cv-generator/CVGenerator";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/work" element={<Work />} />
         <Route path="/company" element={<Company />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />

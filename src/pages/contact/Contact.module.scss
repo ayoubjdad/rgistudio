@@ -107,6 +107,30 @@
   button:hover {
     transform: translateY(-4px);
   }
+
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.formStatus,
+.formStatusSuccess,
+.formStatusError {
+  margin: 0;
+  font-size: 14px;
+}
+
+.formStatus {
+  color: var(--text-secondary);
+}
+
+.formStatusSuccess {
+  color: #22c55e;
+}
+
+.formStatusError {
+  color: #ef4444;
 }
 
 @media (max-width: 1024px) {

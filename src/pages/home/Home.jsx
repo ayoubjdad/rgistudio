@@ -39,7 +39,7 @@ export default function Home() {
               Design studio for <span>ambitious</span> startups
             </motion.h1>
             <motion.p variants={fadeUp}>
-              From idea to launch and beyond — Without stress.
+              De l'idée au lancement et au-delà — Sans stress.
             </motion.p>
 
             <motion.div className={styles.hero_buttons} variants={fadeUp}>

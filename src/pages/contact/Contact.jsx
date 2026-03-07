@@ -1,8 +1,35 @@
+import { useState } from "react";
 import { fadeUp } from "../../theme/motion-effects";
 import styles from "./Contact.module.scss";
 import { motion } from "framer-motion";
+import { FORMSPREE_IDS } from "../../config/forms.config";
 
 const Contact = () => {
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setStatus("sending");
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_IDS.contact}`, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <div className={styles.contact}>
       <div className={styles.contact_container}>
@@ -30,7 +57,7 @@ const Contact = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h3>Email</h3>
+            <h3>E-mail</h3>
             <p>hello@rgistudio.com</p>
 
             <h3>Bureau</h3>
@@ -49,11 +76,19 @@ const Contact = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
+            onSubmit={handleSubmit}
+            action={`https://formspree.io/f/${FORMSPREE_IDS.contact}`}
+            method="POST"
           >
-            <input type="text" placeholder="Votre nom" />
-            <input type="email" placeholder="Votre email" />
-            <textarea placeholder="Parlez-nous de votre projet" />
-            <button type="submit">Envoyer le message</button>
+            <input type="text" name="name" placeholder="Votre nom" required />
+            <input type="email" name="email" placeholder="Votre e-mail" required />
+            <textarea name="message" placeholder="Parlez-nous de votre projet" required />
+            {status === "sending" && <p className={styles.formStatus}>Envoi en cours...</p>}
+            {status === "success" && <p className={styles.formStatusSuccess}>Message envoyé ! Nous vous recontacterons rapidement.</p>}
+            {status === "error" && <p className={styles.formStatusError}>Une erreur est survenue. Réessayez ou contactez-nous par e-mail.</p>}
+            <button type="submit" disabled={status === "sending"}>
+              Envoyer le message
+            </button>
           </motion.form>
         </div>
       </div>

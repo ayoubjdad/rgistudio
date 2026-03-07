@@ -38,9 +38,9 @@ const ModernTemplate = ({ data }) => {
           </p>
         </div>
 
-        {/* Skills */}
+        {/* Compétences */}
         <div>
-          <h4 style={{ marginBottom: 10 }}>Skills</h4>
+          <h4 style={{ marginBottom: 10 }}>Compétences</h4>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
             {data?.skills?.map((skill, index) => (
               <p key={index}>{skill}</p>
@@ -48,9 +48,9 @@ const ModernTemplate = ({ data }) => {
           </div>
         </div>
 
-        {/* Education */}
+        {/* Formation */}
         <div>
-          <h4 style={{ marginBottom: 10 }}>Education</h4>
+          <h4 style={{ marginBottom: 10 }}>Formation</h4>
           {data?.education?.map((edu, index) => (
             <div key={index} style={{ marginBottom: 15 }}>
               <strong>{edu.degree}</strong>
@@ -84,9 +84,9 @@ const ModernTemplate = ({ data }) => {
           <p style={{ lineHeight: 1.6 }}>{data?.summary}</p>
         </div>
 
-        {/* Experience */}
+        {/* Expérience */}
         <div>
-          <h4 style={{ marginBottom: 20 }}>Experience</h4>
+          <h4 style={{ marginBottom: 20 }}>Expérience</h4>
           {data?.experiences?.map((experience, index) => (
             <div key={index} style={{ marginBottom: 25 }}>
               <strong>{experience.role}</strong>

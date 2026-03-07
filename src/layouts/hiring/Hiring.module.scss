@@ -85,12 +85,22 @@
   display: grid;
   cursor: pointer;
   border-radius: 20px;
-  border: 1px solid var(--border-light);
   background-color: var(--bg-card-dark);
 
   h1 {
     font-size: 24px;
     color: var(--text-on-dark);
+  }
+
+  a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
