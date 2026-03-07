@@ -57,7 +57,7 @@ export default function Footer() {
 
       <motion.section
         className={styles.footer}
-        style={{ borderTop: "1px solid rgb(53, 53, 53)" }}
+        style={{ borderTop: "1px solid var(--border-color)" }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}

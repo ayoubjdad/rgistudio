@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgb(15, 15, 15);
+  background-color: var(--bg-dark-section);
 }
 
 .logo {
@@ -26,7 +26,7 @@
   h1 {
     letter-spacing: -2px;
     font-size: clamp(43.2px, 6.3vw, 86.4px);
-    color: #ffffff;
+    color: var(--text-on-dark);
     line-height: 0.9;
     font-weight: 400;
   }
@@ -45,23 +45,23 @@
 
 .footer_info_header {
   font-size: 16px;
-  color: #808080;
+  color: var(--text-on-dark-muted);
 }
 
 .footer_info {
   opacity: 1;
   font-size: 24px;
   transform: none;
-  color: #ffffff;
+  color: var(--text-on-dark);
   letter-spacing: -1px;
 
   span {
-    color: rgb(254, 80, 17);
+    color: var(--accent);
   }
 }
 
 .footer_copyright {
-  color: #808080;
+  color: var(--text-on-dark-muted);
   font-size: 18px;
 }
 

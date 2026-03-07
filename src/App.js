@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
+import { ThemeProvider } from "./context/ThemeContext";
 import Services from "./pages/services/Services";
 import Header from "./layouts/header/Header";
 import Footer from "./layouts/footer/Footer";
@@ -10,7 +11,8 @@ import CVGenerator from "./pages/cv-generator/CVGenerator";
 
 function App() {
   return (
-    <BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,6 +24,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

@@ -31,10 +31,10 @@
   max-width: 250px;
   gap: 32px;
   padding: 32px;
-  color: black;
+  color: var(--text-primary);
   border-radius: 24px;
   display: grid !important;
-  background-color: white;
+  background-color: var(--bg-primary);
 }
 
 .buttons {

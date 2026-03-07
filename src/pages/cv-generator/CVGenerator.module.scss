@@ -20,9 +20,9 @@
     font-weight: 500;
     letter-spacing: -2px;
 
-    span {
-      color: rgb(254, 80, 17);
-    }
+  span {
+    color: var(--accent);
+  }
   }
 
   p {
@@ -41,9 +41,9 @@
   padding: 32px;
   display: flex;
   border-radius: 24px;
-  background: #ffffff;
+  background: var(--bg-primary);
   flex-direction: column;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 40px 80px var(--shadow-card);
 }
 
 .input_group {
@@ -62,7 +62,7 @@
   input {
     padding: 12px;
     border-radius: 12px;
-    border: 1px solid #e3e3e3;
+    border: 1px solid var(--border-light);
     font-family: "Inter", sans-serif;
   }
 
@@ -85,8 +85,8 @@
   button {
     padding: 12px 24px;
     border-radius: 999px;
-    background: rgb(254, 80, 17);
-    color: white;
+    background: var(--accent);
+    color: var(--text-on-dark);
     border: none;
     cursor: pointer;
   }
@@ -100,5 +100,5 @@
   border-radius: 24px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 40px 80px var(--shadow-card);
 }

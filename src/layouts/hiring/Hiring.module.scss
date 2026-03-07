@@ -1,5 +1,5 @@
 .hiring {
-  background-color: #0f0f0f;
+  background-color: var(--bg-dark-section);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -38,10 +38,10 @@
     font-size: clamp(32.4px, 5.4vw, 57.6px);
     font-weight: 500;
     letter-spacing: -2px;
-    color: #ffffff;
+    color: var(--text-on-dark);
 
     span {
-      color: rgb(254, 80, 17);
+      color: var(--accent);
     }
   }
 
@@ -49,7 +49,7 @@
     text-align: center;
     max-width: 680px;
     font-size: 16px;
-    color: #cfcfcf;
+    color: var(--text-on-dark-muted);
   }
 }
 
@@ -70,12 +70,12 @@
   p {
     font-size: 16px;
     font-weight: 500;
-    color: #cfcfcf;
+    color: var(--text-on-dark-muted);
   }
 }
 
 .spark {
-  color: rgb(254, 80, 17);
+  color: var(--accent);
   font-size: 24px;
 }
 
@@ -85,12 +85,12 @@
   display: grid;
   cursor: pointer;
   border-radius: 20px;
-  border: 1px solid #000000;
-  background-color: rgb(27, 27, 27);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card-dark);
 
   h1 {
     font-size: 24px;
-    color: #ffffff;
+    color: var(--text-on-dark);
   }
 }
 

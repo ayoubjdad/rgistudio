@@ -1,5 +1,5 @@
 .instagram {
-  background-color: #0f0f0f;
+  background-color: var(--bg-dark-section);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -25,10 +25,10 @@
     font-size: clamp(32.4px, 5.4vw, 57.6px);
     font-weight: 500;
     letter-spacing: -2px;
-    color: #ffffff;
+    color: var(--text-on-dark);
 
     span {
-      color: rgb(254, 80, 17);
+      color: var(--accent);
     }
   }
 
@@ -36,7 +36,7 @@
     text-align: center;
     max-width: 680px;
     font-size: 16px;
-    color: #cfcfcf;
+    color: var(--text-on-dark-muted);
   }
 }
 
@@ -60,11 +60,11 @@
   max-height: 340px;
   padding: 40px;
   display: grid;
-  color: white;
+  color: var(--text-on-dark);
   align-content: end;
   border-radius: 24px;
   background-size: cover;
-  border: 1px solid #454545;
+  border: 1px solid var(--border-light);
   background-repeat: no-repeat;
   background-position: center center;
 }

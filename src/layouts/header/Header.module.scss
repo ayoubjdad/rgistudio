@@ -3,8 +3,8 @@
   width: 100%;
   z-index: 100;
   position: sticky;
-  background-color: #ffffff;
-  border-bottom: 1px solid rgb(189, 189, 189);
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
@@ -41,7 +41,7 @@
 
   .item {
     font-size: 16px;
-    color: #0f0f0f;
+    color: var(--text-primary);
     font-weight: 400;
     text-decoration: none;
     letter-spacing: -0.01em;
@@ -54,7 +54,7 @@
       bottom: -4px;
       width: 0%;
       height: 2px;
-      background: rgb(254, 80, 17);
+      background: var(--accent);
       transition: width 0.3s ease;
     }
 
@@ -95,8 +95,8 @@
   width: max-content;
   border-radius: 9999px;
   padding: 4px 20px;
-  background-color: rgb(247, 247, 247);
-  border: 1px solid rgb(189, 189, 189);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
 
   a {
     text-decoration: none;
@@ -131,18 +131,18 @@
   top: 96px;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: var(--bg-primary);
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 16px 24px;
-  border-bottom: 1px solid rgb(189, 189, 189);
+  border-bottom: 1px solid var(--border-color);
   z-index: 99;
 
   li {
     a {
       font-size: 16px;
-      color: #0f0f0f;
+      color: var(--text-primary);
       font-weight: 400;
       text-decoration: none;
     }

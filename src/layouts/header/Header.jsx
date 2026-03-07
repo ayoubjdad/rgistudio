@@ -4,6 +4,7 @@ import logo from "../../assets/logo/rgi-logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router";
 import { fadeUp, stagger } from "../../theme/motion-effects";
+import ThemeSwitch from "./ThemeSwitch";
 
 const menu = [
   { name: "Accueil", href: "/" },
@@ -60,6 +61,7 @@ export default function Header() {
         </div>
 
         <div className={styles.buttons}>
+          <ThemeSwitch />
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}

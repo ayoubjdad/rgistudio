@@ -1,5 +1,5 @@
 .ourTeam {
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -87,13 +87,13 @@
   display: flex;
   cursor: pointer;
   font-size: 18px;
-  color: #0f0f0f;
+  color: var(--text-primary);
   padding: 8px 32px;
   width: max-content;
   align-items: center;
   border-radius: 9999px;
-  background-color: #ffffff;
-  border: 1px solid #0f0f0f;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--text-primary);
   transition: all 0.25s ease;
 
   i {
@@ -101,30 +101,30 @@
     height: 48px;
     font-size: 22px;
     border-radius: 9999px;
-    background-color: #ffffff;
+    background-color: var(--bg-primary);
     display: grid;
     place-items: center;
   }
 
   &:hover {
-    background-color: rgb(247, 247, 247);
-    border: 1px solid rgb(254, 80, 17);
+    background-color: var(--bg-card);
+    border: 1px solid var(--accent);
   }
 }
 
 .ourTeam_button_secondary {
   border: none;
-  color: #ffffff;
+  color: var(--text-on-dark);
   padding: 8px 8px 8px 32px;
-  background-color: rgb(254, 80, 17);
+  background-color: var(--accent);
 
   i {
-    color: #0f0f0f;
+    color: var(--text-primary);
   }
 
   &:hover {
     border: none;
-    background-color: rgb(217, 68, 14);
+    background-color: var(--accent-hover);
   }
 }
 

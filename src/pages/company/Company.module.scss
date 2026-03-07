@@ -1,7 +1,7 @@
 .main {
   width: 100%;
-  border-bottom: 1px solid rgb(189, 189, 189);
-  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -31,9 +31,9 @@
     li {
       list-style: none;
 
-      a {
-        font-size: 16px;
-        color: #0f0f0f;
+        a {
+          font-size: 16px;
+          color: var(--text-primary);
         font-weight: 500;
         text-decoration: none;
         letter-spacing: -0.01em;
@@ -46,7 +46,7 @@
           bottom: -4px;
           width: 0%;
           height: 2px;
-          background: rgb(254, 80, 17);
+          background: var(--accent);
           transition: width 0.3s ease;
         }
 
@@ -71,8 +71,8 @@
   width: max-content;
   border-radius: 9999px;
   padding: 4px 20px;
-  background-color: rgb(247, 247, 247);
-  border: 1px solid rgb(189, 189, 189);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
 }
 
 /* ---------------- HERO ---------------- */
@@ -127,13 +127,13 @@
   display: flex;
   cursor: pointer;
   font-size: 18px;
-  color: #0f0f0f;
+  color: var(--text-primary);
   padding: 8px 32px;
   width: max-content;
   align-items: center;
   border-radius: 9999px;
-  background-color: #ffffff;
-  border: 1px solid #0f0f0f;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--text-primary);
   transition: all 0.25s ease;
 
   i {
@@ -141,14 +141,14 @@
     height: 48px;
     font-size: 22px;
     border-radius: 9999px;
-    background-color: #ffffff;
+    background-color: var(--bg-primary);
     display: grid;
     place-items: center;
   }
 
   &:hover {
-    background-color: rgb(247, 247, 247);
-    border: 1px solid rgb(254, 80, 17);
+    background-color: var(--bg-card);
+    border: 1px solid var(--accent);
   }
 }
 
@@ -156,15 +156,15 @@
   border: none;
   color: #ffffff;
   padding: 8px 8px 8px 32px;
-  background-color: rgb(254, 80, 17);
+  background-color: var(--accent);
 
   i {
-    color: #0f0f0f;
+    color: var(--text-primary);
   }
 
   &:hover {
     border: none;
-    background-color: rgb(217, 68, 14);
+    background-color: var(--accent-hover);
   }
 }
 
@@ -190,19 +190,19 @@
   flex-flow: column;
   border-radius: 20px;
   align-items: flex-start;
-  border: 1px solid #e3e3e37a;
+  border: 1px solid var(--border-light);
   backdrop-filter: blur(40px);
-  background-color: #00000005;
+  background-color: var(--bg-card);
 
   h1 {
     font-size: 42px;
     font-weight: 600;
-    color: rgb(254, 80, 17);
+    color: var(--accent);
   }
 
   hr {
     width: 100%;
-    border: 0.5px solid #e3e3e37a;
+    border: 0.5px solid var(--border-light);
   }
 }
 
@@ -234,9 +234,10 @@
     font-size: clamp(32.4px, 5.4vw, 57.6px);
     font-weight: 500;
     letter-spacing: -2px;
+    color: var(--text-on-dark);
 
     span {
-      color: rgb(254, 80, 17);
+      color: var(--accent);
     }
   }
 
@@ -244,7 +245,7 @@
     text-align: center;
     max-width: 680px;
     font-size: 16px;
-    color: #cfcfcf;
+    color: var(--text-on-dark-muted);
   }
 }
 
@@ -286,20 +287,20 @@
 
 .keyNumbers_content_left {
   align-content: flex-end;
-  background-color: #fe5011;
+  background-color: var(--accent);
 }
 
 .keyNumbers_content_left_bottom {
   h1 {
-    color: #0f0f0f;
+    color: var(--text-primary);
   }
 
   p {
-    color: #808080;
+    color: var(--text-secondary);
   }
 
   align-content: start;
-  background: linear-gradient(#fbfbfc 0%, #dadae4 100%);
+  background: linear-gradient(var(--bg-secondary) 0%, var(--gray-main) 100%);
 }
 
 .keyNumbers_content_right {
@@ -314,8 +315,8 @@
   min-height: 300px;
   border-radius: 24px;
   align-content: flex-end;
-  border: 1px solid #454545;
-  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card-dark);
 
   h1 {
     font-size: 52px;
@@ -340,7 +341,7 @@
 /* ---------------- OUR TEAM ---------------- */
 
 .ourTeam {
-  background-color: #ffffff;
+  background-color: var(--bg-primary);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -368,7 +369,7 @@
     letter-spacing: -2px;
 
     span {
-      color: rgb(254, 80, 17);
+      color: var(--accent);
     }
   }
 
@@ -399,7 +400,7 @@
 }
 
 .ourTeam_card {
-  border: 1px solid #cdcdcd;
+  border: 1px solid var(--border-light);
   place-content: flex-start space-between;
   align-items: flex-start;
   place-self: start;
@@ -414,7 +415,7 @@
 
   i {
     font-size: 36px;
-    color: rgb(254, 80, 17);
+    color: var(--accent);
   }
 }
 
@@ -429,10 +430,10 @@
   display: flex;
   align-items: flex-end;
   border-radius: 16px 16px 0 0;
-  background-color: rgb(254, 80, 17);
+  background-color: var(--accent);
 
   h1 {
-    color: white;
+    color: var(--text-on-dark);
     font-size: 128px;
     font-weight: 500;
     line-height: 100%;
@@ -440,7 +441,7 @@
   }
 
   p {
-    color: white;
+    color: var(--text-on-dark);
     font-size: 32px;
     font-weight: 500;
     line-height: 100%;
@@ -462,7 +463,7 @@
 /* ---------------- WE ARE HIRING ---------------- */
 
 .hiring {
-  background-color: #0f0f0f;
+  background-color: var(--bg-dark-section);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -501,10 +502,10 @@
     font-size: clamp(32.4px, 5.4vw, 57.6px);
     font-weight: 500;
     letter-spacing: -2px;
-    color: #ffffff;
+    color: var(--text-on-dark);
 
     span {
-      color: rgb(254, 80, 17);
+      color: var(--accent);
     }
   }
 
@@ -512,7 +513,7 @@
     text-align: center;
     max-width: 680px;
     font-size: 16px;
-    color: #cfcfcf;
+    color: var(--text-on-dark-muted);
   }
 }
 
@@ -533,12 +534,12 @@
   p {
     font-size: 16px;
     font-weight: 500;
-    color: #cfcfcf;
+    color: var(--text-secondary);
   }
 }
 
 .spark {
-  color: rgb(254, 80, 17);
+  color: var(--accent);
   font-size: 14px;
 }
 
@@ -548,12 +549,12 @@
   display: grid;
   cursor: pointer;
   border-radius: 20px;
-  border: 1px solid #000000;
-  background-color: rgb(27, 27, 27);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card-dark);
 
   h1 {
     font-size: 24px;
-    color: #ffffff;
+    color: var(--text-on-dark);
   }
 }
 
@@ -569,7 +570,7 @@
 /* ---------------- KEY NUMBERS ---------------- */
 
 .instagram {
-  background-color: #0f0f0f;
+  background-color: var(--bg-dark-section);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -598,7 +599,7 @@
     color: #ffffff;
 
     span {
-      color: rgb(254, 80, 17);
+      color: var(--accent);
     }
   }
 
@@ -606,7 +607,7 @@
     text-align: center;
     max-width: 680px;
     font-size: 16px;
-    color: #cfcfcf;
+    color: var(--text-secondary);
   }
 }
 
@@ -637,12 +638,12 @@
 
 .instagram_content_left {
   align-content: start;
-  background-color: #fe5011;
+  background-color: var(--accent);
 }
 
 .instagram_content_left_bottom {
   align-content: start;
-  background: linear-gradient(#fbfbfc 0%, #dadae4 100%);
+  background: linear-gradient(var(--bg-secondary) 0%, var(--gray-main) 100%);
 }
 
 .instagram_content_right {
@@ -677,7 +678,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgb(15, 15, 15);
+  background-color: var(--bg-dark-section);
 }
 
 .footer_container {
@@ -697,7 +698,7 @@
   h1 {
     letter-spacing: -2px;
     font-size: clamp(43.2px, 6.3vw, 86.4px);
-    color: #ffffff;
+    color: var(--text-on-dark);
     line-height: 0.9;
   }
 }
@@ -715,18 +716,18 @@
 
 .footer_info_header {
   font-size: 16px;
-  color: #808080;
+  color: var(--text-on-dark-muted);
 }
 
 .footer_info {
   opacity: 1;
   font-size: 24px;
   transform: none;
-  color: #ffffff;
+  color: var(--text-on-dark);
   letter-spacing: -1px;
 
   span {
-    color: rgb(254, 80, 17);
+    color: var(--accent);
   }
 }
 
@@ -736,12 +737,12 @@
   max-width: 1440px;
   padding: 24px 120px;
   align-items: center;
-  background-color: rgb(15, 15, 15);
-  border-top: 1px solid rgb(53, 53, 53);
+  background-color: var(--bg-dark-section);
+  border-top: 1px solid var(--border-color);
 
   span {
     font-size: 18px;
-    color: #808080;
+    color: var(--text-on-dark-muted);
   }
 }
 
