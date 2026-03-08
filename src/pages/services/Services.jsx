@@ -18,12 +18,13 @@ export default function Services() {
         >
           <motion.div className={styles.servicesHero_left} variants={stagger}>
             <motion.h1 variants={fadeUp}>
-              Services complets<span>.</span>
+              Nos services<span>.</span>
             </motion.h1>
             <motion.p variants={fadeUp}>
-              De la stratégie et du design à la production, au développement et
-              à la croissance — nous livrons des solutions intégrées couvrant
-              impression, branding, plateformes digitales et marketing.
+              Trois expertises complémentaires pour accompagner votre marque de
+              bout en bout : impression (tous types), marketing digital & design
+              graphique, développement web & applications. Une offre 360° pensée
+              pour la cohérence, la performance et l'impact.
             </motion.p>
           </motion.div>
 
@@ -41,18 +42,18 @@ export default function Services() {
                 className={styles.servicesHero_stat}
                 variants={fadeUp}
               >
-                <h1>15+</h1>
+                <h1>170+</h1>
                 <hr />
-                <p>années d’excellence en impression, branding et digital</p>
+                <p>projets imprimés livrés avec qualité et délais tenus</p>
               </motion.div>
 
               <motion.div
                 className={styles.servicesHero_stat}
                 variants={fadeUp}
               >
-                <h1>300+</h1>
+                <h1>60+</h1>
                 <hr />
-                <p>marques accompagnées dans différents secteurs</p>
+                <p>marques accompagnées en design, marketing et digital</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -68,14 +69,17 @@ export default function Services() {
       >
         <div className={styles.servicesOverview_container}>
           <motion.p variants={fadeUp}>
-            <span>Chez RGI Studio</span>, nous agissons comme une agence de
-            production et digitale complète — combinant impression premium,
-            branding créatif et développement logiciel avancé.
+            <span>Chez RGI Studio</span>, nous regroupons trois piliers sous un
+            même toit : l'impression (petit et grand format, tous supports), le
+            marketing digital et le design graphique (branding, identité
+            visuelle, stratégie digitale), et le développement web et
+            applications (sites, e-commerce, SaaS, apps mobiles).
           </motion.p>
           <motion.p variants={fadeUp}>
-            Que vous ayez besoin de production physique, de plateformes
-            digitales ou de marketing performant, nos équipes intégrées assurent
-            cohérence, rapidité et résultats mesurables.
+            Que vous ayez besoin de supports imprimés, d'une identité de marque
+            forte, d'une stratégie digitale ou d'une plateforme web sur mesure —
+            nos équipes intégrées assurent cohérence, rapidité et résultats
+            mesurables.
           </motion.p>
         </div>
       </motion.section>
@@ -109,34 +113,52 @@ export default function Services() {
                   services<span>.</span>
                 </h3>
                 <p>
-                  Un écosystème complet — du concept à la création, production,
-                  lancement et croissance à long terme.
+                  Impression, marketing digital & design, développement web —
+                  trois piliers pour une marque cohérente et performante.
                 </p>
               </div>
             </div>
           </motion.div>
 
-          <motion.div className={styles.servicesGrid} variants={stagger}>
+          <motion.div className={styles.servicesDetail} variants={stagger}>
             {services.map((service, index) => (
-              <motion.div
+              <motion.article
                 key={index}
-                className={styles.serviceCard}
+                className={styles.serviceDetail}
                 variants={fadeUp}
-                style={{ "grid-column": index === 2 ? "span 2" : "span 1" }}
               >
-                <div className={styles.serviceCard_info}>
-                  <p>0{index + 1}/</p>
-                  <h1>{service.name}</h1>
-                  <p>{service.shortDescription}</p>
-                  <div className={styles.serviceCard_tags}>
-                    {service.allServices.map((serviceName, i) => (
-                      <motion.span key={i} variants={stagger}>
-                        {serviceName}
-                      </motion.span>
-                    ))}
+                <div className={styles.serviceDetail_header}>
+                  <div
+                    className={styles.serviceDetail_icon}
+                    style={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: 12,
+                      backgroundColor: "var(--accent)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#fff",
+                    }}
+                  >
+                    <i className={service.icon} style={{ fontSize: 24 }} />
                   </div>
                 </div>
-              </motion.div>
+                <h1>{service.name}</h1>
+                <p className={styles.serviceDetail_description}>
+                  {service.longDescription}
+                </p>
+                <div className={styles.serviceDetail_services}>
+                  <span className={styles.serviceDetail_label}>
+                    Ce que nous proposons :
+                  </span>
+                  <ul>
+                    {service.allServices.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.article>
             ))}
           </motion.div>
         </div>
@@ -146,11 +168,12 @@ export default function Services() {
         <div className={styles.servicesProcess_container}>
           <motion.div className={styles.servicesProcess_title}>
             <h1>
-              Construisons quelque chose d’impactant<span>.</span>
+              Construisons ensemble<span>.</span>
             </h1>
             <p>
-              Impression premium, branding, plateformes web ou stratégies de
-              croissance — notre équipe est prête à vous accompagner.
+              Impression, marketing digital, branding ou développement web —
+              notre équipe est prête à donner vie à vos projets et à amplifier
+              votre impact.
             </p>
           </motion.div>
           <motion.button

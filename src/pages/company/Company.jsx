@@ -21,10 +21,9 @@ export default function Company() {
               Impression. Digital. Impact<span>.</span>
             </motion.h1>
             <motion.p variants={fadeUp}>
-              RGI Studio est un partenaire de production créative spécialisé
-              dans l’impression haut de gamme, le branding et les expériences
-              digitales. Nous aidons les marques à se démarquer, évoluer plus
-              vite et performer mieux — en ligne et hors ligne.
+              RGI Studio est un studio de production créative à Casablanca, structuré autour de trois expertises : l’impression (tous types et formats), le marketing digital et le design graphique, et le
+              développement web et applications. Nous aidons les marques à se
+              démarquer, communiquer avec impact et grandir — en ligne et hors ligne.
             </motion.p>
 
             {/* <motion.div className={styles.hero_buttons} variants={fadeUp}>
@@ -55,9 +54,9 @@ export default function Company() {
               Nos valeurs<span>.</span>
             </h1>
             <p>
-              Chez RGI Studio, nous combinons savoir-faire, créativité et
-              performance. Ces principes guident tout ce que nous concevons,
-              imprimons et développons.
+              Chez RGI Studio, nous combinons savoir-faire artisanal, créativité
+              et rigueur. Ces principes guident chaque projet — qu'il s'agisse
+              d'impression, de branding ou de développement digital.
             </p>
           </motion.div>
 
@@ -110,8 +109,9 @@ export default function Company() {
             </h1>
             <p>
               Designers, imprimeurs, développeurs et marketeurs travaillant
-              ensemble pour créer des marques fortes, des campagnes puissantes
-              et des produits digitaux performants.
+              ensemble pour créer des marques fortes, des campagnes percutantes
+              et des produits digitaux performants — impression, branding et
+              web sous un même toit.
             </p>
           </motion.div>
 

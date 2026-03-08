@@ -36,10 +36,12 @@ export default function Home() {
         >
           <motion.div className={styles.hero_left} variants={stagger}>
             <motion.h1 variants={fadeUp}>
-              Design studio for <span>ambitious</span> startups
+              Impression. Digital. <span>Impact.</span>
             </motion.h1>
             <motion.p variants={fadeUp}>
-              De l'idée au lancement et au-delà — Sans stress.
+              Studio de production créative à Casablanca — impression premium,
+              branding, marketing digital et développement web. De l'idée à la
+              livraison, nous donnons vie à vos projets.
             </motion.p>
 
             <motion.div className={styles.hero_buttons} variants={fadeUp}>
@@ -103,15 +105,18 @@ export default function Home() {
       >
         <div className={styles.presentation_container}>
           <motion.p variants={fadeUp}>
-            <span>Chez RGI Studio</span>, nous combinons impression haut de
-            gamme, branding créatif et innovation digitale pour aider les
-            entreprises à se démarquer, mieux communiquer et grandir plus
-            rapidement — en ligne et hors ligne.
+            <span>Chez RGI Studio</span>, nous regroupons trois expertises
+            complémentaires sous un même toit : l'impression (tous types et
+            formats), le marketing digital et le design graphique, et le
+            développement web et applications. Cette approche intégrée permet à
+            nos clients de gagner en cohérence, en rapidité et en impact — que
+            ce soit sur support imprimé ou digital.
           </motion.p>
           <motion.p variants={fadeUp}>
-            De la carte de visite au panneau publicitaire, des landing pages aux
-            plateformes SaaS, nous livrons des solutions évolutives conçues pour
-            la performance, la durabilité et l’impact de marque à long terme.
+            De la carte de visite au panneau publicitaire, du logo à la
+            stratégie de marque, du site vitrine à l'application mobile ou à la
+            plateforme SaaS — nous concevons des solutions sur mesure, pensées pour
+            la performance, la durabilité et la croissance à long terme.
           </motion.p>
         </div>
       </motion.section>
@@ -142,9 +147,10 @@ export default function Home() {
                   services<span>.</span>
                 </h3>
                 <p>
-                  Une agence de production et digitale complète couvrant
-                  impression, design, marketing, plateformes web et applications
-                  mobiles — tout sous un même toit.
+                  Trois piliers complémentaires : impression (tous types),
+                  marketing digital & design graphique, développement web &
+                  applications. Une offre 360° pour accompagner votre marque de
+                  bout en bout.
                 </p>
               </div>
             </div>
@@ -221,8 +227,7 @@ export default function Home() {
               Notre processus<span>.</span>
             </h1>
             <p>
-              De l’idée à la livraison, nous gérons chaque étape — stratégie,
-              design, production, développement et déploiement — avec précision
+              De l’idée à la livraison, nous pilotons chaque étape — stratégie, conception, production, développement et déploiement — avec rigueur
               et cohérence.
             </p>
           </motion.div>
@@ -233,7 +238,7 @@ export default function Home() {
                 <h1>01</h1>
                 <p>
                   <b>Stratégie & conseil</b> — comprendre votre activité, votre
-                  marché et vos objectifs
+                  marché et vos objectifs pour définir la meilleure approche
                 </p>
                 <GlowShape />
               </motion.div>
@@ -242,7 +247,7 @@ export default function Home() {
                 <h1>02</h1>
                 <p>
                   <b>Design & création</b> — branding, visuels, UX/UI et
-                  contenus conçus pour l’impact
+                  contenus conçus pour capter l'attention et convertir
                 </p>
               </motion.div>
             </motion.div>
@@ -251,8 +256,8 @@ export default function Home() {
               <motion.div className={styles.keyNumbers_content_bottom_text}>
                 <h1>03</h1>
                 <p>
-                  <b>Production & développement</b> — impression premium,
-                  plateformes web, SaaS et applications mobiles
+                  <b>Production & développement</b> — impression tous formats,
+                  sites web, plateformes SaaS et applications mobiles
                 </p>
               </motion.div>
 
@@ -263,16 +268,16 @@ export default function Home() {
               <motion.div className={styles.keyNumbers_content_right}>
                 <h1>04</h1>
                 <p>
-                  <b>Croissance & optimisation</b> — marketing, analytics et
-                  amélioration continue
+                  <b>Croissance & optimisation</b> — marketing digital,
+                  analytics et amélioration continue des performances
                 </p>
               </motion.div>
 
               <motion.div className={styles.keyNumbers_content_left_bottom}>
                 <h1>05</h1>
                 <p>
-                  <b>Lancement & distribution</b> — logistique, déploiement et
-                  mise en ligne
+                  <b>Lancement & distribution</b> — logistique, déploiement,
+                  mise en ligne et accompagnement post-lancement
                 </p>
               </motion.div>
             </motion.div>
@@ -294,8 +299,8 @@ export default function Home() {
               Nos partenaires<span>.</span>
             </h1>
             <p>
-              Faites partie de l'aventure, des entreprises performantes nous
-              font déjà confiance
+              Des entreprises ambitieuses nous font déjà confiance pour leurs
+              projets d'impression, de branding et de développement digital
             </p>
           </motion.div>
 
