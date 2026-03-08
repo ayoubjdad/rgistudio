@@ -55,9 +55,9 @@ export default function Footer() {
             <div className={styles.footer_info_section}>
               <p className={styles.footer_info_header}>Outils</p>
               <p className={styles.footer_info}>
-                <a href="/cv-generator" className={styles.footer_link}>Générateur de CV</a>
-                {" · "}
-                <a href="/invoices" className={styles.footer_link}>Factures</a>
+                <a href="/cv-generator" className={styles.footer_link}>
+                  Générateur de CV
+                </a>
               </p>
             </div>
           </motion.div>
