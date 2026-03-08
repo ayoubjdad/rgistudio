@@ -13,11 +13,14 @@ const Contact = () => {
     setStatus("sending");
 
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_IDS.contact}`, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
+      const res = await fetch(
+        `https://formspree.io/f/${FORMSPREE_IDS.contact}`,
+        {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        }
+      );
 
       if (res.ok) {
         setStatus("success");
@@ -58,7 +61,7 @@ const Contact = () => {
             variants={fadeUp}
           >
             <h3>E-mail</h3>
-            <p>hello@rgistudio.com</p>
+            <p>contact@rgistudio.com</p>
 
             <h3>Bureau</h3>
             <p>Casablanca · Had Soualem · À distance</p>
@@ -81,11 +84,30 @@ const Contact = () => {
             method="POST"
           >
             <input type="text" name="name" placeholder="Votre nom" required />
-            <input type="email" name="email" placeholder="Votre e-mail" required />
-            <textarea name="message" placeholder="Parlez-nous de votre projet" required />
-            {status === "sending" && <p className={styles.formStatus}>Envoi en cours...</p>}
-            {status === "success" && <p className={styles.formStatusSuccess}>Message envoyé ! Nous vous recontacterons rapidement.</p>}
-            {status === "error" && <p className={styles.formStatusError}>Une erreur est survenue. Réessayez ou contactez-nous par e-mail.</p>}
+            <input
+              type="email"
+              name="email"
+              placeholder="Votre e-mail"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Parlez-nous de votre projet"
+              required
+            />
+            {status === "sending" && (
+              <p className={styles.formStatus}>Envoi en cours...</p>
+            )}
+            {status === "success" && (
+              <p className={styles.formStatusSuccess}>
+                Message envoyé ! Nous vous recontacterons rapidement.
+              </p>
+            )}
+            {status === "error" && (
+              <p className={styles.formStatusError}>
+                Une erreur est survenue. Réessayez ou contactez-nous par e-mail.
+              </p>
+            )}
             <button type="submit" disabled={status === "sending"}>
               Envoyer le message
             </button>
