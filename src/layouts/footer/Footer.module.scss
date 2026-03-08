@@ -60,6 +60,15 @@
   }
 }
 
+.footer_link {
+  color: var(--text-on-dark);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
 .footer_copyright {
   color: var(--text-on-dark-muted);
   font-size: 18px;

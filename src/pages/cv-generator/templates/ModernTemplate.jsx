@@ -1,3 +1,10 @@
+const textStyle = {
+  margin: 0,
+  maxWidth: "100%",
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
+};
+
 const ModernTemplate = ({ data }) => {
   return (
     <div
@@ -7,57 +14,70 @@ const ModernTemplate = ({ data }) => {
         display: "grid",
         gridTemplateColumns: "1fr 2fr",
         boxSizing: "border-box",
+        overflow: "hidden",
       }}
     >
       {/* LEFT SIDEBAR */}
       <div
         style={{
-          gap: 40,
-          padding: 40,
+          gap: 24,
+          padding: 32,
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#f6f6f6",
+          minWidth: 0,
+          overflow: "hidden",
         }}
       >
-        {/* Avatar Placeholder */}
+        {/* Photo */}
         <div
           style={{
-            backgroundColor: "#e0e0e0",
-            width: 100,
-            height: 100,
+            width: 80,
+            height: 80,
             borderRadius: 8,
+            flexShrink: 0,
+            overflow: "hidden",
+            backgroundColor: "#e0e0e0",
           }}
-        />
+        >
+          {data?.photo ? (
+            <img src={data.photo} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} crossOrigin="anonymous" />
+          ) : null}
+        </div>
 
         {/* Contact */}
-        <div>
-          <h4 style={{ marginBottom: 10 }}>Contact</h4>
-          <p>{data?.email}</p>
-          <p>
-            {data?.countryCode} {data?.phone}
-          </p>
+        <div style={{ minWidth: 0 }}>
+          <h4 style={{ marginBottom: 8, fontSize: 12 }}>Contact</h4>
+          {data?.email ? (
+            <p style={{ ...textStyle, fontSize: 11, marginBottom: 4 }}>{data?.email}</p>
+          ) : null}
+          {data?.phone ? (
+            <p style={{ ...textStyle, fontSize: 11 }}>
+              {data?.countryCode} {data?.phone}
+            </p>
+          ) : null}
         </div>
 
         {/* Compétences */}
-        <div>
-          <h4 style={{ marginBottom: 10 }}>Compétences</h4>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {data?.skills?.map((skill, index) => (
-              <p key={index}>{skill}</p>
+        <div style={{ minWidth: 0 }}>
+          <h4 style={{ marginBottom: 8, fontSize: 12 }}>Compétences</h4>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+            {data?.skills?.filter(Boolean).map((skill, index) => (
+              <span key={index} style={{ ...textStyle, fontSize: 10, padding: "2px 6px", backgroundColor: "#e0e0e0", borderRadius: 4 }}>
+                {skill}
+              </span>
             ))}
           </div>
         </div>
 
         {/* Formation */}
-        <div>
-          <h4 style={{ marginBottom: 10 }}>Formation</h4>
+        <div style={{ minWidth: 0 }}>
+          <h4 style={{ marginBottom: 8, fontSize: 12 }}>Formation</h4>
           {data?.education?.map((edu, index) => (
-            <div key={index} style={{ marginBottom: 15 }}>
-              <strong>{edu.degree}</strong>
-              <p style={{ margin: "4px 0" }}>{edu.institution}</p>
-              <p style={{ margin: 0 }}>
-                {edu.startYear} - {edu.endYear}
-              </p>
+            <div key={index} style={{ marginBottom: 10 }}>
+              <strong style={{ ...textStyle, fontSize: 11, display: "block" }}>{edu.degree}</strong>
+              <p style={{ ...textStyle, margin: "2px 0", fontSize: 10 }}>{edu.institution}</p>
+              <p style={{ ...textStyle, fontSize: 10 }}>{edu.startYear} — {edu.endYear}</p>
             </div>
           ))}
         </div>
@@ -66,44 +86,45 @@ const ModernTemplate = ({ data }) => {
       {/* RIGHT MAIN CONTENT */}
       <div
         style={{
-          gap: 40,
-          padding: 40,
+          gap: 20,
+          padding: 32,
           display: "flex",
           flexDirection: "column",
+          minWidth: 0,
+          overflow: "hidden",
         }}
       >
         {/* Header */}
-        <div style={{ height: 100 }}>
-          <h1 style={{ margin: 0 }}>{data?.name}</h1>
-          <h3 style={{ marginTop: 8, color: "#666" }}>{data?.title}</h3>
+        <div>
+          <h1 style={{ ...textStyle, fontSize: 24 }}>{data?.name}</h1>
+          <h3 style={{ ...textStyle, marginTop: 4, color: "#666", fontSize: 14 }}>{data?.title}</h3>
         </div>
 
-        {/* Profile */}
-        <div>
-          <h4 style={{ marginBottom: 10 }}>Profile</h4>
-          <p style={{ lineHeight: 1.6 }}>{data?.summary}</p>
+        {/* Profil */}
+        <div style={{ minWidth: 0 }}>
+          <h4 style={{ marginBottom: 6, fontSize: 12 }}>Profil</h4>
+          <p style={{ ...textStyle, lineHeight: 1.4, fontSize: 11 }}>{data?.summary}</p>
         </div>
 
         {/* Expérience */}
-        <div>
-          <h4 style={{ marginBottom: 20 }}>Expérience</h4>
+        <div style={{ minWidth: 0 }}>
+          <h4 style={{ marginBottom: 12, fontSize: 12 }}>Expérience</h4>
           {data?.experiences?.map((experience, index) => (
-            <div key={index} style={{ marginBottom: 25 }}>
-              <strong>{experience.role}</strong>
-              <p style={{ margin: "4px 0", fontWeight: 500 }}>
+            <div key={index} style={{ marginBottom: 16 }}>
+              <strong style={{ ...textStyle, fontSize: 12, display: "block" }}>{experience.role}</strong>
+              <p style={{ ...textStyle, margin: "2px 0", fontWeight: 500, fontSize: 10 }}>
                 {experience.company} — {experience.location}
               </p>
-              <p style={{ margin: "4px 0", color: "#777", fontSize: 14 }}>
-                {experience.startDate} - {experience.endDate}
+              <p style={{ ...textStyle, margin: "2px 0", color: "#777", fontSize: 10 }}>
+                {experience.startDate} — {experience.endDate}
               </p>
-
-              <ul style={{ paddingLeft: 20, marginTop: 8 }}>
-                {experience.responsibilities?.map((item, i) => (
-                  <li key={i} style={{ marginBottom: 4 }}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              {experience.responsibilities?.length > 0 && (
+                <ul style={{ paddingLeft: 16, marginTop: 4, marginBottom: 0 }}>
+                  {experience.responsibilities.map((item, i) => (
+                    <li key={i} style={{ ...textStyle, marginBottom: 2, fontSize: 10 }}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

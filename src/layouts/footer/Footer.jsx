@@ -51,6 +51,13 @@ export default function Footer() {
                 <span>contact</span>@rgistudio.com
               </p>
             </div>
+
+            <div className={styles.footer_info_section}>
+              <p className={styles.footer_info_header}>Outils</p>
+              <p className={styles.footer_info}>
+                <a href="/cv-generator" className={styles.footer_link}>Générateur de CV</a>
+              </p>
+            </div>
           </motion.div>
         </div>
       </motion.section>

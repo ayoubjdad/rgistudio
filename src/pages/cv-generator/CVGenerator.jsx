@@ -4,6 +4,8 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import styles from "./CVGenerator.module.scss";
 import ModernTemplate from "./templates/ModernTemplate";
+import ClassicTemplate from "./templates/ClassicTemplate";
+import MinimalTemplate from "./templates/MinimalTemplate";
 
 export default function CVGenerator() {
   const [template, setTemplate] = useState("modern");
@@ -15,6 +17,7 @@ export default function CVGenerator() {
     phone: "",
     summary: "",
     countryCode: "+212",
+    photo: null,
     experiences: [],
     education: [],
     skills: [],
@@ -101,12 +104,22 @@ export default function CVGenerator() {
     setData({ ...data, [field]: e.target.value });
   };
 
+  const handlePhotoChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file || !file.type.startsWith("image/")) return;
+    const reader = new FileReader();
+    reader.onload = () => setData({ ...data, photo: reader.result });
+    reader.readAsDataURL(file);
+  };
+
+  const removePhoto = () => setData({ ...data, photo: null });
+
   const downloadPDF = async () => {
     const input = document.getElementById("cv-preview");
     if (!input) return;
 
     const canvas = await html2canvas(input, {
-      scale: 3, // higher quality
+      scale: 2,
       useCORS: true,
     });
 
@@ -122,25 +135,16 @@ export default function CVGenerator() {
     const pageHeight = 297;
 
     const imgWidth = pageWidth;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    let imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-    let position = 0;
-
-    if (imgHeight <= pageHeight) {
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    // Scale down to fit on single page if content is too tall
+    if (imgHeight > pageHeight) {
+      const scale = pageHeight / imgHeight;
+      imgHeight = pageHeight;
+      const scaledWidth = imgWidth * scale;
+      pdf.addImage(imgData, "PNG", (pageWidth - scaledWidth) / 2, 0, scaledWidth, imgHeight);
     } else {
-      // Multi-page support
-      let heightLeft = imgHeight;
-
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
-
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pageHeight;
-      }
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
     }
 
     pdf.save("cv.pdf");
@@ -162,8 +166,29 @@ export default function CVGenerator() {
 
         <div className={styles.cv_content}>
           <div className={styles.cv_form}>
+            <div className={styles.input_group}>
+              <label>Photo</label>
+              <div className={styles.photo_upload}>
+                <input
+                  type="file"
+                  id="cv-photo"
+                  accept="image/*"
+                  onChange={handlePhotoChange}
+                  className={styles.photo_input}
+                />
+                <label htmlFor="cv-photo" className={styles.photo_label}>
+                  {data.photo ? "Changer la photo" : "Télécharger une photo"}
+                </label>
+                {data.photo && (
+                  <button type="button" className={styles.photo_remove} onClick={removePhoto}>
+                    Supprimer
+                  </button>
+                )}
+              </div>
+            </div>
+
             <div key="name" className={styles.input_group}>
-              <label>Name</label>
+              <label>Nom</label>
               <input
                 name={data.name}
                 value={data.name}
@@ -172,7 +197,7 @@ export default function CVGenerator() {
             </div>
 
             <div key="title" className={styles.input_group}>
-              <label>Titre</label>
+              <label>Titre du poste</label>
               <input
                 name={data.title}
                 value={data.title}
@@ -191,7 +216,7 @@ export default function CVGenerator() {
 
             <div className={styles.input_group}>
               <label>Téléphone</label>
-              <div style={{ display: "flex", gap: 8 }}>
+              <div className={styles.phone_row}>
                 <select
                   name="countryCode"
                   value={data.countryCode}
@@ -203,7 +228,6 @@ export default function CVGenerator() {
                   <option value="+33">+33</option>
                   <option value="+49">+49</option>
                 </select>
-
                 <input
                   name="phone"
                   value={data.phone}
@@ -223,19 +247,12 @@ export default function CVGenerator() {
             </div>
 
             <div className={styles.input_group}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <label>Expériences</label>
-                <i className="fi fi-rs-add" onClick={addExperience} />
+                <i className={`fi fi-rs-add ${styles.add_btn}`} onClick={addExperience} />
               </div>
               {data.experiences.map((exp, index) => (
-                <div
-                  key={index}
-                  style={{
-                    gap: 8,
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                  }}
-                >
+                <div key={index} className={styles.exp_block}>
                   <input
                     placeholder="Poste"
                     value={exp.role}
@@ -271,38 +288,26 @@ export default function CVGenerator() {
                       handleExperienceChange(index, "endDate", e.target.value)
                     }
                   />
-                  <i
+                  <button
+                    type="button"
+                    className={styles.remove_btn}
                     onClick={() => removeExperience(index)}
-                    className="fi fi-rs-trash-xmark"
-                    style={{
-                      width: 28,
-                      height: 28,
-                      fontSize: 14,
-                      border: "none",
-                      borderRadius: 8,
-                      color: "#ff4d4f",
-                      background: "#ff4d5077",
-                    }}
-                  />
+                    aria-label="Supprimer"
+                  >
+                    <i className="fi fi-rs-trash-xmark" />
+                  </button>
                 </div>
               ))}
             </div>
 
             <div className={styles.input_group}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <label>Formation</label>
-                <i className="fi fi-rs-add" onClick={addEducation} />
+                <i className={`fi fi-rs-add ${styles.add_btn}`} onClick={addEducation} />
               </div>
 
               {data.education.map((edu, index) => (
-                <div
-                  key={index}
-                  style={{
-                    gap: 8,
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                  }}
-                >
+                <div key={index} className={styles.edu_block}>
                   <input
                     placeholder="Diplôme"
                     value={edu.degree}
@@ -317,7 +322,7 @@ export default function CVGenerator() {
                       handleEducationChange(
                         index,
                         "institution",
-                        e.target.value,
+                        e.target.value
                       )
                     }
                   />
@@ -335,52 +340,39 @@ export default function CVGenerator() {
                       handleEducationChange(index, "endYear", e.target.value)
                     }
                   />
-
-                  <i
+                  <button
+                    type="button"
+                    className={styles.remove_btn}
                     onClick={() => removeEducation(index)}
-                    className="fi fi-rs-trash-xmark"
-                    style={{
-                      width: 28,
-                      height: 28,
-                      fontSize: 14,
-                      border: "none",
-                      borderRadius: 8,
-                      color: "#ff4d4f",
-                      background: "#ff4d5077",
-                    }}
-                  />
+                    aria-label="Supprimer"
+                  >
+                    <i className="fi fi-rs-trash-xmark" />
+                  </button>
                 </div>
               ))}
             </div>
 
             <div className={styles.input_group}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <label>Compétences</label>
-                <i className="fi fi-rs-add" onClick={addSkill}></i>
+                <i className={`fi fi-rs-add ${styles.add_btn}`} onClick={addSkill} />
               </div>
 
               {data.skills.map((skill, index) => (
-                <div key={index} style={{ gap: 8, display: "flex" }}>
+                <div key={index} className={styles.skill_row}>
                   <input
-                    key={index}
                     value={skill}
                     placeholder="Compétence"
                     onChange={(e) => handleSkillChange(index, e.target.value)}
                   />
-
-                  <i
+                  <button
+                    type="button"
+                    className={styles.remove_btn}
                     onClick={() => removeSkill(index)}
-                    className="fi fi-rs-trash-xmark"
-                    style={{
-                      width: 28,
-                      height: 28,
-                      fontSize: 14,
-                      border: "none",
-                      borderRadius: 8,
-                      color: "#ff4d4f",
-                      background: "#ff4d5077",
-                    }}
-                  />
+                    aria-label="Supprimer"
+                  >
+                    <i className="fi fi-rs-trash-xmark" />
+                  </button>
                 </div>
               ))}
             </div>
@@ -392,6 +384,18 @@ export default function CVGenerator() {
               >
                 Moderne
               </button>
+              <button
+                className={template === "classic" ? styles.active : ""}
+                onClick={() => setTemplate("classic")}
+              >
+                Classique
+              </button>
+              <button
+                className={template === "minimal" ? styles.active : ""}
+                onClick={() => setTemplate("minimal")}
+              >
+                Minimal
+              </button>
             </div>
 
             <div className={styles.download_buttons}>
@@ -401,6 +405,8 @@ export default function CVGenerator() {
 
           <div className={styles.cv_preview} id="cv-preview">
             {template === "modern" && <ModernTemplate data={data} />}
+            {template === "classic" && <ClassicTemplate data={data} />}
+            {template === "minimal" && <MinimalTemplate data={data} />}
           </div>
         </div>
       </div>
