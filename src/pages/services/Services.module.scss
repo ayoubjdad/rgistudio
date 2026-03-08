@@ -422,6 +422,139 @@
   }
 }
 
+.serviceDetail_seeAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+
+  i {
+    font-size: 12px;
+    transition: transform 0.2s;
+  }
+}
+
+.serviceDetail:hover .serviceDetail_seeAll i {
+  transform: translateX(4px);
+}
+
+/* Service products modal */
+.serviceModal_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.serviceModal {
+  width: 100%;
+  max-width: 720px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.serviceModal_header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border-light);
+
+  h2 {
+    flex: 1;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+}
+
+.serviceModal_close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-card);
+  }
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.serviceModal_content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.serviceModal_category {
+  h3 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+.serviceModal_footer {
+  padding: 20px 28px;
+  border-top: 1px solid var(--border-light);
+}
+
 .servicesProcess {
   background-color: var(--bg-dark-section);
   display: flex;
@@ -609,6 +742,10 @@
   }
 
   .servicesDetail {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceModal_content {
     grid-template-columns: 1fr;
   }
 

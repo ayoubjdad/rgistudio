@@ -1,11 +1,16 @@
+import { useState } from "react";
 import styles from "./Services.module.scss";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { fadeUp, scaleIn, stagger } from "../../theme/motion-effects";
 import { services } from "../../data/global.data";
+import { servicesProducts } from "../../data/servicesProducts.data";
 
 export default function Services() {
   const navigate = useNavigate();
+  const [selectedService, setSelectedService] = useState(null);
+
+  const getProductsForService = (serviceId) => servicesProducts[serviceId] || null;
 
   return (
     <>
@@ -123,9 +128,11 @@ export default function Services() {
           <motion.div className={styles.servicesDetail} variants={stagger}>
             {services.map((service, index) => (
               <motion.article
-                key={index}
+                key={service.id || index}
                 className={styles.serviceDetail}
                 variants={fadeUp}
+                onClick={() => service.id && setSelectedService(service.id)}
+                style={{ cursor: service.id ? "pointer" : "default" }}
               >
                 <div className={styles.serviceDetail_header}>
                   <div
@@ -153,16 +160,98 @@ export default function Services() {
                     Ce que nous proposons :
                   </span>
                   <ul>
-                    {service.allServices.map((item, i) => (
+                    {service.allServices.slice(0, 5).map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
                   </ul>
+                  {service.id && (
+                    <span className={styles.serviceDetail_seeAll}>
+                      Voir tous les produits <i className="fi fi-rs-arrow-right" />
+                    </span>
+                  )}
                 </div>
               </motion.article>
             ))}
           </motion.div>
         </div>
       </motion.section>
+
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            className={styles.serviceModal_overlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              className={styles.serviceModal}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const data = getProductsForService(selectedService);
+                if (!data) return null;
+                return (
+                  <>
+                    <div className={styles.serviceModal_header}>
+                      <div
+                        className={styles.serviceModal_icon}
+                        style={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: 12,
+                          backgroundColor: "var(--accent)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          color: "#fff",
+                        }}
+                      >
+                        <i className={data.icon} style={{ fontSize: 24 }} />
+                      </div>
+                      <h2>{data.name}</h2>
+                      <button
+                        className={styles.serviceModal_close}
+                        onClick={() => setSelectedService(null)}
+                      >
+                        <i className="fi fi-rs-cross-small" />
+                      </button>
+                    </div>
+                    <div className={styles.serviceModal_content}>
+                      {data.categories.map((cat, i) => (
+                        <div key={i} className={styles.serviceModal_category}>
+                          <h3>{cat.name}</h3>
+                          <ul>
+                            {cat.items.map((item, j) => (
+                              <li key={j}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    <div className={styles.serviceModal_footer}>
+                      <button
+                        className={styles.servicesHero_button_secondary}
+                        onClick={() => {
+                          setSelectedService(null);
+                          navigate("/contact");
+                        }}
+                      >
+                        Demander un devis
+                        <i className="fi fi-rs-arrow-small-right" />
+                      </button>
+                    </div>
+                  </>
+                );
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <motion.section className={styles.servicesProcess}>
         <div className={styles.servicesProcess_container}>

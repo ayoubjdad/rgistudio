@@ -1,5 +1,6 @@
 export const services = [
   {
+    id: "print",
     name: "Impression — tous types",
     icon: "fi fi-rs-print",
     shortDescription:
@@ -62,6 +63,7 @@ export const services = [
     ],
   },
   {
+    id: "web",
     name: "Développement web & applications",
     icon: "fi fi-rs-globe",
     shortDescription:
