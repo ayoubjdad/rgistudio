@@ -8,6 +8,26 @@ export const servicesProducts = {
     icon: "fi fi-rs-print",
     categories: [
       {
+        name: "Flyers & dépliants",
+        items: ["Flyers", "Dépliant", "Catalogue", "Brochures"],
+      },
+      {
+        name: "Papeterie & bureautique",
+        items: ["Papeterie", "Bureautique"],
+      },
+      {
+        name: "Packaging & étiquettes",
+        items: ["Boîtes packaging", "Étiquettes adhésives"],
+      },
+      {
+        name: "Affiches & posters",
+        items: ["Affiche", "Poster"],
+      },
+      {
+        name: "Roll-up & PLV",
+        items: ["Roll-up", "PLV", "Support souple", "Support rigide"],
+      },
+      {
         name: "Cartes de visite",
         items: [
           "Standard",
@@ -39,7 +59,11 @@ export const servicesProducts = {
       },
       {
         name: "Cartes rendez-vous & fidélité",
-        items: ["Carte rendez-vous pliée", "Carte de fidélité", "Carte à gratter"],
+        items: [
+          "Carte rendez-vous pliée",
+          "Carte de fidélité",
+          "Carte à gratter",
+        ],
       },
       {
         name: "Cartes événements",
@@ -53,26 +77,6 @@ export const servicesProducts = {
           "Carte perforée",
           "Hang Tag - Carte vêtement avec trou",
         ],
-      },
-      {
-        name: "Flyers & dépliants",
-        items: ["Flyers", "Dépliant", "Catalogue", "Brochures"],
-      },
-      {
-        name: "Papeterie & bureautique",
-        items: ["Papeterie", "Bureautique"],
-      },
-      {
-        name: "Packaging & étiquettes",
-        items: ["Boîtes packaging", "Étiquettes adhésives"],
-      },
-      {
-        name: "Affiches & posters",
-        items: ["Affiche", "Poster"],
-      },
-      {
-        name: "Roll-up & PLV",
-        items: ["Roll-up", "PLV", "Support souple", "Support rigide"],
       },
       {
         name: "Autres",

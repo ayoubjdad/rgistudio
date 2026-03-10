@@ -6,6 +6,7 @@ import { fadeUp, scaleIn, stagger } from "../../theme/motion-effects";
 import Hiring from "../../layouts/hiring/Hiring";
 import Instagram from "../../layouts/instagram/Instagram";
 import { services } from "../../data/global.data";
+import { servicesProducts } from "../../data/servicesProducts.data";
 import Team from "../../layouts/team/Team";
 import rollup3d from "../../assets/images/Sans titre-1.png";
 import assimil from "../../assets/partners/assimil.png";
@@ -14,7 +15,15 @@ import barifood from "../../assets/partners/barifood.png";
 import msc from "../../assets/partners/msc.png";
 import fnm from "../../assets/partners/fnm.png";
 
-const partners = [assimil, ifim, barifood, msc, fnm];
+const partners = [
+  assimil,
+  ifim,
+  barifood,
+  msc,
+  fnm,
+  "https://api.etrier.ma/storage/site/HWll3czej7rdHn7Ryj5mUZj7V6We6GDljoVn1mqQ.png",
+  "https://cdn.healthtechalpha.com/static/resized/social_media_image/startup_data_images/54077.png",
+];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -278,6 +287,129 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </motion.div>
+        </div>
+      </motion.section>
+
+      {/* PRINT PRODUCTS */}
+      <motion.section
+        className={styles.printProducts}
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className={styles.printProducts_container}>
+          <motion.div className={styles.printProducts_header} variants={fadeUp}>
+            <h1>
+              Produits imprimés<span>.</span>
+            </h1>
+            <p>
+              Cartes de visite, flyers, affiches, roll-up, packaging — une large
+              gamme de supports pour tous vos besoins de communication.
+            </p>
+          </motion.div>
+
+          <motion.div className={styles.printProducts_grid} variants={stagger}>
+            {servicesProducts.print.categories.map((category, index) => (
+              <motion.div
+                key={index}
+                className={styles.printProducts_card}
+                variants={fadeUp}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                onClick={() => navigate("/services")}
+              >
+                <div className={styles.printProducts_card_icon}>
+                  <i className="fi fi-rs-print" />
+                </div>
+                <h3 className={styles.printProducts_card_title}>
+                  {category.name}
+                </h3>
+                <ul className={styles.printProducts_card_list}>
+                  {category.items.slice(0, 4).map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                  {category.items.length > 4 && (
+                    <li className={styles.printProducts_card_more}>
+                      +{category.items.length - 4} autres
+                    </li>
+                  )}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.button
+            className={`${styles.hero_button} ${styles.hero_button_secondary}`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            variants={fadeUp}
+            onClick={() => navigate("/services")}
+          >
+            Voir tous les produits
+            <i className="fi fi-rs-arrow-small-right"></i>
+          </motion.button>
+        </div>
+      </motion.section>
+
+      {/* WEB DEV PRODUCTS */}
+      <motion.section
+        className={styles.webDev}
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <div className={styles.webDev_container}>
+          <motion.div className={styles.webDev_header} variants={fadeUp}>
+            <h1>
+              Développement web & apps<span>.</span>
+            </h1>
+            <p>
+              Sites vitrines, e-commerce, applications mobiles, plateformes SaaS
+              — des solutions digitales sur mesure pour votre croissance.
+            </p>
+          </motion.div>
+
+          <motion.div className={styles.webDev_grid} variants={stagger}>
+            {servicesProducts.web.categories.map((category, index) => (
+              <motion.div
+                key={index}
+                className={styles.webDev_card}
+                variants={fadeUp}
+                whileHover={{ scale: 1.02, x: 4 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                onClick={() => navigate("/services")}
+              >
+                <div className={styles.webDev_card_accent} />
+                <div className={styles.webDev_card_icon}>
+                  <i className="fi fi-rs-globe" />
+                </div>
+                <h3 className={styles.webDev_card_title}>{category.name}</h3>
+                <ul className={styles.webDev_card_list}>
+                  {category.items.slice(0, 4).map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                  {category.items.length > 4 && (
+                    <li className={styles.webDev_card_more}>
+                      +{category.items.length - 4} autres
+                    </li>
+                  )}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.button
+            className={styles.webDev_cta}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            variants={fadeUp}
+            onClick={() => navigate("/services")}
+          >
+            Découvrir nos solutions
+            <i className="fi fi-rs-arrow-small-right"></i>
+          </motion.button>
         </div>
       </motion.section>
 
