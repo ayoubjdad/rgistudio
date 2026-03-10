@@ -8,18 +8,13 @@ import Instagram from "../../layouts/instagram/Instagram";
 import { services } from "../../data/global.data";
 import Team from "../../layouts/team/Team";
 import rollup3d from "../../assets/images/Sans titre-1.png";
+import assimil from "../../assets/partners/assimil.png";
+import ifim from "../../assets/partners/ifim.png";
+import barifood from "../../assets/partners/barifood.png";
+import msc from "../../assets/partners/msc.png";
+import fnm from "../../assets/partners/fnm.png";
 
-const partners = [
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-  "https://www.wikiberal.org/images/c/c3/Logo_Google.png",
-];
+const partners = [assimil, ifim, barifood, msc, fnm];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -115,8 +110,8 @@ export default function Home() {
           <motion.p variants={fadeUp}>
             De la carte de visite au panneau publicitaire, du logo à la
             stratégie de marque, du site vitrine à l'application mobile ou à la
-            plateforme SaaS — nous concevons des solutions sur mesure, pensées pour
-            la performance, la durabilité et la croissance à long terme.
+            plateforme SaaS — nous concevons des solutions sur mesure, pensées
+            pour la performance, la durabilité et la croissance à long terme.
           </motion.p>
         </div>
       </motion.section>
@@ -227,8 +222,9 @@ export default function Home() {
               Notre processus<span>.</span>
             </h1>
             <p>
-              De l’idée à la livraison, nous pilotons chaque étape — stratégie, conception, production, développement et déploiement — avec rigueur
-              et cohérence.
+              De l’idée à la livraison, nous pilotons chaque étape — stratégie,
+              conception, production, développement et déploiement — avec
+              rigueur et cohérence.
             </p>
           </motion.div>
 
@@ -309,7 +305,13 @@ export default function Home() {
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 50 }}
           >
-            {[...partners, ...partners].map((item, index) => (
+            {[
+              ...partners,
+              ...partners,
+              ...partners,
+              ...partners,
+              ...partners,
+            ].map((item, index) => (
               <div key={index} className={styles.partners_header_item}>
                 <img src={item} alt="" className={styles.partners_logo} />
               </div>

@@ -1,11 +1,30 @@
 import styles from "./Work.module.scss";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router";
 import { fadeUp, stagger } from "../../theme/motion-effects";
 import { works } from "../../data/work.data";
+import { useMemo, useState } from "react";
 
 export default function Work() {
   const navigate = useNavigate();
+
+  const categories = [
+    "All",
+    "Print",
+    "Marketing digital",
+    "Design graphique",
+    "Développement web",
+  ];
+
+  const [category, setCategory] = useState("All");
+
+  const filteredWorks = useMemo(() => {
+    if (category === "All") {
+      return works;
+    }
+
+    return works.filter((work) => work.tags.includes(category));
+  }, [category]);
 
   return (
     <>
@@ -53,35 +72,58 @@ export default function Work() {
         viewport={{ once: true, margin: "-100px" }}
       >
         <div className={styles.works_container}>
+          <div style={{ marginBottom: 32 }}>
+            <div className={styles.work_tags}>
+              {categories.map((cat, i) => (
+                <span
+                  key={i}
+                  style={{ cursor: "pointer" }}
+                  className={`${styles.work_tag} ${category === cat ? styles.active : ""}`}
+                  onClick={() => setCategory(cat)}
+                >
+                  {cat}
+                </span>
+              ))}
+            </div>
+          </div>
+
           <motion.div className={styles.works_grid} variants={stagger}>
-            {works.map((work, index) => (
-              <motion.article
-                key={work.id}
-                className={styles.work_card}
-                variants={fadeUp}
-                whileHover={{ y: -12, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                onClick={() => work.link && window.open(work.link, "_blank")}
-              >
-                <div className={styles.work_image}>
-                  <img src={work.image} alt={work.title} />
-                  <div className={styles.work_overlay}>
-                    <span className={styles.work_category}>
-                      {work.category}
-                    </span>
+            <AnimatePresence mode="popLayout">
+              {filteredWorks.map((work) => (
+                <motion.article
+                  key={work.id}
+                  className={styles.work_card}
+                  variants={fadeUp}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  whileHover={{ y: -12, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                  layout
+                  onClick={() => work.link && window.open(work.link, "_blank")}
+                >
+                  <div className={styles.work_image}>
+                    <img src={work.image} alt={work.title} />
+                    <div className={styles.work_overlay}>
+                      <span className={styles.work_category}>
+                        {work.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.work_info}>
-                  <h3>{work.title}</h3>
-                  <p>{work.description}</p>
-                  <div className={styles.work_tags}>
-                    {work.tags.map((tag, i) => (
-                      <span key={i}>{tag}</span>
-                    ))}
+
+                  <div className={styles.work_info}>
+                    <h3>{work.title}</h3>
+                    <p>{work.description}</p>
+
+                    <div className={styles.work_tags}>
+                      {work.tags.map((tag, i) => (
+                        <span key={i}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              ))}
+            </AnimatePresence>
           </motion.div>
         </div>
       </motion.section>
