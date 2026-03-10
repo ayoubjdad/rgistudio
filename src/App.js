@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import { ThemeProvider } from "./context/ThemeContext";
 import Services from "./pages/services/Services";
@@ -11,10 +12,15 @@ import Work from "./pages/work/Work";
 import CVGenerator from "./pages/cv-generator/CVGenerator";
 import InvoicesGuard from "./pages/invoices/InvoicesGuard";
 import InvoiceLogin from "./pages/invoices/InvoiceLogin";
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppContent() {
   const location = useLocation();
   const isInvoicesArea = location.pathname.startsWith("/invoices");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <>
@@ -31,6 +37,7 @@ function AppContent() {
         <Route path="/invoices/login" element={<InvoiceLogin />} />
       </Routes>
       {!isInvoicesArea && <Footer />}
+      {!isInvoicesArea && <ScrollToTop />}
     </>
   );
 }

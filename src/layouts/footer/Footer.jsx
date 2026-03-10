@@ -34,7 +34,11 @@ export default function Footer() {
             <div className={styles.footer_info_section}>
               <p className={styles.footer_info_header}>Venez nous voir</p>
               <p className={styles.footer_info}>
-                10, Rue Liberté, Appartement 5, 3ème étage
+                <span>Casablanca</span> · 10, Rue Liberté, Appartement 5, 3ème
+                étage
+              </p>
+              <p className={styles.footer_info}>
+                <span>Had Soualem</span> · Immeuble Casablanca, 2ème étage
               </p>
             </div>
 
@@ -50,6 +54,7 @@ export default function Footer() {
               <p className={styles.footer_info}>
                 <span>contact</span>@rgistudio.com
               </p>
+              <p className={styles.footer_info}>med.jdad@gmail.com </p>
             </div>
 
             <div className={styles.footer_info_section}>
