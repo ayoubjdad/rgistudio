@@ -1,8 +1,13 @@
+import macBook from "../assets/images/Macbook_Air.png";
+import rollUp from "../assets/images/Roll_Up.png";
+import branding from "../assets/images/branding.png";
+
 export const services = [
   {
     id: "print",
     name: "Impression — tous types",
     icon: "fi fi-rs-print",
+    image: rollUp,
     shortDescription:
       "De la carte de visite au grand format : une production imprimée irréprochable pour tous vos supports de communication.",
     longDescription:
@@ -35,6 +40,7 @@ export const services = [
   {
     name: "Marketing digital, branding & design graphique",
     icon: "fi fi-rs-sparkles",
+    image: branding,
     shortDescription:
       "Identité de marque, stratégie digitale et création visuelle : construisez une présence mémorable et performante.",
     longDescription:
@@ -66,6 +72,7 @@ export const services = [
     id: "web",
     name: "Développement web & applications",
     icon: "fi fi-rs-globe",
+    image: macBook,
     shortDescription:
       "Sites web, applications mobiles, plateformes SaaS : des solutions digitales sur mesure, performantes et évolutives.",
     longDescription:

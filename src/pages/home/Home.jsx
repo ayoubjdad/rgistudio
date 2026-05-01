@@ -14,6 +14,7 @@ import ifim from "../../assets/partners/ifim.png";
 import barifood from "../../assets/partners/barifood.png";
 import msc from "../../assets/partners/msc.png";
 import fnm from "../../assets/partners/fnm.png";
+import creation from "../../assets/images/YuGlmB60jnhnK5J8PDZg8CZuo.jpg";
 
 const partners = [
   assimil,
@@ -191,15 +192,15 @@ export default function Home() {
                   <h3>{product.name}</h3>
                   <p>{product.shortDescription}</p>
                 </div>
-                <div className={styles.product_image}>
+                {/* <div className={styles.product_image}>
                   <img
                     src={
-                      rollup3d ||
+                      product.image ||
                       "https://framerusercontent.com/images/8XqwUzzsLJM74vFK57g4JBMUzk.png"
                     }
                     alt=""
                   />
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </motion.div>
@@ -248,7 +249,12 @@ export default function Home() {
                 <GlowShape />
               </motion.div>
 
-              <motion.div className={styles.keyNumbers_content_right}>
+              <motion.div
+                className={styles.keyNumbers_content_right}
+                style={{
+                  backgroundImage: `linear-gradient(rgba(52, 34, 79, 0) 49%, #34224f 100%), url(${creation})`,
+                }}
+              >
                 <h1>02</h1>
                 <p>
                   <b>Design & création</b> — branding, visuels, UX/UI et
@@ -271,6 +277,8 @@ export default function Home() {
 
             <motion.div className={styles.keyNumbers_content}>
               <motion.div className={styles.keyNumbers_content_right}>
+                <GlowShape />
+
                 <h1>04</h1>
                 <p>
                   <b>Croissance & optimisation</b> — marketing digital,
@@ -284,6 +292,7 @@ export default function Home() {
                   <b>Lancement & distribution</b> — logistique, déploiement,
                   mise en ligne et accompagnement post-lancement
                 </p>
+                <GlowShape />
               </motion.div>
             </motion.div>
           </motion.div>
@@ -453,7 +462,7 @@ export default function Home() {
       </motion.section>
 
       {/* OUR TEAM */}
-      <Team />
+      {/* <Team /> */}
 
       {/* WE ARE HIRING */}
       <Hiring />

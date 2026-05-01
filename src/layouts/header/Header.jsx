@@ -8,7 +8,7 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const menu = [
   { name: "Accueil", href: "/", path: "" },
-  { name: "Entreprise", href: "/company", path: "company" },
+  // { name: "Entreprise", href: "/company", path: "company" },
   { name: "Services", href: "/services", path: "services" },
   { name: "Réalisations", href: "/work", path: "work" },
   { name: "Contact", href: "/contact", path: "contact" },

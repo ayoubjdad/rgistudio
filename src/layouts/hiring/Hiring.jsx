@@ -71,12 +71,18 @@ export default function Hiring() {
           </p>
         </motion.div>
 
-        <motion.div className={styles.hiring_content_main}>
+        <motion.div className={styles.hiring_title} variants={fadeUp}>
+          <p>
+            Des offres d'emploi sont en cours de publication. Restez connecté.
+          </p>
+        </motion.div>
+
+        {/*    <motion.div className={styles.hiring_content_main}>
           <motion.div
             className={styles.hiring_content_wrapper}
             variants={stagger}
           >
-            {jobsOpened.map((item, index) => (
+        {jobsOpened.map((item, index) => (
               <motion.div
                 key={index}
                 className={styles.hiring_content_card}
@@ -94,7 +100,7 @@ export default function Hiring() {
               </motion.div>
             ))}
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.section>
   );

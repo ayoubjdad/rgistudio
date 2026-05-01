@@ -21,9 +21,12 @@ export default function Company() {
               Impression. Digital. Impact<span>.</span>
             </motion.h1>
             <motion.p variants={fadeUp}>
-              RGI Studio est un studio de production créative à Casablanca, structuré autour de trois expertises : l’impression (tous types et formats), le marketing digital et le design graphique, et le
+              RGI Studio est un studio de production créative à Casablanca,
+              structuré autour de trois expertises : l’impression (tous types et
+              formats), le marketing digital et le design graphique, et le
               développement web et applications. Nous aidons les marques à se
-              démarquer, communiquer avec impact et grandir — en ligne et hors ligne.
+              démarquer, communiquer avec impact et grandir — en ligne et hors
+              ligne.
             </motion.p>
 
             {/* <motion.div className={styles.hero_buttons} variants={fadeUp}>
@@ -110,8 +113,8 @@ export default function Company() {
             <p>
               Designers, imprimeurs, développeurs et marketeurs travaillant
               ensemble pour créer des marques fortes, des campagnes percutantes
-              et des produits digitaux performants — impression, branding et
-              web sous un même toit.
+              et des produits digitaux performants — impression, branding et web
+              sous un même toit.
             </p>
           </motion.div>
 
@@ -187,7 +190,7 @@ export default function Company() {
       </motion.section>
 
       {/* OUR TEAM */}
-      <Team />
+      {/* <Team /> */}
 
       {/* HIRING */}
       <Hiring />

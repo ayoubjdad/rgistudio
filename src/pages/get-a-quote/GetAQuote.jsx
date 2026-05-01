@@ -3,7 +3,10 @@ import styles from "./GetAQuote.module.scss";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "../../theme/motion-effects";
 import { services } from "../../data/global.data";
-import { FORMSPREE_IDS } from "../../config/forms.config";
+
+const QUOTE_MAILTO =
+  // process.env.REACT_APP_MAILTO_QUOTE ||
+  "med.jdad@gmail.com";
 
 const budgets = [
   "5k MAD – 10k MAD",
@@ -142,49 +145,100 @@ const GetAQuote = () => {
           <motion.form
             className={styles.quote_form}
             variants={fadeUp}
-            onSubmit={async (e) => {
+            onSubmit={(e) => {
               e.preventDefault();
-              const form = e.target;
-              setStatus("sending");
+              const fd = new FormData(e.target);
+              const name = (fd.get("name") || "").toString().trim();
+              const userEmail = (fd.get("email") || "").toString().trim();
+              const company = (fd.get("company") || "").toString().trim();
+              const description = (fd.get("description") || "")
+                .toString()
+                .trim();
+
+              const servicesLabel =
+                selectedServices.length > 0
+                  ? selectedServices.join(", ")
+                  : "Non précisé";
+              const budgetLabel = budget || "Non précisé";
+              const timelineLabel = timeline || "Non précisé";
+
+              const bodyLines = [
+                `Nom : ${name}`,
+                `E-mail : ${userEmail}`,
+                company && `Entreprise : ${company}`,
+                "",
+                `Services souhaités : ${servicesLabel}`,
+                `Budget : ${budgetLabel}`,
+                `Délai souhaité : ${timelineLabel}`,
+                "",
+                "Description du projet :",
+                description,
+                "",
+                "---",
+                "Message envoyé depuis le formulaire « Obtenir un devis » (site RGI Studio).",
+              ].filter(Boolean);
+
+              const subject = encodeURIComponent(
+                `Demande de devis — ${name || "formulaire web"}`
+              );
+              const body = encodeURIComponent(bodyLines.join("\n"));
+              const mailtoHref = `mailto:${QUOTE_MAILTO}?subject=${subject}&body=${body}`;
+
+              if (mailtoHref.length > 8000) {
+                setStatus("long");
+                return;
+              }
 
               try {
-                const res = await fetch(`https://formspree.io/f/${FORMSPREE_IDS.quote}`, {
-                  method: "POST",
-                  body: new FormData(form),
-                  headers: { Accept: "application/json" },
-                });
-
-                if (res.ok) {
-                  setStatus("success");
-                  form.reset();
-                  setSelectedServices([]);
-                  setBudget(null);
-                  setTimeline(null);
-                } else {
-                  setStatus("error");
-                }
+                window.location.href = mailtoHref;
+                setStatus("opened");
               } catch {
                 setStatus("error");
               }
             }}
-            action={`https://formspree.io/f/${FORMSPREE_IDS.quote}`}
-            method="POST"
           >
-            <input type="hidden" name="services" value={selectedServices.join(", ")} />
-            <input type="hidden" name="budget" value={budget || ""} />
-            <input type="hidden" name="timeline" value={timeline || ""} />
             <div className={styles.quote_row}>
               <input type="text" name="name" placeholder="Votre nom" required />
-              <input type="email" name="email" placeholder="Adresse e-mail" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Adresse e-mail"
+                required
+              />
             </div>
 
-            <input type="text" name="company" placeholder="Entreprise (optionnel)" />
-            <textarea name="description" placeholder="Décrivez vos objectifs, délais et attentes..." required />
+            <input
+              type="text"
+              name="company"
+              placeholder="Entreprise (optionnel)"
+            />
+            <textarea
+              name="description"
+              placeholder="Décrivez vos objectifs, délais et attentes..."
+              required
+            />
 
-            {status === "sending" && <p className={styles.formStatus}>Envoi en cours...</p>}
-            {status === "success" && <p className={styles.formStatusSuccess}>Demande envoyée ! Nous vous recontacterons sous 24 à 48 heures.</p>}
-            {status === "error" && <p className={styles.formStatusError}>Une erreur est survenue. Réessayez ou contactez-nous par e-mail.</p>}
-            <button type="submit" disabled={status === "sending"}>Demander un devis</button>
+            {status === "opened" && (
+              <p className={styles.formStatusSuccess}>
+                Si votre programme de messagerie s’est ouvert, envoyez le
+                message pour nous transmettre votre demande. Vous pouvez ajuster
+                le texte avant l’envoi.
+              </p>
+            )}
+            {status === "long" && (
+              <p className={styles.formStatusError}>
+                Le message est trop long pour un lien e-mail automatique.
+                Raccourcissez la description, puis réessayez ; ou écrivez-nous
+                directement à {QUOTE_MAILTO}.
+              </p>
+            )}
+            {status === "error" && (
+              <p className={styles.formStatusError}>
+                Impossible d’ouvrir la messagerie. Réessayez ou contactez-nous à{" "}
+                {QUOTE_MAILTO}.
+              </p>
+            )}
+            <button type="submit">Demander un devis</button>
           </motion.form>
         </motion.section>
 
